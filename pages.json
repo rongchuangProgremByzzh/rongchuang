@@ -1,0 +1,128 @@
+{
+	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+	{
+		"path": "pages/3d_show/index1",
+		"style": {
+		
+		}
+	},
+	{
+		"path": "pages/index/index",
+		"style": {
+		
+		}
+	},
+	{
+		"path": "pages/long2/index",
+		"style": {
+		
+		}
+	},
+	{
+		"path": "pages/longimg/index",
+		"style": {
+		
+		}
+	},
+	{
+		"path": "pages/shapan/index",
+		"style": {
+		
+		}
+	},
+	{
+		"path": "pages/rcrecord_active/index",
+		"style": {
+		
+		}
+	},
+
+	{
+		"path": "pages/3d_show/2",
+		"style": {
+		
+		}
+	},
+	{
+		"path": "pages/3d_show/index",
+		"style": {
+		
+		}
+	},
+	{
+		"path": "pages/rcly/index",
+		"style": {
+		
+		}
+	},
+	{
+		"path": "pages/rcly/3",
+		"style": {
+			"navigationBarTitleText": "uni-app"
+		}
+	},
+	{
+		"path": "pages/rcly/1",
+		"style": {
+			"navigationBarTitleText": "uni-app"
+		}
+	},
+	{
+		"path": "pages/rcly/2",
+		"style": {
+			"navigationBarTitleText": "uni-app"
+		}
+	},
+	{
+		"path": "pages/park/index",
+		"style": {
+			"navigationBarTitleText": "uni-app"
+		}
+	},
+	{
+		"path": "pages/houseview/index",
+		"style": {
+			"navigationBarTitleText": "uni-app"
+		}
+	},
+	{
+		"path": "pages/seven_item/1",
+		"style": {
+			"navigationBarTitleText": "uni-app"
+		}
+	},
+	{
+		"path": "pages/project/index",
+		"style": {
+			"navigationBarTitleText": "uni-app"
+		}
+	},
+	{
+		"path": "components/blur_glass",
+		"style": {
+			"navigationBarTitleText": "uni-app"
+		}
+	},
+		{
+			"path": "pages/message/index",
+			"style": {
+				"navigationBarTitleText": "uni-app"
+			}
+		},
+		{
+			"path": "components/sea_world",
+			"style": {
+				"navigationBarTitleText": "uni-app"
+			}
+		}
+		
+		
+	],
+	"globalStyle": {
+		"navigationBarTextStyle": "black",
+		"navigationStyle": "custom",
+		"navigationBarBackgroundColor": "#F8F8F8",
+		"backgroundColor": "#F8F8F8"
+	}
+
+}
