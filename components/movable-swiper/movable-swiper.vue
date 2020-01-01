@@ -62,7 +62,6 @@
 		methods:{
 			movInit(){
 				let _nowId = this.movList.filter(item => item.indexClass.indexOf('four') != -1)[0].id;
-				console.log( _nowId);
 				if(this.dataList.length == 0){
 					uni.showToast({
 						icon:'none',
@@ -250,7 +249,7 @@
 		&.one{
 			z-index: 1;
 			.mov-area-con{
-				width: 600rpx;
+				width: 678rpx;
 				left: 36rpx;
 				top: 2rpx;
 				&.animate{
@@ -261,7 +260,7 @@
 		&.two{
 			z-index: 2;
 			.mov-area-con{
-				width: 500rpx;
+				width: 686rpx;
 				left: 32rpx;
 				top: 10rpx;
 				&.animate{
@@ -271,8 +270,9 @@
 		}
 		&.three{
 			z-index: 3;
+			// transform: scale(.9,.8);
 			.mov-area-con{
-				width: 400rpx;
+				width: 694rpx;
 				left: 28rpx;
 				top: 20rpx;
 				&.animate{
@@ -282,8 +282,9 @@
 		}
 		&.four{
 			z-index: 4;
+			transform: scale(.8,.8);
 			.mov-area-con{
-				width: 300rpx;
+				width: 702rpx;
 				left: 24rpx;
 				top: 30rpx;
 				&.animate{

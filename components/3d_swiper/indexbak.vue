@@ -37,16 +37,7 @@ export default {
 				{ src: 'http://image.zhangxinxu.com/image/study/s/s128/mm6.jpg' },
 				{ src: 'http://image.zhangxinxu.com/image/study/s/s128/mm7.jpg' },
 				{ src: 'http://image.zhangxinxu.com/image/study/s/s128/mm10.jpg' },
-				{ src: 'http://image.zhangxinxu.com/image/study/s/s128/mm13.jpg' },
-				{ src: 'http://image.zhangxinxu.com/image/study/s/s128/mm1.jpg', title: 'mm1' },
-				{ src: 'http://image.zhangxinxu.com/image/study/s/s128/mm8.jpg', title: 'mm2' },
-				//只是为了演示，不推荐这种混合方式，不一致不太好
-				{ src: 'http://image.zhangxinxu.com/image/study/s/s128/mm3.jpg' },
-				{ src: 'http://image.zhangxinxu.com/image/study/s/s128/mm4.jpg' },
-				{ src: 'http://image.zhangxinxu.com/image/study/s/s128/mm6.jpg' },
-				{ src: 'http://image.zhangxinxu.com/image/study/s/s128/mm7.jpg' },
-				{ src: 'http://image.zhangxinxu.com/image/study/s/s128/mm10.jpg' },
-				{ src: 'http://image.zhangxinxu.com/image/study/s/s128/mm13.jpg' },
+				{ src: 'http://image.zhangxinxu.com/image/study/s/s128/mm13.jpg' }
 			],
 			// basicdata数据包含组件基本数据
 			basicdata: {
@@ -130,7 +121,7 @@ export default {
 				this.temporaryData.lastPosHeight = this.temporaryData.posheight;
 				// currentPage+1 引发排序变化
 				//this.basicdata.currentPage += 1;
-				 this.basicdata.currentPage = this.basicdata.currentPage === this.pages.length - 1 ? 0 : this.basicdata.currentPage + 1
+				  this.basicdata.currentPage = this.basicdata.currentPage === this.pages.length - 1 ? 0 : this.temporaryData.currentPage + 1
 				// currentPage切换，整体dom进行变化，把第一层滑动置零
 				this.$nextTick(() => {
 					this.temporaryData.poswidth = 0;
@@ -158,12 +149,12 @@ export default {
 			if (index > this.basicdata.currentPage) {
 				let style = {};
 				let visible = 3;
-				var perIndex = index - this.basicdata.currentPage;
+				let perIndex = index - this.basicdata.currentPage;
 				// console.log(perIndex);
 				// visible可见数量前滑块的样式
 				if (index <= this.basicdata.currentPage + visible - 1) {
 					style['opacity'] = '1';
-					style['transform'] = 'translate3D(0,0,' + -1 * perIndex * 60 + 'px' + ')'+`scale(${0.8+perIndex/10},${1-perIndex/10})`;
+					style['transform'] = 'translate3D(0,0,' + 1 * perIndex * 60 + 'px' + ')';
 					style['zIndex'] = visible - index + this.basicdata.currentPage;
 					style['transitionTimingFunction'] = 'ease';
 					style['transitionDuration'] = 300 + 'ms';
@@ -177,7 +168,7 @@ export default {
 				let style = {};
 				// 继续执行动画
 				console.log(this.temporaryData.lastPosWidth);
-				style['transform'] = 'translate3D(' + this.temporaryData.lastPosWidth + 'px' + ',' + 0 + 'px' + ',0px)'+`scale(${1-perIndex/10})`;
+				style['transform'] = 'translate3D(' + this.temporaryData.lastPosWidth + 'px' + ',' + this.temporaryData.lastPosHeight + 'px' + ',0px)';
 				style['opacity'] = '0';
 				style['zIndex'] = '-1';
 				style['transitionTimingFunction'] = 'ease';
@@ -190,9 +181,8 @@ export default {
 			// 处理3D效果
 			if (index === this.basicdata.currentPage) {
 				let style = {};
-					 console.log(this.temporaryData.lastPosWidth);
-				style['transform'] = 'translate3D(' + this.temporaryData.poswidth + 'px' + ',' + 0 + 'px' + ',0px)'+`scale(0.8,1)`;
-			//	style['transform'] = 'translate3D(' +0 + 'px' + ',' +0 + 'px' + ',0px)'+`scale(0.8,0.9)`;
+					// console.log(this.temporaryData.lastPosWidth);
+				style['transform'] = 'translate3D(' + this.temporaryData.poswidth + 'px' + ',' + this.temporaryData.posheight + 'px' + ',0px)';
 				style['opacity'] = this.temporaryData.opacity;
 				style['zIndex'] = 10;
 				if (this.temporaryData.animation) {
@@ -212,9 +202,9 @@ export default {
 	height: 280px;
 	position: relative;
 	perspective: 1000px;
-	perspective-origin: 50% 50%;
+	perspective-origin: 50% 150%;
 	-webkit-perspective: 1000px;
-	-webkit-perspective-origin: 50% 50%;
+	-webkit-perspective-origin: 50% 150%;
 	margin: 0;
 	padding: 0;
 }
