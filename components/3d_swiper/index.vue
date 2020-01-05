@@ -13,35 +13,20 @@
 			@webkit-transition-end="onTransitionEnd"
 			@transitionend="onTransitionEnd"
 		>
-			<img :src="item.src" />
+			<img :src="item.imgUrl" />
 		</li>
 	</ul>
 </template>
 <script>
 export default {
 	props: {
-		// pages数据包含基础的图片数据
-		// pages: {
-		//  type: Array,
-		//  default: []
-		// }
+		//pages数据包含基础的图片数据
+		pages: {
+		 type: Array,
+		}
 	},
 	data() {
 		return {
-			pages: [
-				{ src: 'http://image.zhangxinxu.com/image/study/s/s128/mm1.jpg', title: 'mm1' },
-				{ src: 'http://image.zhangxinxu.com/image/study/s/s128/mm8.jpg', title: 'mm2' },
-				//只是为了演示，不推荐这种混合方式，不一致不太好
-				{ src: 'http://image.zhangxinxu.com/image/study/s/s128/mm3.jpg' },
-				{ src: 'http://image.zhangxinxu.com/image/study/s/s128/mm4.jpg' },
-				{ src: 'http://image.zhangxinxu.com/image/study/s/s128/mm6.jpg' },
-				{ src: 'http://image.zhangxinxu.com/image/study/s/s128/mm7.jpg' },
-				{ src: 'http://image.zhangxinxu.com/image/study/s/s128/mm10.jpg' },
-				{ src: 'http://image.zhangxinxu.com/image/study/s/s128/mm13.jpg' },
-				{ src: 'http://image.zhangxinxu.com/image/study/s/s128/mm1.jpg', title: 'mm1' },
-				{ src: 'http://image.zhangxinxu.com/image/study/s/s128/mm8.jpg', title: 'mm2' },
-				
-			],
 			// basicdata数据包含组件基本数据
 			basicdata: {
 				start: {}, // 记录起始位置

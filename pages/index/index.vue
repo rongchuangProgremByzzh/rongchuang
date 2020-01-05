@@ -2,7 +2,10 @@
 	<view class="content">
 		<view class="swiper">
 			<swiper class="swiper" @change="changeHandle" :indicator-dots="false" :autoplay="true" :interval="5000" :duration="1000">
-				<swiper-item>
+				<swiper-item v-for="(item,index) in bannerList" :key="index">
+					<view class="swiper-item"><image :src="item.imgUrl" mode="scaleToFill"></image></view>
+				</swiper-item>
+				<!-- <swiper-item>
 					<view class="swiper-item"><image src="../../static/banner.png" mode="scaleToFill"></image></view>
 				</swiper-item>
 				<swiper-item>
@@ -13,10 +16,7 @@
 				</swiper-item>
 				<swiper-item>
 					<view class="swiper-item"><image src="../../static/banner.png" mode="scaleToFill"></image></view>
-				</swiper-item>
-				<swiper-item>
-					<view class="swiper-item"><image src="../../static/banner.png" mode="scaleToFill"></image></view>
-				</swiper-item>
+				</swiper-item> -->
 			</swiper>
 		</view>
 		<div class="current-point-wrap"><div class="current-point" v-for="(isactive, index) in swiperList" :key="index" :class="{ active_point: index == current }"></div></div>
@@ -80,7 +80,8 @@ export default {
 		return {
 			title: 'Hello',
 			swiperList: 5,
-			current: 0
+			current: 0,
+			bannerList:[]
 		};
 	},
 	onLoad() {},
@@ -136,8 +137,9 @@ export default {
 	},
 	mounted() {
 
-		this.$http.banner().then(res=>{
+		this.$http.banner('/banner').then(res=>{
 			console.log(res);
+			this.bannerList=res.data;
 		})
 	}
 };
