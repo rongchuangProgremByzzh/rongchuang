@@ -82,7 +82,11 @@
             }
         },
         "devServer" : {
-            "https" : true
+            "https" : false
+        },
+        "domain" : "http://www.zangzhihong.com/test/",
+        "router" : {
+            "base" : "/test"
         }
     }
 }

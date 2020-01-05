@@ -40,13 +40,7 @@ export default {
 				{ src: 'http://image.zhangxinxu.com/image/study/s/s128/mm13.jpg' },
 				{ src: 'http://image.zhangxinxu.com/image/study/s/s128/mm1.jpg', title: 'mm1' },
 				{ src: 'http://image.zhangxinxu.com/image/study/s/s128/mm8.jpg', title: 'mm2' },
-				//只是为了演示，不推荐这种混合方式，不一致不太好
-				{ src: 'http://image.zhangxinxu.com/image/study/s/s128/mm3.jpg' },
-				{ src: 'http://image.zhangxinxu.com/image/study/s/s128/mm4.jpg' },
-				{ src: 'http://image.zhangxinxu.com/image/study/s/s128/mm6.jpg' },
-				{ src: 'http://image.zhangxinxu.com/image/study/s/s128/mm7.jpg' },
-				{ src: 'http://image.zhangxinxu.com/image/study/s/s128/mm10.jpg' },
-				{ src: 'http://image.zhangxinxu.com/image/study/s/s128/mm13.jpg' },
+				
 			],
 			// basicdata数据包含组件基本数据
 			basicdata: {
@@ -191,7 +185,7 @@ export default {
 			if (index === this.basicdata.currentPage) {
 				let style = {};
 					 console.log(this.temporaryData.lastPosWidth);
-				style['transform'] = 'translate3D(' + this.temporaryData.poswidth + 'px' + ',' + 0 + 'px' + ',0px)'+`scale(0.8,1)`;
+				style['transform'] = 'translate3D(' + this.temporaryData.poswidth + 'px' + ',' + 0 + 'px' + ',0px)'+`scale(0.78,1)`;
 			//	style['transform'] = 'translate3D(' +0 + 'px' + ',' +0 + 'px' + ',0px)'+`scale(0.8,0.9)`;
 				style['opacity'] = this.temporaryData.opacity;
 				style['zIndex'] = 10;
@@ -209,11 +203,11 @@ export default {
 <style>
 .stack {
 	width: 100%;
-	height: 280px;
+	height: 637rpx;
 	position: relative;
-	perspective: 1000px;
+	perspective: 4000px;
 	perspective-origin: 50% 50%;
-	-webkit-perspective: 1000px;
+	-webkit-perspective: 4000px;
 	-webkit-perspective-origin: 50% 50%;
 	margin: 0;
 	padding: 0;
@@ -226,6 +220,7 @@ export default {
 	text-align: center;
 	overflow: hidden;
 	position: absolute;
+	padding: 16rpx;
 	opacity: 0;
 	display: -webkit-flex;
 	display: flex;

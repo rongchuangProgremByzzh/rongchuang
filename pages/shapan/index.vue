@@ -1,16 +1,18 @@
 <template>
 	<view class="scale-wrap">
 		<movable-area>
-			<movable-view class="Item" scale-min="0.5" scale-max="10" direction="all" scale out-of-bounds><image src="../../static/shapan/1@2x.png" mode=""></image></movable-view>
+			<movable-view :x="x" :y="y" class="Item" scale-min="1.2" scale-max="10" direction="all" scale out-of-bounds>
+				<image src="../../static/shapan/1@2x.png" mode="scaleToFill"></image>
+				</movable-view>
 		</movable-area>
 		<div class="switch-tab">
 			<scroll-view enable-flex="true" scroll-x="true" class="switch-tab-view">
-				<view class="tab-item">
-					<view class="tab-img "><image class="thumb active" src="../../static/home/home1@2x.png" mode=""></image></view>
-					<text class="desc active">昆明市交通图</text>
+				<view class="tab-item" @click="chooseItem(1)">
+					<view class="tab-img "><image class="thumb" :class="{active:isactive==1}" src="../../static/home/home1@2x.png" mode="scaleToFill"></image></view>
+					<text class="desc" :class="{active:isactive==1}">昆明市交通图</text>
 				</view>
 				<view class="tab-item">
-					<view class="tab-img"><image class="thumb" src="../../static/home/home1@2x.png" mode=""></image></view>
+					<view class="tab-img"><image class="thumb" src="../../static/home/home1@2x.png" mode="scaleToFill"></image></view>
 					<text class="desc">昆明市交通图</text>
 				</view>
 				<view class="tab-item">
@@ -34,9 +36,10 @@
 export default {
 	data() {
 		return {
-			x: 0,
-			y: 0,
+			x: 100,
+			y:50,
 			scale: 2,
+			isactive:1,
 			old: {
 				x: 0,
 				y: 0,
@@ -116,6 +119,6 @@ movable-area {
 	width: 0;
 	height: 0;
 	border: 30rpx solid transparent;
-	border-bottom: 30rpx solid #000;
+	border-bottom: 30rpx solid #333;
 }
 </style>

@@ -1,19 +1,26 @@
 {
 	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
 	{
-		"path": "pages/3d_show/index1",
-		"style": {
-		
-		}
-	},
-	{
 		"path": "pages/index/index",
 		"style": {
 		
 		}
 	},
 	{
+		"path": "pages/3d_show/index1",
+		"style": {
+		
+		}
+	},
+	
+	{
 		"path": "pages/long2/index",
+		"style": {
+		
+		}
+	},
+	{
+		"path": "pages/seven_type/index",
 		"style": {
 		
 		}
@@ -26,6 +33,30 @@
 	},
 	{
 		"path": "pages/shapan/index",
+		"style": {
+		
+		}
+	},
+	{
+		"path": "pages/housetype/index",
+		"style": {
+		
+		}
+	},
+	{
+		"path": "pages/xuanchuan/index",
+		"style": {
+		
+		}
+	},
+	{
+		"path": "pages/zixun/index",
+		"style": {
+		
+		}
+	},
+	{
+		"path": "pages/zixun/list",
 		"style": {
 		
 		}
@@ -87,6 +118,48 @@
 	},
 	{
 		"path": "pages/seven_item/1",
+		"style": {
+			"navigationBarTitleText": "uni-app"
+		}
+	},
+	{
+		"path": "pages/seven_item/2",
+		"style": {
+			"navigationBarTitleText": "uni-app"
+		}
+	},
+	{
+		"path": "pages/seven_item/3",
+		"style": {
+			"navigationBarTitleText": "uni-app"
+		}
+	},
+	{
+		"path": "pages/seven_item/4",
+		"style": {
+			"navigationBarTitleText": "uni-app"
+		}
+	},
+	{
+		"path": "pages/seven_item/5",
+		"style": {
+			"navigationBarTitleText": "uni-app"
+		}
+	},
+	{
+		"path": "pages/seven_item/6",
+		"style": {
+			"navigationBarTitleText": "uni-app"
+		}
+	},
+	{
+		"path": "pages/seven_item/7",
+		"style": {
+			"navigationBarTitleText": "uni-app"
+		}
+	},
+	{
+		"path": "pages/seven_item/8",
 		"style": {
 			"navigationBarTitleText": "uni-app"
 		}
