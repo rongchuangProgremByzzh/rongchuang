@@ -7,6 +7,12 @@
 		}
 	},
 	{
+		"path": "pages/progress/index",
+		"style": {
+		
+		}
+	},
+	{
 		"path": "pages/3d_show/index1",
 		"style": {
 		
@@ -69,12 +75,6 @@
 	},
 
 	{
-		"path": "pages/3d_show/2",
-		"style": {
-		
-		}
-	},
-	{
 		"path": "pages/3d_show/index",
 		"style": {
 		
@@ -112,6 +112,12 @@
 	},
 	{
 		"path": "pages/houseview/index",
+		"style": {
+			"navigationBarTitleText": "uni-app"
+		}
+	},
+	{
+		"path": "pages/house_photo_list/index",
 		"style": {
 			"navigationBarTitleText": "uni-app"
 		}
@@ -165,13 +171,13 @@
 		}
 	},
 	{
-		"path": "pages/project/index",
+		"path": "pages/seven_item/9",
 		"style": {
 			"navigationBarTitleText": "uni-app"
 		}
 	},
 	{
-		"path": "components/blur_glass",
+		"path": "pages/project/index",
 		"style": {
 			"navigationBarTitleText": "uni-app"
 		}

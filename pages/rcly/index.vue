@@ -1,10 +1,10 @@
 <template>
 	<view class="content">
-		<whitebox :setheight="25"></whitebox>
+		<whitebox :setheight="50"></whitebox>
 		<div class="width90center height1">融创文旅品牌-融创乐园</div>
 		<div class="width90center height2">两大世界乐园 探秘奇幻欢乐王国</div>
 		<div class="width90center height3">中国家庭欢乐供应商</div>
-		<whitebox :setheight="10"></whitebox>
+		<whitebox :setheight="20"></whitebox>
 		<div class=" height31">>>打开详情</div>
 			
 		<div class="width90center height32">融创文旅，主要包括融创文旅城、融创旅游度假区、融创阿朵小镇等业务板块。</div>

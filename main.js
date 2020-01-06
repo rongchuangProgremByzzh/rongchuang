@@ -10,7 +10,11 @@ Vue.config.productionTip = false
 // import $http from '@/api/zhouWei-request/requestConfig.js';
 // Vue.prototype.$http = $http;
 App.mpType = 'app'
+Vue.filter('formatTime', (value)=> {
+  if (!value) return ''
 
+  return value.split('T')[0]
+})
 const app = new Vue({
     ...App
 })

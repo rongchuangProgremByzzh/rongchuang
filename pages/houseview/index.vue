@@ -1,13 +1,13 @@
 <template>
 	<view class="content">
-		<whitebox :setheight="50"></whitebox>
+		<whitebox :setheight="100"></whitebox>
 		<div class="width70center height1">
 			<image src="../../static/houseview/1@2x.png" mode=""></image>
 		</div>
-		<whitebox :setheight="30"></whitebox>
+		<whitebox :setheight="60"></whitebox>
 		<div class="title">昆明融创文旅城</div>
 		<div class="subtitle">2019<text class="orange">开业狂欢年</text></div>
-		<whitebox :setheight="6"></whitebox>
+		<whitebox :setheight="12"></whitebox>
 		 <div class="line"></div>
 		 <div class="title3">抢在价值兑现之前入手</div>
 		 <div class="title3en">Mountain & Sea</div>
@@ -17,15 +17,15 @@
 		 <div class="top">
 			 <image src="../../static/houseview/top@2x.png" mode=""></image>昆明融创文旅城项目总平图
 		 </div>
-		 <whitebox :setheight="6"></whitebox>
+		 <whitebox :setheight="12"></whitebox>
 		 <div class="width90center height2">
 		 	<image src="../../static/houseview/3@2x.png" mode=""></image>
 		 </div>
-		 <whitebox :setheight="15"></whitebox>
+		 <whitebox :setheight="30"></whitebox>
 		 <div class="width90center height3">
 		 	<image src="../../static/houseview/4@2x.png" mode=""></image>
 		 </div>
-		  <whitebox :setheight="25"></whitebox>
+		  <whitebox :setheight="50"></whitebox>
 	</view>
 </template>
 

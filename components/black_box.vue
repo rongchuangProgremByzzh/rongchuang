@@ -1,5 +1,5 @@
 <template>
-	<view class="black_box" :style="{height:setheight+'px'}">
+	<view class="black_box" :style="{height:setheight+'rpx'}" >
 		
 	</view>
 </template>

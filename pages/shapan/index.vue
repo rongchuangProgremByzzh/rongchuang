@@ -2,30 +2,30 @@
 	<view class="scale-wrap">
 		<movable-area>
 			<movable-view :x="x" :y="y" class="Item" scale-min="1.2" scale-max="10" direction="all" scale out-of-bounds>
-				<image src="../../static/shapan/1@2x.png" mode="scaleToFill"></image>
+				<image :src="choose" mode="scaleToFill"></image>
 				</movable-view>
 		</movable-area>
 		<div class="switch-tab">
 			<scroll-view enable-flex="true" scroll-x="true" class="switch-tab-view">
+				<view class="tab-item" @click="chooseItem(0)">
+					<view class="tab-img "><image class="thumb" :class="{active:isactive==0}" src="../../static/animate/smbg/1@2x.png" mode="scaleToFill"></image></view>
+					<text class="desc" :class="{active:isactive==0}">昆明市交通图</text>
+				</view>
 				<view class="tab-item" @click="chooseItem(1)">
-					<view class="tab-img "><image class="thumb" :class="{active:isactive==1}" src="../../static/home/home1@2x.png" mode="scaleToFill"></image></view>
+					<view class="tab-img"><image class="thumb" :class="{active:isactive==1}" src="../../static/animate/smbg/2@2x.png" mode="scaleToFill"></image></view>
 					<text class="desc" :class="{active:isactive==1}">昆明市交通图</text>
 				</view>
-				<view class="tab-item">
-					<view class="tab-img"><image class="thumb" src="../../static/home/home1@2x.png" mode="scaleToFill"></image></view>
-					<text class="desc">昆明市交通图</text>
+				<view class="tab-item" @click="chooseItem(2)">
+					<view class="tab-img"><image class="thumb" :class="{active:isactive==2}" src="../../static/animate/smbg/3@2x.png" mode=""></image></view>
+					<text class="desc" :class="{active:isactive==2}">昆明市交通图</text>
 				</view>
-				<view class="tab-item">
-					<view class="tab-img"><image class="thumb" src="../../static/home/code@2x.png" mode=""></image></view>
-					<text class="desc">昆明市交通图</text>
+				<view class="tab-item" @click="chooseItem(3)">
+					<view class="tab-img"><image class="thumb" :class="{active:isactive==3}" src="../../static/animate/smbg/4@2x.png" mode=""></image></view>
+					<text class="desc" :class="{active:isactive==3}">昆明市交通图</text>
 				</view>
-				<view class="tab-item">
-					<view class="tab-img"><image class="thumb" src="../../static/home/code@2x.png" mode=""></image></view>
-					<text class="desc">昆明市交通图</text>
-				</view>
-				<view class="tab-item">
-					<view class="tab-img"><image class="thumb" src="../../static/home/code@2x.png" mode=""></image></view>
-					<text class="desc">昆明市交通图</text>
+				<view class="tab-item" @click="chooseItem(4)">
+					<view class="tab-img"><image class="thumb" :class="{active:isactive==4}" src="../../static/animate/smbg/5@2x.png" mode=""></image></view>
+					<text class="desc" :class="{active:isactive==4}">昆明市交通图</text>
 				</view>
 			</scroll-view>
 		</div>
@@ -39,12 +39,18 @@ export default {
 			x: 100,
 			y:50,
 			scale: 2,
-			isactive:1,
+			isactive:0,
 			old: {
 				x: 0,
 				y: 0,
 				scale: 2
-			}
+			},
+			choose:'../../static/animate/1.gif',
+			imglist:[
+				"../../static/animate/1.gif",
+				"../../static/animate/2.gif",
+				"../../static/animate/3.gif"
+			]
 		};
 	},
 	methods: {
@@ -54,6 +60,10 @@ export default {
 		},
 		onScale: function(e) {
 			this.old.scale = e.detail.scale;
+		},
+		chooseItem(index){
+			this.isactive=index;
+			this.choose=this.imglist[index]
 		}
 	}
 };

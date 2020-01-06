@@ -1,45 +1,47 @@
 <template>
 	<view class="content">
 		<div class="width95center height1 setposition">
-			<div class="box1 setabsolute" @click="jumpsea()"></div>
-			<div class="box2 setabsolute" @click="jumpsnow()"></div>
+			<div class="box1 setabsolute" @click="jumpsnow()"></div>
+			<div class="box2 setabsolute" @click="jumpsea()"></div>
 			<image src="../../static/seven/1@2x.png" mode=""></image>
 		</div>
-		<whitebox :setheight="10"></whitebox>
+		<whitebox :setheight="20"></whitebox>
 		<navigator url="/pages/seven_item/6">
 		<div class="width95center height1">
 				<image src="../../static/seven/2@2x.png" mode=""></image>
 		</div>
 		</navigator>
-		<whitebox :setheight="10"></whitebox>
+		<whitebox :setheight="20"></whitebox>
+		<navigator url="/pages/seven_item/9">
 		<div class="width95center height1">
 				<image src="../../static/seven/3@2x.png" mode=""></image>
 		</div>
-		<whitebox :setheight="10"></whitebox>
+		</navigator>
+		<whitebox :setheight="20"></whitebox>
 		<navigator url="/pages/seven_item/4">
 		<div class="width95center height1">
 				<image src="../../static/seven/4@2x.png" mode=""></image>
 		</div>
 		</navigator>
-		<whitebox :setheight="10"></whitebox>
+		<whitebox :setheight="20"></whitebox>
 		<navigator url="/pages/seven_item/2">
 		<div class="width95center height1">
 				<image src="../../static/seven/5@2x.png" mode=""></image>
 		</div>
 		</navigator>
-		<whitebox :setheight="10"></whitebox>
+		<whitebox :setheight="20"></whitebox>
 		<navigator url="/pages/seven_item/5">
 		<div class="width95center height1">
 				<image src="../../static/seven/6@2x.png" mode=""></image>
 		</div>
 		</navigator>
-		<whitebox :setheight="10"></whitebox>
+		<whitebox :setheight="20"></whitebox>
 				<navigator url="/pages/seven_item/1">
 		<div class="width95center height1">
 				<image src="../../static/seven/7@2x.png" mode=""></image>
 		</div>
 		</navigator>
-		<whitebox :setheight="10"></whitebox>
+		<whitebox :setheight="20"></whitebox>
 		
 	</view>
 </template>

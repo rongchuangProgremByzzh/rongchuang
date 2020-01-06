@@ -1,11 +1,11 @@
 
 <template>
 	<view class="content">
-		<whitebox :setheight="75"></whitebox>
+		<whitebox :setheight="150"></whitebox>
 		<div class="width100center height1">
 			<movable-swiper :pages="lastDataList" :stackinit="stackinit"></movable-swiper>
 		</div>
-		<whitebox :setheight="100"></whitebox>
+		<whitebox :setheight="200"></whitebox>
 		<div class="width90center height2">
 			
 			<view class="txt">

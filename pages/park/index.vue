@@ -1,10 +1,10 @@
 <template>
 	<view class="content">
-		<whitebox :setheight="55"></whitebox>
+		<whitebox :setheight="110"></whitebox>
 		<div class="width90center height1">
 			<image src="../../static/park/1@2x.png" mode=""></image>
 		</div>
-		<whitebox :setheight="40"></whitebox>
+		<whitebox :setheight="80"></whitebox>
 		<div class="width90center height2">
 			<view class="txt">
 				昆明融创文旅城，于草海城市会客厅，北岸黄金区位，结合东方以及云南本土的文化特色，在约3500亩文旅大盘之上，依托纯美山海资源，打造匠心独具的高品质低密住区，全系产品悉心雕琢，致敬城市峰层人物。

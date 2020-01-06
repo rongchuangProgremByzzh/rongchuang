@@ -20,11 +20,11 @@
 			</swiper>
 		</view>
 		<div class="current-point-wrap"><div class="current-point" v-for="(isactive, index) in swiperList" :key="index" :class="{ active_point: index == current }"></div></div>
-		<whitebox :setheight="5"></whitebox>
+		<whitebox :setheight="10"></whitebox>
 		<navigator url="/pages/project/index">
 			<div class="width90center height1"><image src="../../static/home/home1@2x.png" mode=""></image></div>
 		</navigator>
-		<whitebox :setheight="30"></whitebox>
+		<whitebox :setheight="60"></whitebox>
 
 		<div class="width100center height2 setposition">
 			<div class="box1" @click="jumpzixun()"></div>
@@ -34,7 +34,8 @@
 		</div>
 
 		<whitebox :setheight="25"></whitebox>
-		<div class="width90center height2 setposition">
+		<div class="width90center height21 setposition">
+			<div class="box33" @click="jumpjijin()"></div>
 			<div class="box3" @click="jumpshapan()"></div>
 			<div class="box4" @click="jumphuxing()"></div>
 			<div class="box5" @click="jumpvr()"></div>
@@ -45,6 +46,7 @@
 			<div class="box7" @click="jumpshow()"></div>
 			<div class="box8" @click="jumpseven()"></div>
 			<div class="box9" @click="jumpimglist()"></div>
+			<div class="box10" @click="jumpprogress()"></div>
 			<image src="../../static/home/home4@2x.png" mode=""></image></div>
 		<view class="contact">
 			<div class="lf">
@@ -96,6 +98,11 @@ export default {
 				url: '/pages/zixun/list'
 			});
 		},
+		jumpjijin(){
+			uni.navigateTo({
+				url: '/pages/house_photo_list/index'
+			});
+		},
 		jumpshapan() {
 			uni.navigateTo({
 				url: '/pages/shapan/index'
@@ -109,6 +116,11 @@ export default {
 		jumpvr(){
 			uni.navigateTo({
 				url: '/pages/shapan/index'
+			});
+		},
+		jumpprogress(){
+			uni.navigateTo({
+				url: '/pages/progress/index'
 			});
 		},
 		jumpxuanchuan(){
@@ -175,7 +187,10 @@ export default {
 	height: 390rpx;
 }
 .height2 {
-	height: 450rpx;
+	height: 500rpx;
+}
+.height21 {
+	height: 370rpx;
 }
 .height3 {
 	height: 563rpx;
@@ -207,28 +222,36 @@ export default {
 	height: 240rpx;
 	z-index: 99;
 }
+.box33{
+	position: absolute;
+	left: 4rpx;
+	top: 92rpx;
+	width: 320rpx;
+	height: 128rpx;
+	z-index: 99;
+}
 .box3{
 	position: absolute;
 	right: 4rpx;
-	top: 106rpx;
+	top: 92rpx;
 	width: 320rpx;
-	height: 160rpx;
+	height: 128rpx;
 	z-index: 99;
 }
 .box4{
 	position: absolute;
 	left: 4rpx;
-	top: 294rpx;
+	top: 240rpx;
 	width: 320rpx;
-	height: 160rpx;
+	height: 128rpx;
 	z-index: 99;
 }
 .box5{
 	position: absolute;
 	right: 4rpx;
-	top: 290rpx;
+	top: 240rpx;
 	width: 320rpx;
-	height: 160rpx;
+	height: 128rpx;
 	z-index: 99;
 }
 .box6{
@@ -258,6 +281,14 @@ export default {
 .box9{
 	position: absolute;
 	left:200rpx;
+	bottom:32rpx;
+	width: 174rpx;
+	height: 166rpx;
+	z-index: 99;
+}
+.box10{
+	position: absolute;
+	right:204rpx;
 	bottom:32rpx;
 	width: 174rpx;
 	height: 166rpx;

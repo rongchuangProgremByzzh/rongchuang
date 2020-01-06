@@ -1,6 +1,6 @@
 <template>
 	<view class="content">
-		<whitebox :setheight="40"></whitebox>
+		<whitebox :setheight="80"></whitebox>
 		<div class="width90center height1">融创文旅品牌-融创乐园</div>
 		<div class="width90center height2">两大世界乐园 探秘奇幻欢乐王国</div>
 		<div class="width90center height3">昆明融创电影世界</div>

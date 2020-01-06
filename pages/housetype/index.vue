@@ -2,6 +2,12 @@
 	<div class="housetype">
 		<swiper class="set-wrap"  :duration="500">
 			<swiper-item>
+				<view class="swiper-item setoverflow">
+				<house-view></house-view>
+				</view>
+			</swiper-item>
+			
+			<swiper-item>
 				<view class="swiper-item"><image src="../../static/housetype/a@2x.png" mode="aspectFill"></image></view>
 			</swiper-item>
 			<swiper-item>
@@ -36,7 +42,14 @@
 	</div>
 </template>
 
-<script></script>
+<script>
+	import houseView from '@/pages/houseview'
+	export default{
+		components:{
+			houseView
+		}
+	}
+</script>
 
 <style scoped>
 .housetype {
@@ -48,6 +61,9 @@
 }
 .swiper-item{
 	height: 100%;
+}
+.setoverflow{
+	overflow-y: auto;
 }
 image{
 	margin-top: 5%;
