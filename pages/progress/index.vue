@@ -45,7 +45,7 @@
 			}
 		},
 		mounted() {
-			this.$http.projectprogress('/projectProgress').then(res=>{
+			this.$http.projectprogress().then(res=>{
 				console.log(res);
 				this.List=res.data;
 			})

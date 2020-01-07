@@ -1,14 +1,28 @@
 <template>
-	<view class="Item">
-		<view class="pic-type"><text>实景图</text></view>
+	<view class="Item" @click="openDeatil(item.id)"  :style="{ 'background': 'url(' +item.icon+ ') no-repeat'}">
+		<view class="pic-type"><text></text></view>
 		<view class="tit-mes">
-			<div class="card-tit">这是一段融创大事记的标题...</div>
-			<div class="time">2019-01-01</div>
+			<div class="card-tit">{{item.title}}</div>
+			<div class="time">{{item.ctime|formatTime}}</div>
 		</view>
 	</view>
 </template>
 
 <script>
+	export default{
+		props:{
+			item:{
+				type:Object
+			}
+		},
+		methods:{
+			openDeatil(id){
+				uni.navigateTo({
+					url: '/pages/zixun/list?id='+id
+				});
+			}
+		}
+	}
 </script>
 
 <style lang="scss">
@@ -18,7 +32,7 @@
 		height: 330rpx;
 		margin: 30rpx auto;
 		border-radius:14rpx;
-		background: url('http://img.zangzhihong.com/background1.jpg') no-repeat;
+		// background: url('http://img.zangzhihong.com/background1.jpg') no-repeat;
 	    background-size: 100% 100%;
 		.pic-type{
 			display: flex;
@@ -47,8 +61,7 @@
 			bottom: 0;
 			width: 100%;
 			height:70rpx;
-			background:rgba(39,47,143,1);
-			opacity:0.7;
+			background:rgba(39,47,143,.7);
 			border-radius:14rpx;
 			.card-tit{
 				font-size:28rpx;

@@ -26,15 +26,20 @@
 						<!-- 图片框 居中属性-->
 						<view style="display:flex; align-content:flex-end;justify-content: center; border:red 0px solid;"
 						      :style="{'width':item.w+'px','height': item.h+'px'}">
-							  <image   :ref="'image'+index" 
+							 <!-- <image   :ref="'image'+index" 
 							            style="align-self: center;border-radius: 12px; " 
 									   :style="{'width' :item.w-10 +'px',
 												'height':item.h-10 +'px',
 												'border':[activeviewindex == index? '#EC6D2C 1px solid':'#EC6D2C 0px solid']}"
 							           :src="item.url" 
 									   @click="clickimg(index,item)" mode="scaleToFill">
-							  </image>
-						</view>
+							  </image> -->
+                   <video :ref="'image'+index" 
+							            style="align-self: center;border-radius: 12px; " 
+									   :style="{'width' :item.w-10 +'px',
+												'height':item.h-10 +'px',
+												'border':[activeviewindex == index? '#EC6D2C 1px solid':'#EC6D2C 0px solid']}" :src="item.videoUrl" controls ></video>					
+	</view>
 						<!-- 描述视图 -->
 						<view style="display: flex;justify-content: center;margin-bottom: 4px;border:  #008000 0px solid;min-height: 10px;">
 							<!-- <text v-if="showdec" style="align-self: center;font-size: 12px;color:white">{{item.dec}}</text> -->

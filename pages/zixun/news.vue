@@ -8,7 +8,7 @@
 	</div>
 </template>
 <script>
-	import activeItem from '@/components/active_card.vue'
+	
 	export default{
 		components:{
 			
@@ -16,7 +16,7 @@
 		data(){
 			return{
 				newsList:{},
-				content:''
+				content:""
 			}
 		},
 		methods:{
@@ -24,16 +24,17 @@
 		},
 		onLoad: function (option) { //option为object类型，会序列化上个页面传递的参数
 		        console.log(option.id); //打印出上个页面传递的参数。
-				  this.$http.getNewsList(option.id).then(res=>{
-					 if(res.data){
-						 this.newsList=res.data;
-						 this.content=res.data.content
-					 }
-				  })
+			
 
 		    },
 		mounted() {
-			
+			this.$http.getMostNews().then(res=>{
+								 if(res.data){
+									 this.newsList=res.data.actvity;
+									 console.log(res.data);
+								this.content=res.data.actvity.content;
+								 }
+			})
 		}
 	}
 </script>

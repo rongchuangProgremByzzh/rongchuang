@@ -68,6 +68,18 @@
 		}
 	},
 	{
+		"path": "pages/zixun/news",
+		"style": {
+		
+		}
+	},
+	{
+		"path": "pages/webview/index",
+		"style": {
+		
+		}
+	},
+	{
 		"path": "pages/rcrecord_active/index",
 		"style": {
 		

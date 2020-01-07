@@ -37,6 +37,7 @@
 				sh: 0,
 				Msg: "0",
 				// 画廊示例数据
+				videoList:[],
 				testimgs: [{
 						url: "http://p1.meituan.net/movie/d94e5c3054778f6f48bff3a813b0b7cd5300998.jpg@170w_235h_1e_1c",
 					},
@@ -101,7 +102,15 @@
 				let color = '#' + ('00000' + (Math.random() * 0x1000000 << 0).toString(16)).substr(-6);
 				return color;
 			}
-		}
+		
+	},
+	mounted(){
+		
+		this.$http.videoList().then(res=>{
+			console.log(res);
+			this.testimgs=res.data;
+		})
+	}
 	}
 </script>
 

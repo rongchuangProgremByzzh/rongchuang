@@ -27,8 +27,8 @@
 		<whitebox :setheight="60"></whitebox>
 
 		<div class="width100center height2 setposition">
-			<div class="box1" @click="jumpzixun()"></div>
-			<div class="box2" @click="jumpzixun()"></div>
+			<div class="box1" @click="jumpzixun(0)"></div>
+			<div class="box2" @click="jumpzixun(1)"></div>
 			<div class="more" @click="jumpzixunlist()"></div>
 			<image src="../../static/home/home2@2x.png" mode=""></image>
 		</div>
@@ -83,19 +83,21 @@ export default {
 			title: 'Hello',
 			swiperList: 5,
 			current: 0,
-			bannerList:[]
+			bannerList:[],
+			video:''
 		};
 	},
 	onLoad() {},
 	methods: {
-		jumpzixun() {
+		jumpzixun(index) {
+			uni.navigateTo({
+				url: '/pages/zixun/news'
+			});
+			
+		},
+		jumpzixunlist(index) {
 			uni.navigateTo({
 				url: '/pages/zixun/index'
-			});
-		},
-		jumpzixunlist() {
-			uni.navigateTo({
-				url: '/pages/zixun/list'
 			});
 		},
 		jumpjijin(){
@@ -115,7 +117,7 @@ export default {
 		},
 		jumpvr(){
 			uni.navigateTo({
-				url: '/pages/shapan/index'
+				url: '/pages/webview/index'
 			});
 		},
 		jumpprogress(){
@@ -149,10 +151,15 @@ export default {
 	},
 	mounted() {
 
-		this.$http.banner('/banner').then(res=>{
+		this.$http.banner().then(res=>{
 			console.log(res);
 			this.bannerList=res.data;
 		})
+		this.$http.videoIndex().then(res=>{
+			console.log(res);
+			this.video=res.data;
+		})
+		
 	}
 };
 </script>

@@ -30,7 +30,7 @@
 		},
 		mounted() {
 			this.swiperHeight=uni.upx2px(1100);
-			this.$http.banner('/banner').then(res=>{
+			this.$http.imgwordcontroller(1).then(res=>{
 				console.log(res);
 				this.swiperList=res.data;
 			})

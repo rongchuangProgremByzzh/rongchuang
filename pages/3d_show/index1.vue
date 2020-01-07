@@ -44,7 +44,7 @@ export default {
 		};
 	},
 	mounted() {
-		this.$http.banner('/banner').then(res=>{
+		this.$http.imgwordcontroller(3).then(res=>{
 			console.log(res);
 			this.lastDataList=res.data;
 		})
