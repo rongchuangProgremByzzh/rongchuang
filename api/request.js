@@ -1,5 +1,8 @@
 import $http from './zhouWei-request/requestConfig.js';
 export default function ajax(url, data) {
+	// if(data){
+	// 	return $http.post(url,data)
+	// }
 	return $http.get(url)
 	// uni.request({
 	// 	url: url, //仅为示例，并非真实接口地址。

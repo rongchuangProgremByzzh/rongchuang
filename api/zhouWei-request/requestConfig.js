@@ -36,7 +36,7 @@ $http.requestStart = function (options) {
 	}
 	requestNum += 1;
 	//请求前加入token
-	options.headers['token'] = "1234568";
+	//options.headers['token'] = "";
 	console.log("请求开始前", options);
 	return options;
 }

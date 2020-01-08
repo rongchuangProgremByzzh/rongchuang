@@ -1,8 +1,12 @@
 <template>
 	<view class="content">
+		<div class="like" @click="scrollTolast(800)"></div>
+		<div class="chat" @click="callPhone()"></div>
+		<div class="phone" @click="gotoChat()"></div>
+		<div class="location" @click="scrollTolast(1000)"></div>
 		<view class="swiper">
 			<swiper class="swiper" @change="changeHandle" :indicator-dots="false" :autoplay="true" :interval="5000" :duration="1000">
-				<swiper-item v-for="(item,index) in bannerList" :key="index">
+				<swiper-item v-for="(item, index) in bannerList" :key="index">
 					<view class="swiper-item"><image :src="item.imgUrl" mode="scaleToFill"></image></view>
 				</swiper-item>
 				<!-- <swiper-item>
@@ -39,7 +43,8 @@
 			<div class="box3" @click="jumpshapan()"></div>
 			<div class="box4" @click="jumphuxing()"></div>
 			<div class="box5" @click="jumpvr()"></div>
-			<image src="../../static/home/home3@2x.png" mode=""></image></div>
+			<image src="../../static/home/home3@2x.png" mode=""></image>
+		</div>
 		<whitebox :setheight="30"></whitebox>
 		<div class="width100center height3 setposition">
 			<div class="box6" @click="jumpxuanchuan()"></div>
@@ -47,7 +52,8 @@
 			<div class="box8" @click="jumpseven()"></div>
 			<div class="box9" @click="jumpimglist()"></div>
 			<div class="box10" @click="jumpprogress()"></div>
-			<image src="../../static/home/home4@2x.png" mode=""></image></div>
+			<image src="../../static/home/home4@2x.png" mode=""></image>
+		</div>
 		<view class="contact">
 			<div class="lf">
 				<view class="h1">全国</view>
@@ -59,32 +65,39 @@
 			</div>
 			<div class="middle-line"></div>
 			<div class="rt">
-				<input type="text" placeholder="填写姓名" value="" />
-				<input type="phone" placeholder="联系电话" value="" />
-				<input type="text" placeholder="看房时间" value="" />
+				<input type="text" placeholder="填写姓名" maxlength="10" v-model="username" value="" />
+				<input type="number" placeholder="联系电话" maxlength="15" v-model="userphone" value="" />
+				<input type="text" placeholder="看房时间" maxlength="30" v-model="userlookhousetime" value="" />
 			</div>
 		</view>
-		<button type="primary" class="btn width90center">立即预约</button>
+		<button type="primary" class="btn width90center" @click="yuyue()">立即预约</button>
 		<view class="footer">
 			<view class="lf"><image src="../../static/code@2x.png" mode=""></image></view>
 			<view class="rt">
-				<video src="" controls></video>
-				<button type="primary" class="registbtn">幸福通 | 立即注册</button>
+				<div class="video-wrap">
+					<!-- <div class="btn-play"><div class="btn-play-btn"></div></div> -->
+						<video :src="video" controls="false" show-center-play-btn="false" ></video>
+				</div>
+			
+				<button type="primary" class="registbtn" @click="gotoOtherSmProgram()">幸福通 | 立即注册</button>
 			</view>
 		</view>
 	</view>
 </template>
 
 <script>
-
 export default {
 	data() {
 		return {
+			userlookhousetime: '',
+			userphone: '',
+			username: '',
 			title: 'Hello',
 			swiperList: 5,
 			current: 0,
-			bannerList:[],
-			video:''
+			bannerList: [],
+			video: '',
+			phone: ''
 		};
 	},
 	onLoad() {},
@@ -93,14 +106,13 @@ export default {
 			uni.navigateTo({
 				url: '/pages/zixun/news'
 			});
-			
 		},
 		jumpzixunlist(index) {
 			uni.navigateTo({
 				url: '/pages/zixun/index'
 			});
 		},
-		jumpjijin(){
+		jumpjijin() {
 			uni.navigateTo({
 				url: '/pages/house_photo_list/index'
 			});
@@ -110,61 +122,143 @@ export default {
 				url: '/pages/shapan/index'
 			});
 		},
-		jumphuxing(){
+		jumphuxing() {
 			uni.navigateTo({
 				url: '/pages/housetype/index'
 			});
 		},
-		jumpvr(){
+		jumpvr() {
 			uni.navigateTo({
 				url: '/pages/webview/index'
 			});
 		},
-		jumpprogress(){
+		jumpprogress() {
 			uni.navigateTo({
 				url: '/pages/progress/index'
 			});
 		},
-		jumpxuanchuan(){
+		jumpxuanchuan() {
 			uni.navigateTo({
 				url: '/pages/3d_show/index'
 			});
 		},
-		jumpshow(){
+		jumpshow() {
 			uni.navigateTo({
 				url: '/pages/park/index'
 			});
 		},
-		jumpseven(){
+		jumpseven() {
 			uni.navigateTo({
 				url: '/pages/seven_type/index'
 			});
 		},
-		jumpimglist(){
+		jumpimglist() {
 			uni.navigateTo({
 				url: '/pages/3d_show/index1'
 			});
 		},
 		changeHandle(e) {
 			this.current = e.detail.current;
+		},
+		callPhone() {
+			console.log(this.phone);
+			uni.makePhoneCall({
+				phoneNumber: this.phone //仅为示例
+			});
+		},
+		scrollTolast(diff) {
+			uni.pageScrollTo({
+				scrollTop: diff,
+				duration: 300
+			});
+		},
+		gotoChat() {
+			uni.navigateTo({
+				url: '/pages/message/index'
+			});
+		},
+		gotoOtherSmProgram(){//打开其他小程序
+			uni.navigateToMiniProgram({
+			  appId: '',
+			  path: 'pages/index/index?id=123',
+			  extraData: {
+			    'data1': 'test'
+			  },
+			  success(res) {
+			    // 打开成功
+			  }
+			})
+		},
+		yuyue() {
+
+			if (this.userphone.length<=0) {
+				return uni.showToast({
+					title: '请输入电话号码',
+					duration: 2000
+				});
+			}else{
+				this.$http.appointment({ name: this.username, phone: this.userphone, checkingTime: this.userlookhousetime }).then(res => {
+					console.log(res);
+				});
+			}
+			
 		}
 	},
 	mounted() {
-
-		this.$http.banner().then(res=>{
-			console.log(res);
-			this.bannerList=res.data;
-		})
-		this.$http.videoIndex().then(res=>{
-			console.log(res);
-			this.video=res.data;
-		})
-		
+		this.$http.banner().then(res => {
+			this.bannerList = res.data;
+		});
+		this.$http.videoIndex().then(res => {
+			this.video = res.data;
+		});
+		this.$http.getPhone().then(res => {
+			this.phone = res.data;
+		});
 	}
 };
 </script>
 
 <style lang="scss" scoped>
+.content {
+	position: relative;
+}
+.like,
+.chat,
+.phone,
+.location {
+	position: absolute;
+	left: 30rpx;
+	z-index: 999;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 80rpx;
+	height: 80rpx;
+	background: #fff;
+	box-shadow: 0px 6rpx 20rpx rgba(39, 47, 143, 0.2);
+	border-radius: 50%;
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-size: 60% 60%;
+}
+.like {
+	top: 200rpx;
+	background-image: url(../../static/home/like@2x.png);
+}
+.chat {
+	top: 360rpx;
+	background-image: url(../../static/home/phone@2x.png);
+}
+.phone {
+	top: 510rpx;
+	background-image: url(../../static/home/chat@2x.png);
+}
+.location {
+	top: 510rpx;
+	right: 30rpx;
+	left: auto;
+	background-image: url(../../static/home/location@2x.png);
+}
 .swiper {
 	height: 450rpx;
 }
@@ -229,7 +323,7 @@ export default {
 	height: 240rpx;
 	z-index: 99;
 }
-.box33{
+.box33 {
 	position: absolute;
 	left: 4rpx;
 	top: 92rpx;
@@ -237,7 +331,7 @@ export default {
 	height: 128rpx;
 	z-index: 99;
 }
-.box3{
+.box3 {
 	position: absolute;
 	right: 4rpx;
 	top: 92rpx;
@@ -245,7 +339,7 @@ export default {
 	height: 128rpx;
 	z-index: 99;
 }
-.box4{
+.box4 {
 	position: absolute;
 	left: 4rpx;
 	top: 240rpx;
@@ -253,7 +347,7 @@ export default {
 	height: 128rpx;
 	z-index: 99;
 }
-.box5{
+.box5 {
 	position: absolute;
 	right: 4rpx;
 	top: 240rpx;
@@ -261,7 +355,7 @@ export default {
 	height: 128rpx;
 	z-index: 99;
 }
-.box6{
+.box6 {
 	position: absolute;
 	right: 206rpx;
 	top: 28rpx;
@@ -269,7 +363,7 @@ export default {
 	height: 166rpx;
 	z-index: 99;
 }
-.box7{
+.box7 {
 	position: absolute;
 	left: 28rpx;
 	top: 194rpx;
@@ -277,26 +371,26 @@ export default {
 	height: 168rpx;
 	z-index: 99;
 }
-.box8{
+.box8 {
 	position: absolute;
-	right:36rpx;
+	right: 36rpx;
 	top: 200rpx;
 	width: 344rpx;
 	height: 160rpx;
 	z-index: 99;
 }
-.box9{
+.box9 {
 	position: absolute;
-	left:200rpx;
-	bottom:32rpx;
+	left: 200rpx;
+	bottom: 32rpx;
 	width: 174rpx;
 	height: 166rpx;
 	z-index: 99;
 }
-.box10{
+.box10 {
 	position: absolute;
-	right:204rpx;
-	bottom:32rpx;
+	right: 204rpx;
+	bottom: 32rpx;
 	width: 174rpx;
 	height: 166rpx;
 	z-index: 99;
@@ -385,9 +479,32 @@ export default {
 			line-height: 55rpx;
 		}
 	}
+	.video-wrap{
+		position: relative;
+		width: 90%;
+	}
+	.btn-play{
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		position: absolute;
+		left: 0;
+		top: 0;
+		width: 100%;
+		height: 100%;
+		z-index: 999;
+		.btn-play-btn{
+			width: 80rpx;
+			height: 80rpx;
+			background: url(../../static/home/play.png) no-repeat;
+			background-size: 100% 100%;
+		}
+	}
 	video {
+
 		width: 90%;
 		height: 176rpx;
 	}
+	
 }
 </style>

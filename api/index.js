@@ -30,6 +30,12 @@ export default {
 	},
 	vr(type){
 		return $http.get(`/vr?type=${type}`)
+	},
+	getPhone(){
+		return $http.get(`/hotline`)
+	},
+	appointment(data){
+		return $http.post(`/appointment`,data)
 	}
-	//ajax('http://rcxcx.api.95lsy.com/banner')
+	//ajax('http://rcxcx.api.95lsy.com/banner')POST /appointment
 }

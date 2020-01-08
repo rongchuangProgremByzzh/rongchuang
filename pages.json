@@ -194,6 +194,12 @@
 			"navigationBarTitleText": "uni-app"
 		}
 	},
+	{
+		"path": "pages/chat/index",
+		"style": {
+			"navigationBarTitleText": "uni-app"
+		}
+	},
 		{
 			"path": "pages/message/index",
 			"style": {
