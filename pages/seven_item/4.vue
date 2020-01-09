@@ -1,7 +1,7 @@
 <template>
 	<view class="content">
 		<div class="width100center height1">
-			<image src="../../static/sevenitem/4@2x.png" mode=""></image>
+			<image src="http://www.zangzhihong.com/pic/static/sevenitem/4@2x.png" mode=""></image>
 		</div>
 	</view>
 </template>

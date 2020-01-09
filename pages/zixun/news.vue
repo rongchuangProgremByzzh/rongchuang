@@ -42,7 +42,7 @@
 	.content{
 		height: 100%;
 		overflow-y: auto;
-background: url(../../static/bg@2x.png) no-repeat;
+background: url(http://www.zangzhihong.com/pic/static/bg@2x.png) no-repeat;
 background-size: 100% 100%;
 	}
 	.content-wrap{

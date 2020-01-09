@@ -26,7 +26,7 @@
 		<div class="current-point-wrap"><div class="current-point" v-for="(isactive, index) in swiperList" :key="index" :class="{ active_point: index == current }"></div></div>
 		<whitebox :setheight="10"></whitebox>
 		<navigator url="/pages/project/index">
-			<div class="width90center height1"><image src="../../static/home/home1@2x.png" mode=""></image></div>
+			<div class="width90center height1"><image src="http://www.zangzhihong.com/pic/static/home/home1@2x.png" mode=""></image></div>
 		</navigator>
 		<whitebox :setheight="60"></whitebox>
 
@@ -34,7 +34,7 @@
 			<div class="box1" @click="jumpzixun(0)"></div>
 			<div class="box2" @click="jumpzixun(1)"></div>
 			<div class="more" @click="jumpzixunlist()"></div>
-			<image src="../../static/home/home2@2x.png" mode=""></image>
+			<image src="http://www.zangzhihong.com/pic/static/home/home2@2x.png" mode=""></image>
 		</div>
 
 		<whitebox :setheight="25"></whitebox>
@@ -43,7 +43,7 @@
 			<div class="box3" @click="jumpshapan()"></div>
 			<div class="box4" @click="jumphuxing()"></div>
 			<div class="box5" @click="jumpvr()"></div>
-			<image src="../../static/home/home3@2x.png" mode=""></image>
+			<image src="http://www.zangzhihong.com/pic/static/home/home3@2x.png" mode=""></image>
 		</div>
 		<whitebox :setheight="30"></whitebox>
 		<div class="width100center height3 setposition">
@@ -52,7 +52,7 @@
 			<div class="box8" @click="jumpseven()"></div>
 			<div class="box9" @click="jumpimglist()"></div>
 			<div class="box10" @click="jumpprogress()"></div>
-			<image src="../../static/home/home4@2x.png" mode=""></image>
+			<image src="http://www.zangzhihong.com/pic/static/home/home4@2x.png" mode=""></image>
 		</div>
 		<view class="contact">
 			<div class="lf">
@@ -72,7 +72,7 @@
 		</view>
 		<button type="primary" class="btn width90center" @click="yuyue()">立即预约</button>
 		<view class="footer">
-			<view class="lf"><image src="../../static/code@2x.png" mode=""></image></view>
+			<view class="lf"><image src="http://www.zangzhihong.com/pic/static/code@2x.png" mode=""></image></view>
 			<view class="rt">
 				<div class="video-wrap">
 					<!-- <div class="btn-play"><div class="btn-play-btn"></div></div> -->
@@ -243,21 +243,21 @@ export default {
 }
 .like {
 	top: 200rpx;
-	background-image: url(../../static/home/like@2x.png);
+	background-image: url(http://www.zangzhihong.com/pic/static/home/like@2x.png);
 }
 .chat {
 	top: 360rpx;
-	background-image: url(../../static/home/phone@2x.png);
+	background-image: url(http://www.zangzhihong.com/pic/static/home/phone@2x.png);
 }
 .phone {
 	top: 510rpx;
-	background-image: url(../../static/home/chat@2x.png);
+	background-image: url(http://www.zangzhihong.com/pic/static/home/chat@2x.png);
 }
 .location {
 	top: 510rpx;
 	right: 30rpx;
 	left: auto;
-	background-image: url(../../static/home/location@2x.png);
+	background-image: url(http://www.zangzhihong.com/pic/static/home/location@2x.png);
 }
 .swiper {
 	height: 450rpx;
@@ -447,7 +447,7 @@ export default {
 	flex-direction: row;
 	height: 384rpx;
 	margin-top: 50rpx;
-	background: url(../../static/park/3@2x.png) no-repeat;
+	background: url(http://www.zangzhihong.com/pic/static/park/3@2x.png) no-repeat;
 	background-size: 100% 100%;
 	.lf,
 	.rt {
@@ -496,7 +496,7 @@ export default {
 		.btn-play-btn{
 			width: 80rpx;
 			height: 80rpx;
-			background: url(../../static/home/play.png) no-repeat;
+			background: url(http://www.zangzhihong.com/pic/static/home/play.png) no-repeat;
 			background-size: 100% 100%;
 		}
 	}

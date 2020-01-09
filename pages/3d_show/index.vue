@@ -119,7 +119,7 @@
 
   .content{
 	  height: 100%;
-	  background: url(../../static/bg@2x.png) no-repeat;
+	  background: url(http://www.zangzhihong.com/pic/static/bg@2x.png) no-repeat;
 	 background-size: 100% 100%;
   }
 	.height1{
@@ -130,7 +130,7 @@
 			display: flex;
 			align-items: center;
 			justify-content: center;
-			background: url('../../static/park/3@2x.png') no-repeat;
+			background: url('http://www.zangzhihong.com/pic/static/park/3@2x.png') no-repeat;
 			background-size: 100% 100%;
 			border-radius: 12rpx;
 	}

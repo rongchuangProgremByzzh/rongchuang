@@ -2,8 +2,8 @@
 	<view class="content">
 		<div class="width100center height1">
 			<div class="clickarea" @click="transtion()"></div>
-			<image class="zindex1" src="../../static/sevenitem/8@2x.png" mode="" :class="{ tran: tran }"></image>
-			<image class="zindex2" src="../../static/sevenitem/7@2x.png" mode="" :class="{ tran: !tran }"></image>
+			<image class="zindex1" src="http://www.zangzhihong.com/pic/static/sevenitem/8@2x.png" mode="" :class="{ tran: tran }"></image>
+			<image class="zindex2" src="http://www.zangzhihong.com/pic/static/sevenitem/7@2x.png" mode="" :class="{ tran: !tran }"></image>
 		</div>
 	</view>
 </template>

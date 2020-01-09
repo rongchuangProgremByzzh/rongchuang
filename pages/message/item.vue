@@ -1,7 +1,7 @@
 <template>
 	<view class="message"  @click="gotochat()">
 		<view class="listitem">
-			<view class="lf-icon"><image src="../../static/logo.png" mode=""></image></view>
+			<view class="lf-icon"><image src="http://www.zangzhihong.com/pic/static/logo.png" mode=""></image></view>
 			<view class="list-title">
 				<view class="top">
 					<view class="lf-txt">这是一个名字</view>

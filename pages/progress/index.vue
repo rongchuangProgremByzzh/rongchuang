@@ -62,7 +62,7 @@
 	.bg{
 		width: 100%;
 min-height: 100%;
-		background: url(../../static/bg@2x.png) repeat;
+		background: url(http://www.zangzhihong.com/pic/static/bg@2x.png) repeat;
 		background-size:contain;
 	}
 	.item-wrap{

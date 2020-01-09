@@ -31,7 +31,7 @@ export default {
 <style lang="scss" scoped>
 .content {
 	height: 100%;
-	background: url(../../static/bg@2x.png) no-repeat;
+	background: url(http://www.zangzhihong.com/pic/static/bg@2x.png) no-repeat;
 	background-size: 100% 100%;
 }
 .height1 {
@@ -65,7 +65,7 @@ export default {
 	left: 5%;
 	width: 90%;
 	height: 860rpx;
-	background: url(../../static/rcly/1@2x.png) no-repeat;
+	background: url(http://www.zangzhihong.com/pic/static/rcly/1@2x.png) no-repeat;
 	background-size: 100% 100%;
 }
 .txt-wrap{

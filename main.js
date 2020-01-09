@@ -5,7 +5,7 @@ import request from './api/index.js'
 Vue.prototype.$http=request;
 import WhiteBox from './components/black_box.vue'
 Vue.component('whitebox',WhiteBox);
-
+Vue.prototype.$imgBaseUrl='http://www.zangzhihong.com/'
 Vue.config.productionTip = false
 // import $http from '@/api/zhouWei-request/requestConfig.js';
 // Vue.prototype.$http = $http;
