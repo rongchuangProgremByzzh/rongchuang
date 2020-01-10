@@ -37,7 +37,7 @@ $http.requestStart = function (options) {
 	requestNum += 1;
 	//请求前加入token
 	//options.headers['token'] = "";
-	console.log("请求开始前", options);
+	//console.log("请求开始前", options);
 	return options;
 }
 //请求结束
@@ -59,7 +59,7 @@ $http.requestEnd = function (options, resolve) {
 let loginPopupNum = 0;
 //所有接口数据处理（可在接口里设置不调用此方法）
 $http.dataFactory = function (options, resolve) {
-	console.log("接口返回结果", resolve);
+	//console.log("接口返回结果", resolve);
 	//设置回调默认值
 	var callback = {
 		//success数据是否请求成功状态

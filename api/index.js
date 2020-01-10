@@ -36,6 +36,9 @@ export default {
 	},
 	appointment(data){
 		return $http.post(`/appointment`,data)
+	},
+	addPush(){
+		return $http.put(`/user/add/push`)
 	}
 	//ajax('http://rcxcx.api.95lsy.com/banner')POST /appointment
 }
