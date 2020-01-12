@@ -24,14 +24,14 @@
 /* 垂直间距 */
 /* 透明度 */
 /* 文章场景相关 */
-.show.data-v-5556ead0 {
+.show.data-v-665e3a8a {
   position: relative;
   height: 100%;
   width: 90%;
   margin: 0 auto;
   overflow: hidden;
 }
-.tit1.data-v-5556ead0 {
+.tit1.data-v-665e3a8a {
   margin-top: 90rpx;
   text-align: center;
   font-size: 45rpx;
@@ -39,7 +39,7 @@
   font-weight: 500;
   color: #272f8f;
 }
-.tit2.data-v-5556ead0 {
+.tit2.data-v-665e3a8a {
   margin-top: 20rpx;
   text-align: center;
   font-size: 24rpx;
@@ -47,7 +47,7 @@
   font-weight: 300;
   color: #272f8f;
 }
-.btn.data-v-5556ead0 {
+.btn.data-v-665e3a8a {
   height: 60rpx;
   text-align: center;
   line-height: 60rpx;
@@ -56,27 +56,27 @@
   border-radius: 13rpx;
   color: #fff;
 }
-.footer-wrap.data-v-5556ead0 {
+.footer-wrap.data-v-665e3a8a {
   position: absolute;
   bottom: 0;
   left: 0;
   width: 100%;
   background: #333333;
 }
-.img-show.data-v-5556ead0 {
+.img-show.data-v-665e3a8a {
   height: 520rpx;
 }
-.footer.data-v-5556ead0 {
+.footer.data-v-665e3a8a {
   background: #333333;
 }
-.footer .txt-wrap.data-v-5556ead0 {
+.footer .txt-wrap.data-v-665e3a8a {
     margin: 0 auto;
     padding-top: 35rpx;
     padding-bottom: 40rpx;
     width: 90%;
     text-align: center;
 }
-.footer .text.data-v-5556ead0 {
+.footer .text.data-v-665e3a8a {
     font-size: 25rpx;
     line-height: 40rpx;
     color: #fff;

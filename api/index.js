@@ -46,9 +46,8 @@ export default {
 	}
 	,
 	info(res,sessionKey,token){
-		let param=`sessionKey=${sessionKey}&signature=${res.signature}&
-		rawData=${res.rawData}&encryptedData=${res.encryptedData}&iv=${res.iv}&Authorization=${token}`
-		param = encodeURI(param)
+		let param=`sessionKey=${encodeURI(sessionKey)}&signature=${encodeURI(res.signature)}&
+		rawData=${encodeURI(res.rawData)}&encryptedData=${encodeURI(res.encryptedData)}&iv=${encodeURI(res.iv)}&Authorization=${token}`
 		return $http.get(`/wx/user/${appid}/info?${param}`)
 	}
 	

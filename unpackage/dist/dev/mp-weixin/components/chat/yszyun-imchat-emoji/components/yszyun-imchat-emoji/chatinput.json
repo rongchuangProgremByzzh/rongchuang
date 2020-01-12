@@ -1,6 +1,6 @@
 {
-  "component": true,
   "usingComponents": {
     "emotion": "/components/chat/yszyun-imchat-emoji/components/yszyun-imchat-emoji/Emotion/index"
-  }
+  },
+  "component": true
 }

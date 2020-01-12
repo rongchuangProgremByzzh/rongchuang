@@ -24,15 +24,15 @@
 /* 垂直间距 */
 /* 透明度 */
 /* 文章场景相关 */
-.content.data-v-1c6b4e1d {
+.content.data-v-13e7a640 {
   height: 100%;
   background: url(http://www.zangzhihong.com/pic/static/bg@2x.png) no-repeat;
   background-size: 100% 100%;
 }
-.height1.data-v-1c6b4e1d {
+.height1.data-v-13e7a640 {
   height: 637rpx;
 }
-.height2.data-v-1c6b4e1d {
+.height2.data-v-13e7a640 {
   height: 260rpx;
   display: -webkit-box;
   display: -webkit-flex;
@@ -47,11 +47,11 @@
   background-size: 100% 100%;
   border-radius: 16rpx;
 }
-.txt1.data-v-1c6b4e1d {
+.txt1.data-v-13e7a640 {
   font-size: 30rpx;
   opacity: 1;
 }
-.txt.data-v-1c6b4e1d {
+.txt.data-v-13e7a640 {
   padding: 0 20rpx;
   font-size: 22rpx;
   line-height: 38rpx;

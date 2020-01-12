@@ -1,5 +1,5 @@
 
-page.data-v-5446147c {
+page.data-v-5700420e {
 		width: 100%;
 		height: 100%;
 		display: -webkit-box;
@@ -15,12 +15,12 @@ page.data-v-5446147c {
 		        justify-content: center;
 		background: rgba(249, 249, 249, 1);
 }
-.container.data-v-5446147c{
+.container.data-v-5700420e{
 	width: 100%;
 	height: 100%;
 	overflow: hidden;
 }
-.body-view.data-v-5446147c {
+.body-view.data-v-5700420e {
 		display: -webkit-box;
 		display: -webkit-flex;
 		display: flex;
@@ -41,7 +41,7 @@ page.data-v-5446147c {
 		-webkit-justify-content: center;
 		        justify-content: center;
 }
-.top-menu-view.data-v-5446147c {
+.top-menu-view.data-v-5700420e {
 		display: -webkit-box;
 		display: -webkit-flex;
 		display: flex;
@@ -52,13 +52,13 @@ page.data-v-5446147c {
 		/* 在这里设置导航条高度 */
 		border-bottom: 2rpx solid #eee;
 }
-.top-menu-view .menu-one-view.data-v-5446147c {
+.top-menu-view .menu-one-view.data-v-5700420e {
 		display: inline-block;
 		white-space: nowrap;
 		height: 100%;
 		width: 50%;
 }
-.top-menu-view .menu-one-view .menu-one.data-v-5446147c {
+.top-menu-view .menu-one-view .menu-one.data-v-5700420e {
 		/* 在这里写 单个按钮样式 */
 		margin-left: 25rpx;
 		margin-right: 25rpx;
@@ -74,21 +74,21 @@ page.data-v-5446147c {
 		-webkit-justify-content: center;
 		        justify-content: center;
 }
-.top-menu-view .menu-one-view .menu-one .menu-one-txt.data-v-5446147c {
+.top-menu-view .menu-one-view .menu-one .menu-one-txt.data-v-5700420e {
 		font-size: 30rpx;
 		font-family: PingFang-SC-Regular;
 		color: #222;
 }
-.top-menu-view .menu-one-view .menu-one .menu-one-bottom.data-v-5446147c {
+.top-menu-view .menu-one-view .menu-one .menu-one-bottom.data-v-5700420e {
 		position: absolute;
 		bottom: 0;
 		width: 112%;
 }
-.top-menu-view .menu-one-view .menu-one .menu-one-bottom .menu-one-bottom-color.data-v-5446147c {
+.top-menu-view .menu-one-view .menu-one .menu-one-bottom .menu-one-bottom-color.data-v-5700420e {
 		width: 60%;
 		height: 8rpx;
 }
-.top-menu-view .menu-one-view .menu-one-act.data-v-5446147c {
+.top-menu-view .menu-one-view .menu-one-act.data-v-5700420e {
 		/* 在这里写 单个按钮样式 */
 		margin-left: 25rpx;
 		margin-right: 25rpx;
@@ -104,12 +104,12 @@ page.data-v-5446147c {
 		-webkit-justify-content: center;
 		        justify-content: center;
 }
-.top-menu-view .menu-one-view .menu-one-act .menu-one-txt.data-v-5446147c {
+.top-menu-view .menu-one-view .menu-one-act .menu-one-txt.data-v-5700420e {
 		font-size: 30rpx;
 		font-family: PingFang-SC-Regular;
 		color: #669bdc;
 }
-.top-menu-view .menu-one-view .menu-one-act .menu-one-bottom.data-v-5446147c {
+.top-menu-view .menu-one-view .menu-one-act .menu-one-bottom.data-v-5700420e {
 		position: absolute;
 		bottom: 0;
 		width: 100%;
@@ -120,12 +120,12 @@ page.data-v-5446147c {
 		-webkit-justify-content: center;
 		        justify-content: center;
 }
-.top-menu-view .menu-one-view .menu-one-act .menu-one-bottom .menu-one-bottom-color.data-v-5446147c {
+.top-menu-view .menu-one-view .menu-one-act .menu-one-bottom .menu-one-bottom-color.data-v-5700420e {
 		width: 60%;
 		height: 4rpx;
 		background: rgba(0, 170, 255, 1);
 }
-.swiper-box-list.data-v-5446147c {
+.swiper-box-list.data-v-5700420e {
 		-webkit-box-flex: 1;
 		-webkit-flex: 1;
 		        flex: 1;
@@ -133,11 +133,11 @@ page.data-v-5446147c {
 		height:5000rpx;
 		background-color: #FFFFFF;
 }
-.swiper-one-list.data-v-5446147c {
+.swiper-one-list.data-v-5700420e {
 		height: auto;
 		width: 100%;
 }
-.swiper-one-list .swiper-list-entity.data-v-5446147c {
+.swiper-one-list .swiper-list-entity.data-v-5700420e {
 		display: -webkit-box;
 		display: -webkit-flex;
 		display: flex;
@@ -154,13 +154,13 @@ page.data-v-5446147c {
 		height: auto;
 		padding: 23rpx 25rpx;
 }
-.swiper-one-list .swiper-list-entity view.data-v-5446147c {
+.swiper-one-list .swiper-list-entity view.data-v-5700420e {
 		height: 340rpx;
 		width: 340rpx;
 		border-radius: 20rpx;
 		margin-bottom: 20rpx;
 }
-.swiper-one-list .swiper-list-entity image.data-v-5446147c {
+.swiper-one-list .swiper-list-entity image.data-v-5700420e {
 		height: 100%;
 		width: 100%;
 		border-radius: 20rpx;

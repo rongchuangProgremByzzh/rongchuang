@@ -24,21 +24,21 @@
 /* 垂直间距 */
 /* 透明度 */
 /* 文章场景相关 */
-.content.data-v-0b6b75f2 {
+.content.data-v-7ec20d6f {
   position: relative;
   height: 100%;
 }
-.height1.data-v-0b6b75f2 {
+.height1.data-v-7ec20d6f {
   height: 100%;
 }
-.top.data-v-0b6b75f2 {
+.top.data-v-7ec20d6f {
   position: absolute;
   left: 0;
   top: 364rpx;
   width: 100%;
   height: 260rpx;
 }
-.bottom.data-v-0b6b75f2 {
+.bottom.data-v-7ec20d6f {
   position: absolute;
   left: 0;
   bottom: 364rpx;

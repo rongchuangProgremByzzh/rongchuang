@@ -24,16 +24,16 @@
 /* 垂直间距 */
 /* 透明度 */
 /* 文章场景相关 */
-.height1.data-v-2d53d089 {
+.height1.data-v-371aabec {
   height: 520rpx;
 }
-.box1.data-v-2d53d089 {
+.box1.data-v-371aabec {
   width: 352rpx;
   height: 340rpx;
   left: 0px;
   top: 6rpx;
 }
-.box2.data-v-2d53d089 {
+.box2.data-v-371aabec {
   width: 352rpx;
   height: 340rpx;
   right: 0px;
