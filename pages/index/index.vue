@@ -88,7 +88,7 @@
 			<view class="rt">
 				<div class="video-wrap">
 					<!-- <div class="btn-play"><div class="btn-play-btn"></div></div> -->
-					<video :src="video" controls="false" show-center-play-btn="false"></video>
+					<video :src="video" controls=false show-center-play-btn=false></video>
 				</div>
 
 				<button type="primary" class="registbtn" @click="gotoOtherSmProgram()">幸福通 | 立即注册</button>
@@ -247,15 +247,15 @@
 		},
 		mounted() {
 			
-			// this.$http.banner().then(res => {
-			// 	this.bannerList = res.data;
-			// });
-			// this.$http.videoIndex().then(res => {
-			// 	this.video = res.data.videoUrl;
-			// });
-			// this.$http.getPhone().then(res => {
-			// 	this.phone = res.data;
-			// });
+			this.$http.banner().then(res => {
+				this.bannerList = res.data;
+			});
+			this.$http.videoIndex().then(res => {
+				this.video = res.data.videoUrl;
+			});
+			this.$http.getPhone().then(res => {
+				this.phone = res.data;
+			});
 			// uni.login({
 			//   provider: 'weixin',
 			//   success:  (loginRes)=> {

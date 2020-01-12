@@ -101,11 +101,18 @@
 			//向后台更新信息
 			updateUserInfo(userinfo) {
 				console.log(userinfo);
-				this.$http.info(userinfo,uni.getStorageSync('sessionKey'))
-				
-				uni.reLaunch({ //信息更新成功后跳转到小程序首页
-					url: '/pages/index/index'
-				});
+				let token=uni.getStorage({
+    key: 'token',
+    success:  (res)=>{
+        console.log(res.data);
+		this.$http.info(userinfo,uni.getStorageSync('sessionKey'),res.data)
+		
+		uni.reLaunch({ //信息更新成功后跳转到小程序首页
+			url: '/pages/index/index'
+		});
+    }
+});
+			
 				// let _this = this;
 				// uni.request({
 				//     url:'url' ,//服务器端地址

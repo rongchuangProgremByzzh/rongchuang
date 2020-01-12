@@ -45,8 +45,9 @@ export default {
 		return $http.get(`/wx/user/${appid}/login?code=${code}`)
 	}
 	,
-	info(res,sessionKey){
-		let param=`sessionKey=${sessionKey}&signature=${res.signature}&rawData=${res.rawData}&encryptedData=${res.encryptedData}&iv=${res.iv}`
+	info(res,sessionKey,token){
+		let param=`sessionKey=${sessionKey}&signature=${res.signature}&
+		rawData=${res.rawData}&encryptedData=${res.encryptedData}&iv=${res.iv}&Authorization=${token}`
 		param = encodeURI(param)
 		return $http.get(`/wx/user/${appid}/info?${param}`)
 	}
