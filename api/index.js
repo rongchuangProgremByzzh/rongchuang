@@ -38,8 +38,8 @@ export default {
 	appointment(data){
 		return $http.post(`/appointment`,data)
 	},
-	addPush(){
-		return $http.put(`/user/add/push`)
+	addPush(token){
+		return $http.put(`/user/add/push?Authorization=${token}`)
 	},
 	wxlogin(code){
 		return $http.get(`/wx/user/${appid}/login?code=${code}`)
@@ -49,6 +49,12 @@ export default {
 		let param=`sessionKey=${encodeURI(sessionKey)}&signature=${encodeURI(res.signature)}&
 		rawData=${encodeURI(res.rawData)}&encryptedData=${encodeURI(res.encryptedData)}&iv=${encodeURI(res.iv)}&Authorization=${token}`
 		return $http.get(`/wx/user/${appid}/info?${param}`)
+	},
+	bind(id,token){
+		return $http.put(`/user/bing?userId=${id}&Authorization=${token}`)
+	},
+	people(token){
+		return $http.get(`/user/people?Authorization=${token}`)
 	}
 	
 	//ajax('http://rcxcx.api.95lsy.com/banner')POST /appointment

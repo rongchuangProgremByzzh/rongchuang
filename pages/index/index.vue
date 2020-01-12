@@ -4,7 +4,7 @@
 		<div class="like" @click="scrollTolast(800)"></div>
 		<div class="chat" @click="callPhone()"></div>
 		
-		<button v-if="role===1" class="phone" open-type="contact"></button>
+		<button v-if="role===1" class="phone" open-type="contact" @click="gotoChat()"></button>
 		<div v-else class="phone" @click="gotoChat()"></div>
 		<div class="location" @click="scrollTolast(1000)"></div>
 		<view class="swiper">
@@ -88,7 +88,7 @@
 			<view class="rt">
 				<div class="video-wrap">
 					<!-- <div class="btn-play"><div class="btn-play-btn"></div></div> -->
-					<video :src="video" controls=false show-center-play-btn=false></video>
+					<video :src="video" controls="false" show-center-play-btn="false"></video>
 				</div>
 
 				<button type="primary" class="registbtn" @click="gotoOtherSmProgram()">幸福通 | 立即注册</button>
@@ -190,11 +190,14 @@
 				});
 			},
 			gotoChat() {
+				console.log('999');
+				
 				uni.requestSubscribeMessage({
 					tmplIds: ['qKB8IPuaKbi5KAEIpjeGRuQew2BYf_wOnestHbXIAzw'],
 					success: (res) => {
 						if (res.qKB8IPuaKbi5KAEIpjeGRuQew2BYf_wOnestHbXIAzw === 'accept') {
-							this.$http.addPush().then(res => {
+							let token=uni.getStorageSync('token')
+							this.$http.addPush(token).then(res => {
 								uni.navigateTo({
 									url: '/pages/message/index'
 								});
@@ -245,6 +248,7 @@
 				// });
 			}
 		},
+
 		mounted() {
 			
 			this.$http.banner().then(res => {

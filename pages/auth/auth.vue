@@ -62,6 +62,7 @@
 					success: (loginRes)=>{
 						let code = loginRes.code;
 						this.$http.wxlogin(loginRes.code).then(res => {
+							uni.setStorageSync('shareid', res.data.id);//分享id
 							uni.setStorageSync('token', res.data.token);
 							uni.setStorageSync('sessionKey', res.data.sessionKey);
 							if (!_this.isCanUse) {
@@ -80,61 +81,25 @@
 								});
 							}
 						})
-						// //2.将用户登录code传递到后台置换用户SessionKey、OpenId等信息
-						// uni.request({
-						//     url: '服务器地址',
-						//     data: {
-						//         code: code,
-						//     },
-						//     method: 'GET',
-						//     header: {
-						//         'content-type': 'application/json'
-						//     },
-						//     success: (res) => {
-						//         //openId、或SessionKdy存储//隐藏loading
-						//         uni.hideLoading();
-						//     }
-						// });
+					
 					},
 				});
 			},
 			//向后台更新信息
 			updateUserInfo(userinfo) {
 				console.log(userinfo);
-				let token=uni.getStorage({
+				uni.getStorage({
     key: 'token',
     success:  (res)=>{
         console.log(res.data);
 		this.$http.info(userinfo,uni.getStorageSync('sessionKey'),res.data)
 		
-		uni.reLaunch({ //信息更新成功后跳转到小程序首页
-			url: '/pages/index/index'
+		uni.redirectTo({ //信息更新成功后跳转到小程序首页
+			url: '/pages/index/index?id=5555'
 		});
     }
 });
 			
-				// let _this = this;
-				// uni.request({
-				//     url:'url' ,//服务器端地址
-				//     data: {
-				//         appKey: this.$store.state.appKey,
-				//         customerId: _this.customerId,
-				//         nickName: _this.nickName,
-				//         headUrl: _this.avatarUrl
-				//     },
-				//     method: 'POST',
-				//     header: {
-				//         'content-type': 'application/json'
-				//     },
-				//     success: (res) => {
-				//         if (res.data.state == "success") {
-				//             uni.reLaunch({//信息更新成功后跳转到小程序首页
-				//                 url: '/pages/index/index'
-				//             });
-				//         }
-				//     }
-
-				// });
 			}
 		},
 		onLoad() { //默认加载

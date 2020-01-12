@@ -14,6 +14,12 @@
 		  return {
 		   
 		  }
+		},
+		mounted() {
+			let token=uni.getStorageSync('token')
+			this.$http.people(token).then(res=>{
+				
+			})
 		}
 	}
 </script>
