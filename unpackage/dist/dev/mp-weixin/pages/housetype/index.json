@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+    "house-view": "/pages/houseview/index"
+  }
+}

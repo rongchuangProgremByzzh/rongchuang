@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+    "yn-gallery": "/components/YnComponents/ynGallery/ynGallery"
+  }
+}

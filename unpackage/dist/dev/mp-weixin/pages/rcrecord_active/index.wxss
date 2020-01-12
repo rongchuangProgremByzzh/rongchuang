@@ -1,0 +1,168 @@
+
+page.data-v-97e8fe0e {
+		width: 100%;
+		height: 100%;
+		display: -webkit-box;
+		display: -webkit-flex;
+		display: flex;
+		-webkit-flex-wrap: wrap;
+		        flex-wrap: wrap;
+		-webkit-box-align: start;
+		-webkit-align-items: flex-start;
+		        align-items: flex-start;
+		-webkit-box-pack: center;
+		-webkit-justify-content: center;
+		        justify-content: center;
+		background: rgba(249, 249, 249, 1);
+}
+.container.data-v-97e8fe0e{
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+}
+.body-view.data-v-97e8fe0e {
+		display: -webkit-box;
+		display: -webkit-flex;
+		display: flex;
+		-webkit-box-flex: 1;
+		-webkit-flex: 1;
+		        flex: 1;
+		-webkit-box-orient: vertical;
+		-webkit-box-direction: normal;
+		-webkit-flex-direction: column;
+		        flex-direction: column;
+		overflow: hidden;
+		height: 100%;
+		width: 100%;
+		-webkit-box-align: start;
+		-webkit-align-items: flex-start;
+		        align-items: flex-start;
+		-webkit-box-pack: center;
+		-webkit-justify-content: center;
+		        justify-content: center;
+}
+.top-menu-view.data-v-97e8fe0e {
+		display: -webkit-box;
+		display: -webkit-flex;
+		display: flex;
+		white-space: nowrap;
+		width: 100%;
+		background-color: #FFFFFF;
+		height: 112rpx;
+		/* 在这里设置导航条高度 */
+		border-bottom: 2rpx solid #eee;
+}
+.top-menu-view .menu-one-view.data-v-97e8fe0e {
+		display: inline-block;
+		white-space: nowrap;
+		height: 100%;
+		width: 50%;
+}
+.top-menu-view .menu-one-view .menu-one.data-v-97e8fe0e {
+		/* 在这里写 单个按钮样式 */
+		margin-left: 25rpx;
+		margin-right: 25rpx;
+		position: relative;
+		height: 100%;
+		display: -webkit-box;
+		display: -webkit-flex;
+		display: flex;
+		-webkit-box-align: center;
+		-webkit-align-items: center;
+		        align-items: center;
+		-webkit-box-pack: center;
+		-webkit-justify-content: center;
+		        justify-content: center;
+}
+.top-menu-view .menu-one-view .menu-one .menu-one-txt.data-v-97e8fe0e {
+		font-size: 30rpx;
+		font-family: PingFang-SC-Regular;
+		color: #222;
+}
+.top-menu-view .menu-one-view .menu-one .menu-one-bottom.data-v-97e8fe0e {
+		position: absolute;
+		bottom: 0;
+		width: 112%;
+}
+.top-menu-view .menu-one-view .menu-one .menu-one-bottom .menu-one-bottom-color.data-v-97e8fe0e {
+		width: 60%;
+		height: 8rpx;
+}
+.top-menu-view .menu-one-view .menu-one-act.data-v-97e8fe0e {
+		/* 在这里写 单个按钮样式 */
+		margin-left: 25rpx;
+		margin-right: 25rpx;
+		position: relative;
+		height: 100%;
+		display: -webkit-box;
+		display: -webkit-flex;
+		display: flex;
+		-webkit-box-align: center;
+		-webkit-align-items: center;
+		        align-items: center;
+		-webkit-box-pack: center;
+		-webkit-justify-content: center;
+		        justify-content: center;
+}
+.top-menu-view .menu-one-view .menu-one-act .menu-one-txt.data-v-97e8fe0e {
+		font-size: 30rpx;
+		font-family: PingFang-SC-Regular;
+		color: #669bdc;
+}
+.top-menu-view .menu-one-view .menu-one-act .menu-one-bottom.data-v-97e8fe0e {
+		position: absolute;
+		bottom: 0;
+		width: 100%;
+		display: -webkit-box;
+		display: -webkit-flex;
+		display: flex;
+		-webkit-box-pack: center;
+		-webkit-justify-content: center;
+		        justify-content: center;
+}
+.top-menu-view .menu-one-view .menu-one-act .menu-one-bottom .menu-one-bottom-color.data-v-97e8fe0e {
+		width: 60%;
+		height: 4rpx;
+		background: rgba(0, 170, 255, 1);
+}
+.swiper-box-list.data-v-97e8fe0e {
+		-webkit-box-flex: 1;
+		-webkit-flex: 1;
+		        flex: 1;
+		width: 100%;
+		height:5000rpx;
+		background-color: #FFFFFF;
+}
+.swiper-one-list.data-v-97e8fe0e {
+		height: auto;
+		width: 100%;
+}
+.swiper-one-list .swiper-list-entity.data-v-97e8fe0e {
+		display: -webkit-box;
+		display: -webkit-flex;
+		display: flex;
+		-webkit-box-pack: justify;
+		-webkit-justify-content: space-between;
+		        justify-content: space-between;
+		-webkit-box-orient: horizontal;
+		-webkit-box-direction: normal;
+		-webkit-flex-direction: row;
+		        flex-direction: row;
+            -webkit-flex-wrap: wrap;
+                    flex-wrap: wrap;
+		width: 100%;
+		height: auto;
+		padding: 23rpx 25rpx;
+}
+.swiper-one-list .swiper-list-entity view.data-v-97e8fe0e {
+		height: 340rpx;
+		width: 340rpx;
+		border-radius: 20rpx;
+		margin-bottom: 20rpx;
+}
+.swiper-one-list .swiper-list-entity image.data-v-97e8fe0e {
+		height: 100%;
+		width: 100%;
+		border-radius: 20rpx;
+}
+

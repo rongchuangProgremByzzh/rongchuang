@@ -1,0 +1,1 @@
+<view class="content _div"><web-view src="{{vr}}"></web-view></view>

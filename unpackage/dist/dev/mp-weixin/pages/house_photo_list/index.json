@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "uni-app",
+  "usingComponents": {
+    "bw-swiper": "/components/wxcomponents/bw-swiper/bw-swiper"
+  }
+}

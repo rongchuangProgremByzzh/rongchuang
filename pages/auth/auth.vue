@@ -37,12 +37,12 @@
                 uni.getUserInfo({
                     provider: 'weixin',
                     success: function(infoRes) {
-						console.log(infoRes);
+						
                         let nickName = infoRes.userInfo.nickName; //昵称
                         let avatarUrl = infoRes.userInfo.avatarUrl; //头像
                         try {
                             uni.setStorageSync('isCanUse', false);//记录是否第一次授权  false:表示不是第一次授权
-                            _this.updateUserInfo();
+                            _this.updateUserInfo(infoRes);
                         } catch (e) {}
                     },
                     fail(res) {}
@@ -52,16 +52,17 @@
 　　　　　　//登录
                 login() {
                 let _this = this;
-                uni.showLoading({
-                    title: '登录中...'
-                });
+                // uni.showLoading({
+                //     title: '登录中...'
+                // });
              
                // 1.wx获取登录用户code
                 uni.login({
                     provider: 'weixin',
                     success: function(loginRes) {
-						console.log(loginRes);
                         let code = loginRes.code;
+						console.log(_this.isCanUse);
+						console.log(!_this.isCanUse);
                         if (!_this.isCanUse) {
                             //非第一次授权获取用户信息
                             uni.getUserInfo({
@@ -70,56 +71,64 @@
  　　　　　　　　　　　　　　　　　　　　　　//获取用户信息后向调用信息更新方法
                                     let nickName = infoRes.userInfo.nickName; //昵称
                                     let avatarUrl = infoRes.userInfo.avatarUrl; //头像
-                                        _this.updateUserInfo();//调用更新信息方法
+									console.log(nickName);
+                                        _this.updateUserInfo(infoRes);//调用更新信息方法
+									    // uni.hideLoading();
+										
                                 }
                             });
                         }
             
-                        //2.将用户登录code传递到后台置换用户SessionKey、OpenId等信息
-                        uni.request({
-                            url: '服务器地址',
-                            data: {
-                                code: code,
-                            },
-                            method: 'GET',
-                            header: {
-                                'content-type': 'application/json'
-                            },
-                            success: (res) => {
-                                //openId、或SessionKdy存储//隐藏loading
-                                uni.hideLoading();
-                            }
-                        });
+                        // //2.将用户登录code传递到后台置换用户SessionKey、OpenId等信息
+                        // uni.request({
+                        //     url: '服务器地址',
+                        //     data: {
+                        //         code: code,
+                        //     },
+                        //     method: 'GET',
+                        //     header: {
+                        //         'content-type': 'application/json'
+                        //     },
+                        //     success: (res) => {
+                        //         //openId、或SessionKdy存储//隐藏loading
+                        //         uni.hideLoading();
+                        //     }
+                        // });
                     },
                 });
             },
          //向后台更新信息
-            updateUserInfo() {
-                let _this = this;
-                uni.request({
-                    url:'url' ,//服务器端地址
-                    data: {
-                        appKey: this.$store.state.appKey,
-                        customerId: _this.customerId,
-                        nickName: _this.nickName,
-                        headUrl: _this.avatarUrl
-                    },
-                    method: 'POST',
-                    header: {
-                        'content-type': 'application/json'
-                    },
-                    success: (res) => {
-                        if (res.data.state == "success") {
-                            uni.reLaunch({//信息更新成功后跳转到小程序首页
-                                url: '/pages/index/index'
-                            });
-                        }
-                    }
+            updateUserInfo(userinfo) {
+				console.log(userinfo);
+				uni.reLaunch({//信息更新成功后跳转到小程序首页
+				    url: '/pages/index/index'
+				});
+                // let _this = this;
+                // uni.request({
+                //     url:'url' ,//服务器端地址
+                //     data: {
+                //         appKey: this.$store.state.appKey,
+                //         customerId: _this.customerId,
+                //         nickName: _this.nickName,
+                //         headUrl: _this.avatarUrl
+                //     },
+                //     method: 'POST',
+                //     header: {
+                //         'content-type': 'application/json'
+                //     },
+                //     success: (res) => {
+                //         if (res.data.state == "success") {
+                //             uni.reLaunch({//信息更新成功后跳转到小程序首页
+                //                 url: '/pages/index/index'
+                //             });
+                //         }
+                //     }
                    
-                });
+                // });
             }
         },
         onLoad() {//默认加载
+		
             this.login();
         }
     }

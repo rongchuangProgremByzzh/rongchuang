@@ -1,5 +1,6 @@
 import ajax from './request.js'
 import $http from './zhouWei-request/requestConfig.js';
+const appid=`wxead2ae5bf7837720`;
 export default {
 	banner() {
 		return $http.get('/banner')
@@ -39,6 +40,10 @@ export default {
 	},
 	addPush(){
 		return $http.put(`/user/add/push`)
+	},
+	wxlogin(){
+		return $http.get(`/wx/user/${appid}/login`)
 	}
+	
 	//ajax('http://rcxcx.api.95lsy.com/banner')POST /appointment
 }

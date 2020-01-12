@@ -1,0 +1,52 @@
+{
+  "pages": [
+    "pages/auth/auth",
+    "pages/index/index",
+    "pages/progress/index",
+    "pages/3d_show/index1",
+    "pages/long2/index",
+    "pages/seven_type/index",
+    "pages/longimg/index",
+    "pages/shapan/index",
+    "pages/housetype/index",
+    "pages/xuanchuan/index",
+    "pages/zixun/index",
+    "pages/zixun/list",
+    "pages/zixun/news",
+    "pages/webview/index",
+    "pages/rcrecord_active/index",
+    "pages/3d_show/index",
+    "pages/rcly/index",
+    "pages/rcly/3",
+    "pages/rcly/1",
+    "pages/rcly/2",
+    "pages/park/index",
+    "pages/houseview/index",
+    "pages/house_photo_list/index",
+    "pages/seven_item/1",
+    "pages/seven_item/2",
+    "pages/seven_item/3",
+    "pages/seven_item/4",
+    "pages/seven_item/5",
+    "pages/seven_item/6",
+    "pages/seven_item/7",
+    "pages/seven_item/8",
+    "pages/seven_item/9",
+    "pages/project/index",
+    "pages/chat/index",
+    "pages/message/index",
+    "components/sea_world"
+  ],
+  "subPackages": [],
+  "window": {
+    "navigationBarTextStyle": "black",
+    "navigationStyle": "default",
+    "navigationBarBackgroundColor": "#F8F8F8",
+    "backgroundColor": "#F8F8F8"
+  },
+  "permission": {},
+  "usingComponents": {
+    "whitebox": "/components/black_box"
+  },
+  "sitemapLocation": "sitemap44.json"
+}

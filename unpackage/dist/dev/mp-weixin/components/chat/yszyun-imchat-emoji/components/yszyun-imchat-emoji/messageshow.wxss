@@ -1,0 +1,108 @@
+
+.m-item {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-box-orient: horizontal;
+	-webkit-box-direction: normal;
+	-webkit-flex-direction: row;
+	        flex-direction: row;
+	padding-top: 40rpx;
+}
+.m-left {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: flex;
+	width: 120rpx;
+	-webkit-box-pack: center;
+	-webkit-justify-content: center;
+	        justify-content: center;
+	-webkit-box-align: start;
+	-webkit-align-items: flex-start;
+	        align-items: flex-start;
+}
+.m-content {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-box-flex: 1;
+	-webkit-flex: 1;
+	        flex: 1;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	-webkit-flex-direction: column;
+	        flex-direction: column;
+	-webkit-box-pack: center;
+	-webkit-justify-content: center;
+	        justify-content: center;
+	word-break: break-all;
+}
+.m-right {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: flex;
+	width: 120rpx;
+	-webkit-box-pack: center;
+	-webkit-justify-content: center;
+	        justify-content: center;
+	-webkit-box-align: start;
+	-webkit-align-items: flex-start;
+	        align-items: flex-start;
+}
+.head_icon {
+	width: 80rpx;
+	height: 80rpx;
+}
+.m-content-head {
+	position: relative;
+}
+.m-content-head-right {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-box-pack: end;
+	-webkit-justify-content: flex-end;
+	        justify-content: flex-end;
+}
+.m-content-head-home {
+	text-align: left;
+	background: #B5B8E1;
+	border: 1px #B5B8E1 solid;
+	border-radius: 20rpx;
+	padding: 20rpx;
+	font-size:21rpx;
+	letter-spacing: 2rpx;
+	line-height: 40rpx;
+	color: white;
+	display: inline-block;
+}
+.m-content-head-home:before {
+	border: 15rpx solid transparent;
+	border-right: 15rpx solid #B5B8E1;
+	left: -26rpx;
+	width: 0;
+	height: 0;
+	position: absolute;
+	content: ' '
+}
+.m-content-head-customer {
+	border: 1rpx white solid;
+	background: #9EA5FF;
+	font-size:21rpx;
+	line-height: 40rpx;
+	letter-spacing: 2rpx;
+	color: white;
+	border-radius: 20rpx;
+	padding: 20rpx;
+}
+.m-content-head-customer:after {
+	border: 15rpx solid transparent;
+	border-left: 15rpx solid #9EA5FF;
+	top: 20rpx;
+	right: -26rpx;
+	width: 0;
+	height: 0;
+	position: absolute;
+	content: ' '
+}
+

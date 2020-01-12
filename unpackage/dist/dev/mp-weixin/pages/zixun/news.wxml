@@ -1,0 +1,1 @@
+<view class="content _div data-v-435c113d"><view class="content-wrap _div data-v-435c113d"><view class="title _div data-v-435c113d">{{newsList.title}}</view><view class="time _div data-v-435c113d">{{$root.f0}}</view><rich-text nodes="{{content}}" class="data-v-435c113d"></rich-text></view></view>

@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+    "movable-swiper": "/components/3d_swiper/index"
+  }
+}

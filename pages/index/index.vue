@@ -247,16 +247,18 @@
 		},
 		mounted() {
 			
-			this.$http.banner().then(res => {
-				this.bannerList = res.data;
-			});
-			this.$http.videoIndex().then(res => {
-				this.video = res.data.videoUrl;
-			});
-			this.$http.getPhone().then(res => {
-				this.phone = res.data;
-			});
-			
+			// this.$http.banner().then(res => {
+			// 	this.bannerList = res.data;
+			// });
+			// this.$http.videoIndex().then(res => {
+			// 	this.video = res.data.videoUrl;
+			// });
+			// this.$http.getPhone().then(res => {
+			// 	this.phone = res.data;
+			// });
+			this.$http.wxlogin().then(res=>{
+				console.log(res);
+			})
 		}
 	};
 </script>

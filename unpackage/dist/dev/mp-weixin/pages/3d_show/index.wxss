@@ -1,0 +1,33 @@
+
+.content.data-v-583c05c1{
+	  height: 100%;
+	  background: url(http://www.zangzhihong.com/pic/static/bg@2x.png) no-repeat;
+	 background-size: 100% 100%;
+}
+.height1.data-v-583c05c1{
+		height:756rpx;
+}
+.height2.data-v-583c05c1{
+			height: 250rpx;
+			display: -webkit-box;
+			display: -webkit-flex;
+			display: flex;
+			-webkit-box-align: center;
+			-webkit-align-items: center;
+			        align-items: center;
+			-webkit-box-pack: center;
+			-webkit-justify-content: center;
+			        justify-content: center;
+			background: url('http://www.zangzhihong.com/pic/static/park/3@2x.png') no-repeat;
+			background-size: 100% 100%;
+			border-radius: 12rpx;
+}
+.txt.data-v-583c05c1{
+	
+	padding: 0 20rpx;
+
+	font-size:22rpx;
+	line-height: 38rpx;
+	color: #fff;
+}
+
