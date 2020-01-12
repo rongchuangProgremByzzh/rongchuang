@@ -8,7 +8,7 @@ let $http = new request({
 	fileUrl: baseUrl,
 	//设置请求头
 	headers: {
-		'content-type': 'application/json;charset=UTF-8'
+		'content-type': 'application/json;charset=UTF-8',
 	},
 	//以下是默认值可不写
 	//是否提示--默认提示

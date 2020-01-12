@@ -44,6 +44,12 @@ export default {
 	wxlogin(code){
 		return $http.get(`/wx/user/${appid}/login?code=${code}`)
 	}
+	,
+	info(res,sessionKey){
+		let param=`sessionKey=${sessionKey}&signature=${res.signature}&rawData=${res.rawData}&encryptedData=${res.encryptedData}&iv=${res.iv}`
+		param = encodeURI(param)
+		return $http.get(`/wx/user/${appid}/info?${param}`)
+	}
 	
 	//ajax('http://rcxcx.api.95lsy.com/banner')POST /appointment
 }

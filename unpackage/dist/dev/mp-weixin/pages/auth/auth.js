@@ -186,24 +186,24 @@ var _default =
         success: function success(loginRes) {
           var code = loginRes.code;
           _this2.$http.wxlogin(loginRes.code).then(function (res) {
-            console.log(res);
+            uni.setStorageSync('token', res.data.token);
+            uni.setStorageSync('sessionKey', res.data.sessionKey);
+            if (!_this.isCanUse) {
+              //非第一次授权获取用户信息
+              uni.getUserInfo({
+                provider: 'weixin',
+                success: function success(infoRes) {
+                  //获取用户信息后向调用信息更新方法
+                  var nickName = infoRes.userInfo.nickName; //昵称
+                  var avatarUrl = infoRes.userInfo.avatarUrl; //头像
+                  console.log(nickName);
+                  _this.updateUserInfo(infoRes); //调用更新信息方法
+                  // uni.hideLoading();
+
+                } });
+
+            }
           });
-          if (!_this.isCanUse) {
-            //非第一次授权获取用户信息
-            uni.getUserInfo({
-              provider: 'weixin',
-              success: function success(infoRes) {
-                //获取用户信息后向调用信息更新方法
-                var nickName = infoRes.userInfo.nickName; //昵称
-                var avatarUrl = infoRes.userInfo.avatarUrl; //头像
-                console.log(nickName);
-                _this.updateUserInfo(infoRes); //调用更新信息方法
-                // uni.hideLoading();
-
-              } });
-
-          }
-
           // //2.将用户登录code传递到后台置换用户SessionKey、OpenId等信息
           // uni.request({
           //     url: '服务器地址',
@@ -225,6 +225,8 @@ var _default =
     //向后台更新信息
     updateUserInfo: function updateUserInfo(userinfo) {
       console.log(userinfo);
+      this.$http.info(userinfo, uni.getStorageSync('sessionKey'));
+
       uni.reLaunch({ //信息更新成功后跳转到小程序首页
         url: '/pages/index/index' });
 

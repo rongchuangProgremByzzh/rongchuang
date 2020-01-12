@@ -2491,6 +2491,12 @@ var appid = "wxead2ae5bf7837720";var _default =
   },
   wxlogin: function wxlogin(code) {
     return _requestConfig.default.get("/wx/user/".concat(appid, "/login?code=").concat(code));
+  },
+
+  info: function info(res, sessionKey) {
+    var param = "sessionKey=".concat(sessionKey, "&signature=").concat(res.signature, "&rawData=").concat(res.rawData, "&encryptedData=").concat(res.encryptedData, "&iv=").concat(res.iv);
+    param = encodeURI(param);
+    return _requestConfig.default.get("/wx/user/".concat(appid, "/info?").concat(param));
   }
 
   //ajax('http://rcxcx.api.95lsy.com/banner')POST /appointment
