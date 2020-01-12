@@ -59,10 +59,11 @@
                // 1.wx获取登录用户code
                 uni.login({
                     provider: 'weixin',
-                    success: function(loginRes) {
+                    success: (loginRes)=> {
                         let code = loginRes.code;
-						console.log(_this.isCanUse);
-						console.log(!_this.isCanUse);
+						this.$http.wxlogin(loginRes.code).then(res=>{
+							console.log(res);
+						})
                         if (!_this.isCanUse) {
                             //非第一次授权获取用户信息
                             uni.getUserInfo({

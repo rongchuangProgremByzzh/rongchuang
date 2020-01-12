@@ -174,7 +174,7 @@ var _default =
     },
 
     //登录
-    login: function login() {
+    login: function login() {var _this2 = this;
       var _this = this;
       // uni.showLoading({
       //     title: '登录中...'
@@ -185,8 +185,9 @@ var _default =
         provider: 'weixin',
         success: function success(loginRes) {
           var code = loginRes.code;
-          console.log(_this.isCanUse);
-          console.log(!_this.isCanUse);
+          _this2.$http.wxlogin(loginRes.code).then(function (res) {
+            console.log(res);
+          });
           if (!_this.isCanUse) {
             //非第一次授权获取用户信息
             uni.getUserInfo({

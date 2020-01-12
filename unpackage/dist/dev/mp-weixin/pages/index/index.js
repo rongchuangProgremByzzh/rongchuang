@@ -369,7 +369,7 @@ var _default = {
       // });
     } },
 
-  mounted: function mounted() {var _this2 = this;
+  mounted: function mounted() {
 
     // this.$http.banner().then(res => {
     // 	this.bannerList = res.data;
@@ -380,14 +380,14 @@ var _default = {
     // this.$http.getPhone().then(res => {
     // 	this.phone = res.data;
     // });
-    uni.login({
-      provider: 'weixin',
-      success: function success(loginRes) {
-        _this2.$http.wxlogin(loginRes.code).then(function (res) {
-          console.log(res);
-        });
-      } });
-
+    // uni.login({
+    //   provider: 'weixin',
+    //   success:  (loginRes)=> {
+    // 	this.$http.wxlogin(loginRes.code).then(res=>{
+    // 		console.log(res);
+    // 	})
+    //   }
+    // });
   } };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
