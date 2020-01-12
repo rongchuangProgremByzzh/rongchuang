@@ -24,7 +24,7 @@
 /* 垂直间距 */
 /* 透明度 */
 /* 文章场景相关 */
-.scale-wrap.data-v-74f82e71 {
+.scale-wrap.data-v-d6fbdf1e {
   height: 100%;
   width: 100%;
   display: -webkit-box;
@@ -35,7 +35,7 @@
   -webkit-flex-direction: column;
           flex-direction: column;
 }
-movable-area.data-v-74f82e71 {
+movable-area.data-v-d6fbdf1e {
   -webkit-box-flex: 1;
   -webkit-flex: 1;
           flex: 1;
@@ -43,25 +43,25 @@ movable-area.data-v-74f82e71 {
   background-color: #d8d8d8;
   overflow: hidden;
 }
-.Item.data-v-74f82e71 {
+.Item.data-v-d6fbdf1e {
   width: 800px;
   height: 500px;
 }
-.switch-tab-view.data-v-74f82e71 {
+.switch-tab-view.data-v-d6fbdf1e {
   position: relative;
   white-space: nowrap;
   width: 100%;
   height: 160rpx;
   background: #333333;
 }
-.switch-tab-view .tab-item.data-v-74f82e71 {
+.switch-tab-view .tab-item.data-v-d6fbdf1e {
     display: inline-block;
     text-align: center;
     margin: 0 30rpx;
     margin-top: 16rpx;
     width: 100rpx;
 }
-.switch-tab-view .tab-item .thumb.data-v-74f82e71 {
+.switch-tab-view .tab-item .thumb.data-v-d6fbdf1e {
       width: 100rpx;
       height: 70rpx;
       border-radius: 6rpx;
@@ -70,19 +70,19 @@ movable-area.data-v-74f82e71 {
       -webkit-filter: gray;
               filter: gray;
 }
-.switch-tab-view .tab-item .desc.data-v-74f82e71 {
+.switch-tab-view .tab-item .desc.data-v-d6fbdf1e {
       font-size: 20rpx;
       color: #cccccc;
 }
-.switch-tab-view .tab-item .active.desc.data-v-74f82e71 {
+.switch-tab-view .tab-item .active.desc.data-v-d6fbdf1e {
       color: #fff;
 }
-.switch-tab-view .tab-item .active.thumb.data-v-74f82e71 {
+.switch-tab-view .tab-item .active.thumb.data-v-d6fbdf1e {
       -webkit-filter: none;
               filter: none;
       border: 1px solid #f39903;
 }
-.switch-tab-view.data-v-74f82e71::before {
+.switch-tab-view.data-v-d6fbdf1e::before {
   content: '';
   position: absolute;
   bottom: 160rpx;

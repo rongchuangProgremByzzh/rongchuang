@@ -256,9 +256,14 @@
 			// this.$http.getPhone().then(res => {
 			// 	this.phone = res.data;
 			// });
-			this.$http.wxlogin().then(res=>{
-				console.log(res);
-			})
+			uni.login({
+			  provider: 'weixin',
+			  success:  (loginRes)=> {
+				this.$http.wxlogin(loginRes.code).then(res=>{
+					console.log(res);
+				})
+			  }
+			});
 		}
 	};
 </script>

@@ -1,1 +1,1 @@
-<view class="message data-v-4a3792dd"><block wx:for="{{10}}" wx:for-item="item" wx:for-index="__i0__"><item vue-id="{{'1-'+__i0__}}" class="data-v-4a3792dd" bind:__l="__l"></item></block></view>
+<view class="message data-v-1be9f0dd"><block wx:for="{{10}}" wx:for-item="item" wx:for-index="__i0__"><item vue-id="{{'1-'+__i0__}}" class="data-v-1be9f0dd" bind:__l="__l"></item></block></view>

@@ -41,8 +41,8 @@ export default {
 	addPush(){
 		return $http.put(`/user/add/push`)
 	},
-	wxlogin(){
-		return $http.get(`/wx/user/${appid}/login`)
+	wxlogin(code){
+		return $http.get(`/wx/user/${appid}/login?code=${code}`)
 	}
 	
 	//ajax('http://rcxcx.api.95lsy.com/banner')POST /appointment
