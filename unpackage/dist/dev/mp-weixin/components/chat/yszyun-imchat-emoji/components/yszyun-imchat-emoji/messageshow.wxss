@@ -7,7 +7,8 @@
 	-webkit-box-direction: normal;
 	-webkit-flex-direction: row;
 	        flex-direction: row;
-	padding-top: 40rpx;
+	padding-top: 20rpx;
+	margin-bottom: 20rpx;
 }
 .m-left {
 	display: -webkit-box;

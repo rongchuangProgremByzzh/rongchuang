@@ -68,7 +68,7 @@ $http.dataFactory = function (options, resolve) {
 		result: ""
 	};
 	//判断数据是否请求成功
-	if (resolve.data.code==1001) {
+	if (resolve.data.code<2000) {
 		callback.success = true;
 		callback.result = resolve.data;
 	} else if (resolve.data.code == "1004" || resolve.data.code == "1005") {

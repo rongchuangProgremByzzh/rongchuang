@@ -47,5 +47,6 @@
   "permission": {},
   "usingComponents": {
     "whitebox": "/components/black_box"
-  }
+  },
+  "sitemapLocation": "sitemap93.json"
 }

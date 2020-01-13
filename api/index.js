@@ -56,6 +56,6 @@ export default {
 	people(token){
 		return $http.get(`/user/people?Authorization=${token}`)
 	}
-	
+	,
 	//ajax('http://rcxcx.api.95lsy.com/banner')POST /appointment
 }

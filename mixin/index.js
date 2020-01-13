@@ -15,10 +15,10 @@ export default {
 		console.log(option); //打印出上个页面传递的参数。
 		console.log(option.name); //打印出上个页面传递的参数。
 		if(option.id){
-			let id=uni.getStorageSync('shareid');
+			
 			let token=uni.getStorageSync('token')
-			this.$http.bind(id,token).then(res=>{
-				console.log(res);
+			this.$http.bind(option.id,token).then(res=>{
+				
 			})
 		}
 		

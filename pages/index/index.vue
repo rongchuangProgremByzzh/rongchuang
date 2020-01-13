@@ -4,7 +4,7 @@
 		<div class="like" @click="scrollTolast(800)"></div>
 		<div class="chat" @click="callPhone()"></div>
 		
-		<button v-if="role===1" class="phone" open-type="contact" @click="gotoChat()"></button>
+		<button v-if="role==1" class="phone" open-type="contact"></button>
 		<div v-else class="phone" @click="gotoChat()"></div>
 		<div class="location" @click="scrollTolast(1000)"></div>
 		<view class="swiper">
@@ -114,7 +114,7 @@
 				bannerList: [],
 				video: '',
 				phone: '',
-				role: 2 //登录获取,1为普通用户
+				role: uni.getStorageSync('role') //登录获取,1为普通用户
 			};
 		},
 		onLoad() {},
@@ -190,14 +190,14 @@
 				});
 			},
 			gotoChat() {
-				console.log('999');
-				
+
 				uni.requestSubscribeMessage({
 					tmplIds: ['qKB8IPuaKbi5KAEIpjeGRuQew2BYf_wOnestHbXIAzw'],
 					success: (res) => {
 						if (res.qKB8IPuaKbi5KAEIpjeGRuQew2BYf_wOnestHbXIAzw === 'accept') {
 							let token=uni.getStorageSync('token')
 							this.$http.addPush(token).then(res => {
+								console.log(res);
 								uni.navigateTo({
 									url: '/pages/message/index'
 								});

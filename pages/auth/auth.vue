@@ -37,7 +37,7 @@
 				uni.getUserInfo({
 					provider: 'weixin',
 					success: function(infoRes) {
-
+                      
 						let nickName = infoRes.userInfo.nickName; //昵称
 						let avatarUrl = infoRes.userInfo.avatarUrl; //头像
 						try {
@@ -64,6 +64,7 @@
 						this.$http.wxlogin(loginRes.code).then(res => {
 							uni.setStorageSync('shareid', res.data.id);//分享id
 							uni.setStorageSync('token', res.data.token);
+							uni.setStorageSync('role', res.data.role);
 							uni.setStorageSync('sessionKey', res.data.sessionKey);
 							if (!_this.isCanUse) {
 								//非第一次授权获取用户信息
@@ -88,6 +89,9 @@
 			//向后台更新信息
 			updateUserInfo(userinfo) {
 				console.log(userinfo);
+				let {nickName,avatarUrl}=userinfo.userInfo;
+					uni.setStorageSync('nickName', nickName);//
+					uni.setStorageSync('avatarUrl', avatarUrl);//分享id
 				uni.getStorage({
     key: 'token',
     success:  (res)=>{
@@ -95,7 +99,7 @@
 		this.$http.info(userinfo,uni.getStorageSync('sessionKey'),res.data)
 		
 		uni.redirectTo({ //信息更新成功后跳转到小程序首页
-			url: '/pages/index/index?id=5555'
+			url: '/pages/index/index'
 		});
     }
 });

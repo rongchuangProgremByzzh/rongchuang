@@ -1,13 +1,13 @@
 
-.content.data-v-92d06778{
+.content.data-v-0f0d58b0{
 	  height: 100%;
 	  background: url(http://www.zangzhihong.com/pic/static/bg@2x.png) no-repeat;
 	 background-size: 100% 100%;
 }
-.height1.data-v-92d06778{
+.height1.data-v-0f0d58b0{
 		height:756rpx;
 }
-.height2.data-v-92d06778{
+.height2.data-v-0f0d58b0{
 			height: 250rpx;
 			display: -webkit-box;
 			display: -webkit-flex;
@@ -22,7 +22,7 @@
 			background-size: 100% 100%;
 			border-radius: 12rpx;
 }
-.txt.data-v-92d06778{
+.txt.data-v-0f0d58b0{
 	
 	padding: 0 20rpx;
 

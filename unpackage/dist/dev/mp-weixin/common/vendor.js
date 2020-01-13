@@ -1,6 +1,6 @@
-(global["webpackJsonp"] = global["webpackJsonp"] || []).push([["common/vendor"],{
-
-/***/ 1:
+(global["webpackJsonp"] = global["webpackJsonp"] || []).push([["common/vendor"],[
+/* 0 */,
+/* 1 */
 /*!************************************************************!*\
   !*** ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js ***!
   \************************************************************/
@@ -737,7 +737,7 @@ function initData(vueOptions, context) {
     try {
       data = data.call(context); // 支持 Vue.prototype 上挂的数据
     } catch (e) {
-      if (Object({"NODE_ENV":"development","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG) {
+      if (Object({"VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG) {
         console.warn('根据 Vue 的 data 函数初始化小程序 data 失败，请尽量确保 data 函数中不访问 vm 对象，否则可能影响首次数据渲染速度。', data);
       }
     }
@@ -1533,1515 +1533,7 @@ var uni$1 = uni;var _default =
 uni$1;exports.default = _default;
 
 /***/ }),
-
-/***/ 14:
-/*!**********************************************************************************************************!*\
-  !*** ./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib/runtime/componentNormalizer.js ***!
-  \**********************************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return normalizeComponent; });
-/* globals __VUE_SSR_CONTEXT__ */
-
-// IMPORTANT: Do NOT use ES2015 features in this file (except for modules).
-// This module is a runtime utility for cleaner component module output and will
-// be included in the final webpack user bundle.
-
-function normalizeComponent (
-  scriptExports,
-  render,
-  staticRenderFns,
-  functionalTemplate,
-  injectStyles,
-  scopeId,
-  moduleIdentifier, /* server only */
-  shadowMode, /* vue-cli only */
-  components, // fixed by xxxxxx auto components
-  renderjs // fixed by xxxxxx renderjs
-) {
-  // Vue.extend constructor export interop
-  var options = typeof scriptExports === 'function'
-    ? scriptExports.options
-    : scriptExports
-
-  // fixed by xxxxxx auto components
-  if (components) {
-    options.components = Object.assign(components, options.components || {})
-  }
-  // fixed by xxxxxx renderjs
-  if (renderjs) {
-    (renderjs.beforeCreate || (renderjs.beforeCreate = [])).unshift(function() {
-      this[renderjs.__module] = this
-    });
-    (options.mixins || (options.mixins = [])).push(renderjs)
-  }
-
-  // render functions
-  if (render) {
-    options.render = render
-    options.staticRenderFns = staticRenderFns
-    options._compiled = true
-  }
-
-  // functional template
-  if (functionalTemplate) {
-    options.functional = true
-  }
-
-  // scopedId
-  if (scopeId) {
-    options._scopeId = 'data-v-' + scopeId
-  }
-
-  var hook
-  if (moduleIdentifier) { // server build
-    hook = function (context) {
-      // 2.3 injection
-      context =
-        context || // cached call
-        (this.$vnode && this.$vnode.ssrContext) || // stateful
-        (this.parent && this.parent.$vnode && this.parent.$vnode.ssrContext) // functional
-      // 2.2 with runInNewContext: true
-      if (!context && typeof __VUE_SSR_CONTEXT__ !== 'undefined') {
-        context = __VUE_SSR_CONTEXT__
-      }
-      // inject component styles
-      if (injectStyles) {
-        injectStyles.call(this, context)
-      }
-      // register component module identifier for async chunk inferrence
-      if (context && context._registeredComponents) {
-        context._registeredComponents.add(moduleIdentifier)
-      }
-    }
-    // used by ssr in case component is cached and beforeCreate
-    // never gets called
-    options._ssrRegister = hook
-  } else if (injectStyles) {
-    hook = shadowMode
-      ? function () { injectStyles.call(this, this.$root.$options.shadowRoot) }
-      : injectStyles
-  }
-
-  if (hook) {
-    if (options.functional) {
-      // for template-only hot-reload because in that case the render fn doesn't
-      // go through the normalizer
-      options._injectStyles = hook
-      // register for functioal component in vue file
-      var originalRender = options.render
-      options.render = function renderWithStyleInjection (h, context) {
-        hook.call(context)
-        return originalRender(h, context)
-      }
-    } else {
-      // inject component registration as beforeCreate hook
-      var existing = options.beforeCreate
-      options.beforeCreate = existing
-        ? [].concat(existing, hook)
-        : [hook]
-    }
-  }
-
-  return {
-    exports: scriptExports,
-    options: options
-  }
-}
-
-
-/***/ }),
-
-/***/ 149:
-/*!**********************************************************!*\
-  !*** ./node_modules/@babel/runtime/regenerator/index.js ***!
-  \**********************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__(/*! regenerator-runtime */ 150);
-
-
-/***/ }),
-
-/***/ 15:
-/*!******************************************************************************************!*\
-  !*** C:/Users/Administrator/Desktop/project/rongchuang/222/rongchuang/static/common.css ***!
-  \******************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-// extracted by mini-css-extract-plugin
-
-/***/ }),
-
-/***/ 150:
-/*!************************************************************!*\
-  !*** ./node_modules/regenerator-runtime/runtime-module.js ***!
-  \************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-/**
- * Copyright (c) 2014-present, Facebook, Inc.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
- */
-
-// This method of obtaining a reference to the global object needs to be
-// kept identical to the way it is obtained in runtime.js
-var g = (function() {
-  return this || (typeof self === "object" && self);
-})() || Function("return this")();
-
-// Use `getOwnPropertyNames` because not all browsers support calling
-// `hasOwnProperty` on the global `self` object in a worker. See #183.
-var hadRuntime = g.regeneratorRuntime &&
-  Object.getOwnPropertyNames(g).indexOf("regeneratorRuntime") >= 0;
-
-// Save the old regeneratorRuntime in case it needs to be restored later.
-var oldRuntime = hadRuntime && g.regeneratorRuntime;
-
-// Force reevalutation of runtime.js.
-g.regeneratorRuntime = undefined;
-
-module.exports = __webpack_require__(/*! ./runtime */ 151);
-
-if (hadRuntime) {
-  // Restore the original runtime.
-  g.regeneratorRuntime = oldRuntime;
-} else {
-  // Remove the global property added by runtime.js.
-  try {
-    delete g.regeneratorRuntime;
-  } catch(e) {
-    g.regeneratorRuntime = undefined;
-  }
-}
-
-
-/***/ }),
-
-/***/ 151:
-/*!*****************************************************!*\
-  !*** ./node_modules/regenerator-runtime/runtime.js ***!
-  \*****************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-/**
- * Copyright (c) 2014-present, Facebook, Inc.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
- */
-
-!(function(global) {
-  "use strict";
-
-  var Op = Object.prototype;
-  var hasOwn = Op.hasOwnProperty;
-  var undefined; // More compressible than void 0.
-  var $Symbol = typeof Symbol === "function" ? Symbol : {};
-  var iteratorSymbol = $Symbol.iterator || "@@iterator";
-  var asyncIteratorSymbol = $Symbol.asyncIterator || "@@asyncIterator";
-  var toStringTagSymbol = $Symbol.toStringTag || "@@toStringTag";
-
-  var inModule = typeof module === "object";
-  var runtime = global.regeneratorRuntime;
-  if (runtime) {
-    if (inModule) {
-      // If regeneratorRuntime is defined globally and we're in a module,
-      // make the exports object identical to regeneratorRuntime.
-      module.exports = runtime;
-    }
-    // Don't bother evaluating the rest of this file if the runtime was
-    // already defined globally.
-    return;
-  }
-
-  // Define the runtime globally (as expected by generated code) as either
-  // module.exports (if we're in a module) or a new, empty object.
-  runtime = global.regeneratorRuntime = inModule ? module.exports : {};
-
-  function wrap(innerFn, outerFn, self, tryLocsList) {
-    // If outerFn provided and outerFn.prototype is a Generator, then outerFn.prototype instanceof Generator.
-    var protoGenerator = outerFn && outerFn.prototype instanceof Generator ? outerFn : Generator;
-    var generator = Object.create(protoGenerator.prototype);
-    var context = new Context(tryLocsList || []);
-
-    // The ._invoke method unifies the implementations of the .next,
-    // .throw, and .return methods.
-    generator._invoke = makeInvokeMethod(innerFn, self, context);
-
-    return generator;
-  }
-  runtime.wrap = wrap;
-
-  // Try/catch helper to minimize deoptimizations. Returns a completion
-  // record like context.tryEntries[i].completion. This interface could
-  // have been (and was previously) designed to take a closure to be
-  // invoked without arguments, but in all the cases we care about we
-  // already have an existing method we want to call, so there's no need
-  // to create a new function object. We can even get away with assuming
-  // the method takes exactly one argument, since that happens to be true
-  // in every case, so we don't have to touch the arguments object. The
-  // only additional allocation required is the completion record, which
-  // has a stable shape and so hopefully should be cheap to allocate.
-  function tryCatch(fn, obj, arg) {
-    try {
-      return { type: "normal", arg: fn.call(obj, arg) };
-    } catch (err) {
-      return { type: "throw", arg: err };
-    }
-  }
-
-  var GenStateSuspendedStart = "suspendedStart";
-  var GenStateSuspendedYield = "suspendedYield";
-  var GenStateExecuting = "executing";
-  var GenStateCompleted = "completed";
-
-  // Returning this object from the innerFn has the same effect as
-  // breaking out of the dispatch switch statement.
-  var ContinueSentinel = {};
-
-  // Dummy constructor functions that we use as the .constructor and
-  // .constructor.prototype properties for functions that return Generator
-  // objects. For full spec compliance, you may wish to configure your
-  // minifier not to mangle the names of these two functions.
-  function Generator() {}
-  function GeneratorFunction() {}
-  function GeneratorFunctionPrototype() {}
-
-  // This is a polyfill for %IteratorPrototype% for environments that
-  // don't natively support it.
-  var IteratorPrototype = {};
-  IteratorPrototype[iteratorSymbol] = function () {
-    return this;
-  };
-
-  var getProto = Object.getPrototypeOf;
-  var NativeIteratorPrototype = getProto && getProto(getProto(values([])));
-  if (NativeIteratorPrototype &&
-      NativeIteratorPrototype !== Op &&
-      hasOwn.call(NativeIteratorPrototype, iteratorSymbol)) {
-    // This environment has a native %IteratorPrototype%; use it instead
-    // of the polyfill.
-    IteratorPrototype = NativeIteratorPrototype;
-  }
-
-  var Gp = GeneratorFunctionPrototype.prototype =
-    Generator.prototype = Object.create(IteratorPrototype);
-  GeneratorFunction.prototype = Gp.constructor = GeneratorFunctionPrototype;
-  GeneratorFunctionPrototype.constructor = GeneratorFunction;
-  GeneratorFunctionPrototype[toStringTagSymbol] =
-    GeneratorFunction.displayName = "GeneratorFunction";
-
-  // Helper for defining the .next, .throw, and .return methods of the
-  // Iterator interface in terms of a single ._invoke method.
-  function defineIteratorMethods(prototype) {
-    ["next", "throw", "return"].forEach(function(method) {
-      prototype[method] = function(arg) {
-        return this._invoke(method, arg);
-      };
-    });
-  }
-
-  runtime.isGeneratorFunction = function(genFun) {
-    var ctor = typeof genFun === "function" && genFun.constructor;
-    return ctor
-      ? ctor === GeneratorFunction ||
-        // For the native GeneratorFunction constructor, the best we can
-        // do is to check its .name property.
-        (ctor.displayName || ctor.name) === "GeneratorFunction"
-      : false;
-  };
-
-  runtime.mark = function(genFun) {
-    if (Object.setPrototypeOf) {
-      Object.setPrototypeOf(genFun, GeneratorFunctionPrototype);
-    } else {
-      genFun.__proto__ = GeneratorFunctionPrototype;
-      if (!(toStringTagSymbol in genFun)) {
-        genFun[toStringTagSymbol] = "GeneratorFunction";
-      }
-    }
-    genFun.prototype = Object.create(Gp);
-    return genFun;
-  };
-
-  // Within the body of any async function, `await x` is transformed to
-  // `yield regeneratorRuntime.awrap(x)`, so that the runtime can test
-  // `hasOwn.call(value, "__await")` to determine if the yielded value is
-  // meant to be awaited.
-  runtime.awrap = function(arg) {
-    return { __await: arg };
-  };
-
-  function AsyncIterator(generator) {
-    function invoke(method, arg, resolve, reject) {
-      var record = tryCatch(generator[method], generator, arg);
-      if (record.type === "throw") {
-        reject(record.arg);
-      } else {
-        var result = record.arg;
-        var value = result.value;
-        if (value &&
-            typeof value === "object" &&
-            hasOwn.call(value, "__await")) {
-          return Promise.resolve(value.__await).then(function(value) {
-            invoke("next", value, resolve, reject);
-          }, function(err) {
-            invoke("throw", err, resolve, reject);
-          });
-        }
-
-        return Promise.resolve(value).then(function(unwrapped) {
-          // When a yielded Promise is resolved, its final value becomes
-          // the .value of the Promise<{value,done}> result for the
-          // current iteration.
-          result.value = unwrapped;
-          resolve(result);
-        }, function(error) {
-          // If a rejected Promise was yielded, throw the rejection back
-          // into the async generator function so it can be handled there.
-          return invoke("throw", error, resolve, reject);
-        });
-      }
-    }
-
-    var previousPromise;
-
-    function enqueue(method, arg) {
-      function callInvokeWithMethodAndArg() {
-        return new Promise(function(resolve, reject) {
-          invoke(method, arg, resolve, reject);
-        });
-      }
-
-      return previousPromise =
-        // If enqueue has been called before, then we want to wait until
-        // all previous Promises have been resolved before calling invoke,
-        // so that results are always delivered in the correct order. If
-        // enqueue has not been called before, then it is important to
-        // call invoke immediately, without waiting on a callback to fire,
-        // so that the async generator function has the opportunity to do
-        // any necessary setup in a predictable way. This predictability
-        // is why the Promise constructor synchronously invokes its
-        // executor callback, and why async functions synchronously
-        // execute code before the first await. Since we implement simple
-        // async functions in terms of async generators, it is especially
-        // important to get this right, even though it requires care.
-        previousPromise ? previousPromise.then(
-          callInvokeWithMethodAndArg,
-          // Avoid propagating failures to Promises returned by later
-          // invocations of the iterator.
-          callInvokeWithMethodAndArg
-        ) : callInvokeWithMethodAndArg();
-    }
-
-    // Define the unified helper method that is used to implement .next,
-    // .throw, and .return (see defineIteratorMethods).
-    this._invoke = enqueue;
-  }
-
-  defineIteratorMethods(AsyncIterator.prototype);
-  AsyncIterator.prototype[asyncIteratorSymbol] = function () {
-    return this;
-  };
-  runtime.AsyncIterator = AsyncIterator;
-
-  // Note that simple async functions are implemented on top of
-  // AsyncIterator objects; they just return a Promise for the value of
-  // the final result produced by the iterator.
-  runtime.async = function(innerFn, outerFn, self, tryLocsList) {
-    var iter = new AsyncIterator(
-      wrap(innerFn, outerFn, self, tryLocsList)
-    );
-
-    return runtime.isGeneratorFunction(outerFn)
-      ? iter // If outerFn is a generator, return the full iterator.
-      : iter.next().then(function(result) {
-          return result.done ? result.value : iter.next();
-        });
-  };
-
-  function makeInvokeMethod(innerFn, self, context) {
-    var state = GenStateSuspendedStart;
-
-    return function invoke(method, arg) {
-      if (state === GenStateExecuting) {
-        throw new Error("Generator is already running");
-      }
-
-      if (state === GenStateCompleted) {
-        if (method === "throw") {
-          throw arg;
-        }
-
-        // Be forgiving, per 25.3.3.3.3 of the spec:
-        // https://people.mozilla.org/~jorendorff/es6-draft.html#sec-generatorresume
-        return doneResult();
-      }
-
-      context.method = method;
-      context.arg = arg;
-
-      while (true) {
-        var delegate = context.delegate;
-        if (delegate) {
-          var delegateResult = maybeInvokeDelegate(delegate, context);
-          if (delegateResult) {
-            if (delegateResult === ContinueSentinel) continue;
-            return delegateResult;
-          }
-        }
-
-        if (context.method === "next") {
-          // Setting context._sent for legacy support of Babel's
-          // function.sent implementation.
-          context.sent = context._sent = context.arg;
-
-        } else if (context.method === "throw") {
-          if (state === GenStateSuspendedStart) {
-            state = GenStateCompleted;
-            throw context.arg;
-          }
-
-          context.dispatchException(context.arg);
-
-        } else if (context.method === "return") {
-          context.abrupt("return", context.arg);
-        }
-
-        state = GenStateExecuting;
-
-        var record = tryCatch(innerFn, self, context);
-        if (record.type === "normal") {
-          // If an exception is thrown from innerFn, we leave state ===
-          // GenStateExecuting and loop back for another invocation.
-          state = context.done
-            ? GenStateCompleted
-            : GenStateSuspendedYield;
-
-          if (record.arg === ContinueSentinel) {
-            continue;
-          }
-
-          return {
-            value: record.arg,
-            done: context.done
-          };
-
-        } else if (record.type === "throw") {
-          state = GenStateCompleted;
-          // Dispatch the exception by looping back around to the
-          // context.dispatchException(context.arg) call above.
-          context.method = "throw";
-          context.arg = record.arg;
-        }
-      }
-    };
-  }
-
-  // Call delegate.iterator[context.method](context.arg) and handle the
-  // result, either by returning a { value, done } result from the
-  // delegate iterator, or by modifying context.method and context.arg,
-  // setting context.delegate to null, and returning the ContinueSentinel.
-  function maybeInvokeDelegate(delegate, context) {
-    var method = delegate.iterator[context.method];
-    if (method === undefined) {
-      // A .throw or .return when the delegate iterator has no .throw
-      // method always terminates the yield* loop.
-      context.delegate = null;
-
-      if (context.method === "throw") {
-        if (delegate.iterator.return) {
-          // If the delegate iterator has a return method, give it a
-          // chance to clean up.
-          context.method = "return";
-          context.arg = undefined;
-          maybeInvokeDelegate(delegate, context);
-
-          if (context.method === "throw") {
-            // If maybeInvokeDelegate(context) changed context.method from
-            // "return" to "throw", let that override the TypeError below.
-            return ContinueSentinel;
-          }
-        }
-
-        context.method = "throw";
-        context.arg = new TypeError(
-          "The iterator does not provide a 'throw' method");
-      }
-
-      return ContinueSentinel;
-    }
-
-    var record = tryCatch(method, delegate.iterator, context.arg);
-
-    if (record.type === "throw") {
-      context.method = "throw";
-      context.arg = record.arg;
-      context.delegate = null;
-      return ContinueSentinel;
-    }
-
-    var info = record.arg;
-
-    if (! info) {
-      context.method = "throw";
-      context.arg = new TypeError("iterator result is not an object");
-      context.delegate = null;
-      return ContinueSentinel;
-    }
-
-    if (info.done) {
-      // Assign the result of the finished delegate to the temporary
-      // variable specified by delegate.resultName (see delegateYield).
-      context[delegate.resultName] = info.value;
-
-      // Resume execution at the desired location (see delegateYield).
-      context.next = delegate.nextLoc;
-
-      // If context.method was "throw" but the delegate handled the
-      // exception, let the outer generator proceed normally. If
-      // context.method was "next", forget context.arg since it has been
-      // "consumed" by the delegate iterator. If context.method was
-      // "return", allow the original .return call to continue in the
-      // outer generator.
-      if (context.method !== "return") {
-        context.method = "next";
-        context.arg = undefined;
-      }
-
-    } else {
-      // Re-yield the result returned by the delegate method.
-      return info;
-    }
-
-    // The delegate iterator is finished, so forget it and continue with
-    // the outer generator.
-    context.delegate = null;
-    return ContinueSentinel;
-  }
-
-  // Define Generator.prototype.{next,throw,return} in terms of the
-  // unified ._invoke helper method.
-  defineIteratorMethods(Gp);
-
-  Gp[toStringTagSymbol] = "Generator";
-
-  // A Generator should always return itself as the iterator object when the
-  // @@iterator function is called on it. Some browsers' implementations of the
-  // iterator prototype chain incorrectly implement this, causing the Generator
-  // object to not be returned from this call. This ensures that doesn't happen.
-  // See https://github.com/facebook/regenerator/issues/274 for more details.
-  Gp[iteratorSymbol] = function() {
-    return this;
-  };
-
-  Gp.toString = function() {
-    return "[object Generator]";
-  };
-
-  function pushTryEntry(locs) {
-    var entry = { tryLoc: locs[0] };
-
-    if (1 in locs) {
-      entry.catchLoc = locs[1];
-    }
-
-    if (2 in locs) {
-      entry.finallyLoc = locs[2];
-      entry.afterLoc = locs[3];
-    }
-
-    this.tryEntries.push(entry);
-  }
-
-  function resetTryEntry(entry) {
-    var record = entry.completion || {};
-    record.type = "normal";
-    delete record.arg;
-    entry.completion = record;
-  }
-
-  function Context(tryLocsList) {
-    // The root entry object (effectively a try statement without a catch
-    // or a finally block) gives us a place to store values thrown from
-    // locations where there is no enclosing try statement.
-    this.tryEntries = [{ tryLoc: "root" }];
-    tryLocsList.forEach(pushTryEntry, this);
-    this.reset(true);
-  }
-
-  runtime.keys = function(object) {
-    var keys = [];
-    for (var key in object) {
-      keys.push(key);
-    }
-    keys.reverse();
-
-    // Rather than returning an object with a next method, we keep
-    // things simple and return the next function itself.
-    return function next() {
-      while (keys.length) {
-        var key = keys.pop();
-        if (key in object) {
-          next.value = key;
-          next.done = false;
-          return next;
-        }
-      }
-
-      // To avoid creating an additional object, we just hang the .value
-      // and .done properties off the next function object itself. This
-      // also ensures that the minifier will not anonymize the function.
-      next.done = true;
-      return next;
-    };
-  };
-
-  function values(iterable) {
-    if (iterable) {
-      var iteratorMethod = iterable[iteratorSymbol];
-      if (iteratorMethod) {
-        return iteratorMethod.call(iterable);
-      }
-
-      if (typeof iterable.next === "function") {
-        return iterable;
-      }
-
-      if (!isNaN(iterable.length)) {
-        var i = -1, next = function next() {
-          while (++i < iterable.length) {
-            if (hasOwn.call(iterable, i)) {
-              next.value = iterable[i];
-              next.done = false;
-              return next;
-            }
-          }
-
-          next.value = undefined;
-          next.done = true;
-
-          return next;
-        };
-
-        return next.next = next;
-      }
-    }
-
-    // Return an iterator with no values.
-    return { next: doneResult };
-  }
-  runtime.values = values;
-
-  function doneResult() {
-    return { value: undefined, done: true };
-  }
-
-  Context.prototype = {
-    constructor: Context,
-
-    reset: function(skipTempReset) {
-      this.prev = 0;
-      this.next = 0;
-      // Resetting context._sent for legacy support of Babel's
-      // function.sent implementation.
-      this.sent = this._sent = undefined;
-      this.done = false;
-      this.delegate = null;
-
-      this.method = "next";
-      this.arg = undefined;
-
-      this.tryEntries.forEach(resetTryEntry);
-
-      if (!skipTempReset) {
-        for (var name in this) {
-          // Not sure about the optimal order of these conditions:
-          if (name.charAt(0) === "t" &&
-              hasOwn.call(this, name) &&
-              !isNaN(+name.slice(1))) {
-            this[name] = undefined;
-          }
-        }
-      }
-    },
-
-    stop: function() {
-      this.done = true;
-
-      var rootEntry = this.tryEntries[0];
-      var rootRecord = rootEntry.completion;
-      if (rootRecord.type === "throw") {
-        throw rootRecord.arg;
-      }
-
-      return this.rval;
-    },
-
-    dispatchException: function(exception) {
-      if (this.done) {
-        throw exception;
-      }
-
-      var context = this;
-      function handle(loc, caught) {
-        record.type = "throw";
-        record.arg = exception;
-        context.next = loc;
-
-        if (caught) {
-          // If the dispatched exception was caught by a catch block,
-          // then let that catch block handle the exception normally.
-          context.method = "next";
-          context.arg = undefined;
-        }
-
-        return !! caught;
-      }
-
-      for (var i = this.tryEntries.length - 1; i >= 0; --i) {
-        var entry = this.tryEntries[i];
-        var record = entry.completion;
-
-        if (entry.tryLoc === "root") {
-          // Exception thrown outside of any try block that could handle
-          // it, so set the completion value of the entire function to
-          // throw the exception.
-          return handle("end");
-        }
-
-        if (entry.tryLoc <= this.prev) {
-          var hasCatch = hasOwn.call(entry, "catchLoc");
-          var hasFinally = hasOwn.call(entry, "finallyLoc");
-
-          if (hasCatch && hasFinally) {
-            if (this.prev < entry.catchLoc) {
-              return handle(entry.catchLoc, true);
-            } else if (this.prev < entry.finallyLoc) {
-              return handle(entry.finallyLoc);
-            }
-
-          } else if (hasCatch) {
-            if (this.prev < entry.catchLoc) {
-              return handle(entry.catchLoc, true);
-            }
-
-          } else if (hasFinally) {
-            if (this.prev < entry.finallyLoc) {
-              return handle(entry.finallyLoc);
-            }
-
-          } else {
-            throw new Error("try statement without catch or finally");
-          }
-        }
-      }
-    },
-
-    abrupt: function(type, arg) {
-      for (var i = this.tryEntries.length - 1; i >= 0; --i) {
-        var entry = this.tryEntries[i];
-        if (entry.tryLoc <= this.prev &&
-            hasOwn.call(entry, "finallyLoc") &&
-            this.prev < entry.finallyLoc) {
-          var finallyEntry = entry;
-          break;
-        }
-      }
-
-      if (finallyEntry &&
-          (type === "break" ||
-           type === "continue") &&
-          finallyEntry.tryLoc <= arg &&
-          arg <= finallyEntry.finallyLoc) {
-        // Ignore the finally entry if control is not jumping to a
-        // location outside the try/catch block.
-        finallyEntry = null;
-      }
-
-      var record = finallyEntry ? finallyEntry.completion : {};
-      record.type = type;
-      record.arg = arg;
-
-      if (finallyEntry) {
-        this.method = "next";
-        this.next = finallyEntry.finallyLoc;
-        return ContinueSentinel;
-      }
-
-      return this.complete(record);
-    },
-
-    complete: function(record, afterLoc) {
-      if (record.type === "throw") {
-        throw record.arg;
-      }
-
-      if (record.type === "break" ||
-          record.type === "continue") {
-        this.next = record.arg;
-      } else if (record.type === "return") {
-        this.rval = this.arg = record.arg;
-        this.method = "return";
-        this.next = "end";
-      } else if (record.type === "normal" && afterLoc) {
-        this.next = afterLoc;
-      }
-
-      return ContinueSentinel;
-    },
-
-    finish: function(finallyLoc) {
-      for (var i = this.tryEntries.length - 1; i >= 0; --i) {
-        var entry = this.tryEntries[i];
-        if (entry.finallyLoc === finallyLoc) {
-          this.complete(entry.completion, entry.afterLoc);
-          resetTryEntry(entry);
-          return ContinueSentinel;
-        }
-      }
-    },
-
-    "catch": function(tryLoc) {
-      for (var i = this.tryEntries.length - 1; i >= 0; --i) {
-        var entry = this.tryEntries[i];
-        if (entry.tryLoc === tryLoc) {
-          var record = entry.completion;
-          if (record.type === "throw") {
-            var thrown = record.arg;
-            resetTryEntry(entry);
-          }
-          return thrown;
-        }
-      }
-
-      // The context.catch method must only be called with a location
-      // argument that corresponds to a known catch block.
-      throw new Error("illegal catch attempt");
-    },
-
-    delegateYield: function(iterable, resultName, nextLoc) {
-      this.delegate = {
-        iterator: values(iterable),
-        resultName: resultName,
-        nextLoc: nextLoc
-      };
-
-      if (this.method === "next") {
-        // Deliberately forget the last sent value so that we don't
-        // accidentally pass it on to the delegate.
-        this.arg = undefined;
-      }
-
-      return ContinueSentinel;
-    }
-  };
-})(
-  // In sloppy mode, unbound `this` refers to the global object, fallback to
-  // Function constructor if we're in global strict mode. That is sadly a form
-  // of indirect eval which violates Content Security Policy.
-  (function() {
-    return this || (typeof self === "object" && self);
-  })() || Function("return this")()
-);
-
-
-/***/ }),
-
-/***/ 16:
-/*!*************************************************************************************!*\
-  !*** C:/Users/Administrator/Desktop/project/rongchuang/222/rongchuang/api/index.js ***!
-  \*************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _request = _interopRequireDefault(__webpack_require__(/*! ./request.js */ 17));
-var _requestConfig = _interopRequireDefault(__webpack_require__(/*! ./zhouWei-request/requestConfig.js */ 18));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
-var appid = "wxead2ae5bf7837720";var _default =
-{
-  banner: function banner() {
-    return _requestConfig.default.get('/banner');
-  },
-  projectprogress: function projectprogress() {
-    return _requestConfig.default.get('/projectProgress');
-  },
-  imgwordcontroller: function imgwordcontroller(type) {
-    return _requestConfig.default.get('/imgWord?type=' + type);
-  },
-  active: function active() {
-    return _requestConfig.default.get('/activity?type=1');
-  },
-  bigevent: function bigevent() {
-    return _requestConfig.default.get('/activity?type=2');
-  },
-  getNewsList: function getNewsList(id) {
-    return _requestConfig.default.get("/activity/".concat(id));
-  },
-  getMostNews: function getMostNews() {
-    return _requestConfig.default.get("/activity/new");
-  },
-  videoIndex: function videoIndex() {
-    return _requestConfig.default.get("/video/index");
-  },
-  videoList: function videoList() {
-    return _requestConfig.default.get("/video");
-  },
-  vr: function vr(type) {
-    return _requestConfig.default.get("/vr?type=".concat(type));
-  },
-  getPhone: function getPhone() {
-    return _requestConfig.default.get("/hotline");
-  },
-  appointment: function appointment(data) {
-    return _requestConfig.default.post("/appointment", data);
-  },
-  addPush: function addPush(token) {
-    return _requestConfig.default.put("/user/add/push?Authorization=".concat(token));
-  },
-  wxlogin: function wxlogin(code) {
-    return _requestConfig.default.get("/wx/user/".concat(appid, "/login?code=").concat(code));
-  },
-
-  info: function info(res, sessionKey, token) {
-    var param = "sessionKey=".concat(encodeURI(sessionKey), "&signature=").concat(encodeURI(res.signature), "&\n\t\trawData=").concat(
-    encodeURI(res.rawData), "&encryptedData=").concat(encodeURI(res.encryptedData), "&iv=").concat(encodeURI(res.iv), "&Authorization=").concat(token);
-    return _requestConfig.default.get("/wx/user/".concat(appid, "/info?").concat(param));
-  },
-  bind: function bind(id, token) {
-    return _requestConfig.default.put("/user/bing?userId=".concat(id, "&Authorization=").concat(token));
-  },
-  people: function people(token) {
-    return _requestConfig.default.get("/user/people?Authorization=".concat(token));
-  }
-
-  //ajax('http://rcxcx.api.95lsy.com/banner')POST /appointment
-};exports.default = _default;
-
-/***/ }),
-
-/***/ 17:
-/*!***************************************************************************************!*\
-  !*** C:/Users/Administrator/Desktop/project/rongchuang/222/rongchuang/api/request.js ***!
-  \***************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = ajax;var _requestConfig = _interopRequireDefault(__webpack_require__(/*! ./zhouWei-request/requestConfig.js */ 18));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
-function ajax(url, data) {
-  // if(data){
-  // 	return $http.post(url,data)
-  // }
-  return _requestConfig.default.get(url);
-  // uni.request({
-  // 	url: url, //仅为示例，并非真实接口地址。
-  // });
-}
-
-
-
-// this.$http.get('aid/region',{pid:0}).
-// then(function (response) {
-// 	//这里只会在接口是成功状态返回
-// }).catch(function (error) {
-// 	//这里只会在接口是失败状态返回，不需要去处理错误提示
-// 	console.log(error);
-// });
-
-/***/ }),
-
-/***/ 18:
-/*!*************************************************************************************************************!*\
-  !*** C:/Users/Administrator/Desktop/project/rongchuang/222/rongchuang/api/zhouWei-request/requestConfig.js ***!
-  \*************************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _request = _interopRequireDefault(__webpack_require__(/*! ./request */ 19));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
-var baseUrl = "http://rcxcx.api.95lsy.com";
-//可以new多个request来支持多个域名请求
-var $http = new _request.default({
-  //接口请求地址
-  baseUrl: baseUrl,
-  //服务器本地上传文件地址
-  fileUrl: baseUrl,
-  //设置请求头
-  headers: {
-    'content-type': 'application/json;charset=UTF-8' },
-
-  //以下是默认值可不写
-  //是否提示--默认提示
-  isPrompt: true,
-  //是否显示请求动画
-  load: true,
-  //是否使用处理数据模板
-  isFactory: true,
-  //列表接口是否有加载判断
-  loadMore: true });
-
-//当前接口请求数
-var requestNum = 0;
-//请求开始拦截器
-$http.requestStart = function (options) {
-  if (requestNum <= 0) {
-    uni.showNavigationBarLoading();
-    if (options.load) {
-      //打开加载动画
-      uni.showLoading({
-        title: '加载中',
-        mask: true });
-
-    }
-  }
-  requestNum += 1;
-  //请求前加入token
-  //options.headers['token'] = "";
-  //console.log("请求开始前", options);
-  return options;
-};
-//请求结束
-$http.requestEnd = function (options, resolve) {
-  //判断当前接口是否需要加载动画
-  requestNum = requestNum - 1;
-  if (requestNum <= 0) {
-    uni.hideLoading();
-    uni.hideNavigationBarLoading();
-  }
-  if (resolve.errMsg && (resolve.errMsg != "request:ok" || resolve.statusCode && resolve.statusCode != 200)) {
-    uni.showToast({
-      title: "网络错误，请检查一下网络",
-      icon: "none" });
-
-  }
-};
-//登录弹窗次数
-var loginPopupNum = 0;
-//所有接口数据处理（可在接口里设置不调用此方法）
-$http.dataFactory = function (options, resolve) {
-  //console.log("接口返回结果", resolve);
-  //设置回调默认值
-  var callback = {
-    //success数据是否请求成功状态
-    success: false,
-    //这里返回的数据就是调用请求方法收到的数据
-    result: "" };
-
-  //判断数据是否请求成功
-  if (resolve.data.code == 1001) {
-    callback.success = true;
-    callback.result = resolve.data;
-  } else if (resolve.data.code == "1004" || resolve.data.code == "1005") {
-    //未登录或登录已失效
-    if (loginPopupNum <= 0) {
-      loginPopupNum++;
-      uni.showModal({
-        title: '温馨提示',
-        content: '此时此刻需要您登录喔~',
-        confirmText: "去登录",
-        cancelText: "再逛会",
-        success: function success(res) {
-          loginPopupNum--;
-          if (res.confirm) {
-            uni.navigateTo({
-              url: "'/pages/login" });
-
-          }
-        } });
-
-    }
-  } else {//其他错误提示
-    //设置可以提示的时候
-    if (options.isPrompt) {
-      setTimeout(function () {
-        //提示后台接口抛出的错误信息
-        uni.showToast({
-          title: resolve.data.info,
-          icon: "none",
-          duration: 3000 });
-
-      }, 500);
-    }
-    callback.result = resolve.data;
-  }
-  return callback;
-};var _default =
-$http;exports.default = _default;
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
-
-/***/ }),
-
-/***/ 19:
-/*!*******************************************************************************************************!*\
-  !*** C:/Users/Administrator/Desktop/project/rongchuang/222/rongchuang/api/zhouWei-request/request.js ***!
-  \*******************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;function _classCallCheck(instance, Constructor) {if (!(instance instanceof Constructor)) {throw new TypeError("Cannot call a class as a function");}}function _defineProperties(target, props) {for (var i = 0; i < props.length; i++) {var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ("value" in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);}}function _createClass(Constructor, protoProps, staticProps) {if (protoProps) _defineProperties(Constructor.prototype, protoProps);if (staticProps) _defineProperties(Constructor, staticProps);return Constructor;}var qiniuUploader = __webpack_require__(/*! ./qiniuUploader */ 20);var
-request = /*#__PURE__*/function () {
-  function request(options) {_classCallCheck(this, request);
-    //请求公共地址
-    this.baseUrl = options.baseUrl || "";
-    //公共文件上传请求地址
-    this.fileUrl = options.fileUrl || "";
-    //默认请求头
-    this.headers = options.headers || {};
-    //默认配置
-    this.config = {
-      isPrompt: options.isPrompt === false ? false : true,
-      load: options.load === false ? false : true,
-      isFactory: options.isFactory === false ? false : true,
-      loadMore: options.loadMore === false ? false : true };
-
-  }
-  // 获取默认信息
-  _createClass(request, [{ key: "getDefault", value: function getDefault(url, options, type) {
-      //判断url是不是链接
-      var urlType = /^([hH][tT]{2}[pP]:\/\/|[hH][tT]{2}[pP][sS]:\/\/)(([A-Za-z0-9-~]+).)+([A-Za-z0-9-~/])+$/.test(url);
-      var httpUrl;
-      if (type == "file") {
-        httpUrl = urlType ? url : this.fileUrl + url;
-      } else {
-        httpUrl = urlType ? url : this.baseUrl + url;
-      }
-      var config = Object.assign({}, this.config, options);
-      //请求地址
-      config.httpUrl = httpUrl;
-      //请求头
-      config.headers = Object.assign(this.headers, options.headers);
-      return config;
-    }
-
-    //post请求
-  }, { key: "post", value: function post() {var _this2 = this;var url = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';var data = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};var options = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
-      var requestInfo = this.getDefault(url, options, "data");
-      requestInfo.data = data;
-      return new Promise(function (resolve, reject) {
-        _this2.getRequest("POST", requestInfo, function (state, response) {
-          //是否用外部的数据处理方法
-          if (state && requestInfo.isFactory && _this2.dataFactory) {
-            //数据处理
-            var factoryInfo = _this2.dataFactory(requestInfo, response);
-            factoryInfo.success ? resolve(factoryInfo.result) : reject(factoryInfo.result);
-          } else {
-            state ? resolve(response) : reject(response);
-          }
-        });
-      });
-    }
-    //get请求
-  }, { key: "get", value: function get() {var _this3 = this;var url = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';var data = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};var options = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
-      var requestInfo = this.getDefault(url, options, "data");
-      requestInfo.data = data;
-      return new Promise(function (resolve, reject) {
-        _this3.getRequest("GET", requestInfo, function (state, response) {
-          //是否用外部的数据处理方法
-          if (state && requestInfo.isFactory && _this3.dataFactory) {
-            //数据处理
-            var factoryInfo = _this3.dataFactory(requestInfo, response);
-            factoryInfo.success ? resolve(factoryInfo.result) : reject(factoryInfo.result);
-          } else {
-            state ? resolve(response) : reject(response);
-          }
-        });
-      });
-    }
-    //put请求
-  }, { key: "put", value: function put() {var _this4 = this;var url = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';var data = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};var options = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
-      var requestInfo = this.getDefault(url, options, "data");
-      requestInfo.data = data;
-      return new Promise(function (resolve, reject) {
-        _this4.getRequest("PUT", requestInfo, function (state, response) {
-          //是否用外部的数据处理方法
-          if (state && requestInfo.isFactory && _this4.dataFactory) {
-            //数据处理
-            var factoryInfo = _this4.dataFactory(requestInfo, response);
-            factoryInfo.success ? resolve(factoryInfo.result) : reject(factoryInfo.result);
-          } else {
-            state ? resolve(response) : reject(response);
-          }
-        });
-      });
-    }
-    //delete请求
-  }, { key: "delete", value: function _delete() {var _this5 = this;var url = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';var data = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};var options = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
-      var requestInfo = this.getDefault(url, options, "data");
-      requestInfo.data = data;
-      return new Promise(function (resolve, reject) {
-        _this5.getRequest("DELETE", requestInfo, function (state, response) {
-          //是否用外部的数据处理方法
-          if (state && requestInfo.isFactory && _this5.dataFactory) {
-            //数据处理
-            var factoryInfo = _this5.dataFactory(requestInfo, response);
-            factoryInfo.success ? resolve(factoryInfo.result) : reject(factoryInfo.result);
-          } else {
-            state ? resolve(response) : reject(response);
-          }
-        });
-      });
-    }
-
-    //接口请求方法
-  }, { key: "getRequest", value: function getRequest(ajaxType, options, callback) {var _this6 = this;
-      //请求前回调
-      if (this.requestStart) {
-        options.method = ajaxType;
-        var requestStart = this.requestStart(options);
-        if (typeof requestStart == "object") {
-          options.data = requestStart.data;
-          options.headers = requestStart.headers;
-          options.isPrompt = requestStart.isPrompt;
-          options.load = requestStart.load;
-          options.isFactory = requestStart.isFactory;
-        } else {
-          callback(false, "请求开始拦截器未通过");
-          return;
-        }
-      }
-      uni.request({
-        url: options.httpUrl,
-        data: options.data,
-        method: ajaxType, //请求类型
-        header: options.headers, //加入请求头
-        success: function success(res) {
-          //请求完成回调
-          _this6.requestEnd && _this6.requestEnd(options, res);
-          callback(true, res);
-        },
-        fail: function fail(err) {
-          //请求完成回调
-          _this6.requestEnd && _this6.requestEnd(options, err);
-          callback(false, err);
-        } });
-
-    }
-    //jsonp请求(只限于H5使用)
-  }, { key: "jsonp", value: function jsonp() {var url = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';var data = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};var options = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
-      var requestInfo = this.getDefault(url, options, "data");
-      var dataStr = '';
-      Object.keys(data).forEach(function (key) {
-        dataStr += key + '=' + data[key] + '&';
-      });
-      //匹配最后一个&并去除
-      if (dataStr !== '') {
-        dataStr = dataStr.substr(0, dataStr.lastIndexOf('&'));
-      }
-      requestInfo.httpUrl = requestInfo.httpUrl + '?' + dataStr;
-      var _this = this;
-      return new Promise(function (resolve, reject) {
-        var callbackName = "callback" + Math.ceil(Math.random() * 1000000);
-        if (_this.requestStart) {
-          requestInfo.data = data;
-          var requestStart = _this.requestStart(requestInfo);
-          if (typeof requestStart == "object") {
-            requestInfo.data = requestStart.data;
-            requestInfo.headers = requestStart.headers;
-            requestInfo.isPrompt = requestStart.isPrompt;
-            requestInfo.load = requestStart.load;
-            requestInfo.isFactory = requestStart.isFactory;
-          } else {
-            reject("请求开始拦截器未通过");
-            return;
-          }
-        }
-        window[callbackName] = function (data) {
-          resolve(data);
-        };
-        var script = document.createElement("script");
-        script.src = requestInfo.httpUrl + "&callback=" + callbackName;
-        document.head.appendChild(script);
-        // 及时删除，防止加载过多的JS
-        document.head.removeChild(script);
-        //请求完成回调
-        _this.requestEnd && _this.requestEnd(requestInfo, {});
-      });
-    }
-    //七牛云上传图片
-  }, { key: "qnImgUpload", value: function qnImgUpload() {var options = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};var callback = arguments.length > 1 ? arguments[1] : undefined;
-      var _this = this;
-      return new Promise(function (resolve, reject) {
-        uni.chooseImage({
-          count: options.count || 9, //默认9
-          sizeType: options.sizeType || ['original', 'compressed'], //可以指定是原图还是压缩图，默认二者都有
-          sourceType: options.sourceType || ['album', 'camera'], //从相册选择
-          success: function success(res) {
-            _this.qnFileUpload(res.tempFilePaths, callback).then(function (data) {
-              resolve(data);
-            }, function (err) {
-              reject(err);
-            });
-          } });
-
-      });
-    }
-    //七牛云上传文件命名
-  }, { key: "randomChar", value: function randomChar(l) {var url = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : "";
-      var x = "0123456789qwertyuioplkjhgfdsazxcvbnm";
-      var tmp = "";
-      var time = new Date();
-      for (var i = 0; i < l; i++) {
-        tmp += x.charAt(Math.ceil(Math.random() * 100000000) % x.length);
-      }
-      return (
-        "file/" +
-        url +
-        time.getTime() +
-        tmp);
-
-    }
-    //七牛云文件上传（支持多张上传）
-  }, { key: "qnFileUpload", value: function qnFileUpload(files, callback) {
-      var _this = this;
-      return new Promise(function (resolve, reject) {
-        if (files instanceof Array) {
-          var len = files.length;
-          var imageList = new Array();
-          //该地址需要开发者自行配置（每个后台的接口风格都不一样）
-          _this.get("api/open/v1/qn_upload").then(function (data) {
-            /*
-                                                                   * 接口返回参数：
-                                                                   * visitPrefix:访问文件的域名
-                                                                      * token:七牛云上传token
-                                                                      * folderPath:上传的文件夹
-                                                                      */
-            uploadFile(0);
-            function uploadFile(i) {
-              // 交给七牛上传
-              qiniuUploader.upload(files[i], function (res) {
-                callback && callback(res.imageURL);
-                imageList.push(res.imageURL);
-                if (len - 1 > i) {
-                  uploadFile(i + 1);
-                } else {
-                  resolve(imageList);
-                }
-              }, function (error) {
-                console.log('error: ' + error);
-                reject(error);
-              }, {
-                region: 'SCN', //地区
-                domain: data.visitPrefix, // // bucket 域名，下载资源时用到。
-                key: _this.randomChar(8, data.folderPath),
-                uptoken: data.token, // 由其他程序生成七牛 uptoken
-                uptokenURL: 'UpTokenURL.com/uptoken' // 上传地址
-              }, function (res) {
-                console.log('上传进度', res.progress);
-                // console.log('已经上传的数据长度', res.totalBytesSent)
-                // console.log('预期需要上传的数据总长度', res.totalBytesExpectedToSend)
-              });
-            }
-          });
-        } else {
-          console.error("files 必须是数组类型");
-          reject("files 必须是数组类型");
-        }
-      });
-
-    }
-    //本地服务器图片上传
-  }, { key: "urlImgUpload", value: function urlImgUpload() {var url = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';var data = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};var options = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
-      var requestInfo = this.getDefault(url, options, "file");
-      requestInfo.data = data;
-      var _this = this;
-      return new Promise(function (resolve, reject) {
-        uni.chooseImage({
-          count: data.count || 9, //默认9
-          sizeType: data.sizeType || ['original', 'compressed'], //可以指定是原图还是压缩图，默认二者都有
-          sourceType: data.sourceType || ['album', 'camera'], //从相册选择
-          success: function success(res) {
-            _this.urlFileUpload(requestInfo, res.tempFiles, function (state, response) {
-              state ? resolve(response) : reject(response);
-            });
-          } });
-
-      });
-    }
-    //本地服务器文件上传方法
-  }, { key: "urlFileUpload", value: function urlFileUpload(options, files, callback) {
-      var _this = this;
-      //请求前回调
-      if (this.requestStart) {
-        options.method = "FILE";
-        var requestStart = this.requestStart(options);
-        if (typeof requestStart == "object") {
-          if (typeof requestStart == "object") {
-            options.data = requestStart.data;
-            options.headers = requestStart.headers;
-            options.isPrompt = requestStart.isPrompt;
-            options.load = requestStart.load;
-            options.isFactory = requestStart.isFactory;
-          } else {
-            callback(false, "请求开始拦截器未通过");
-            return;
-          }
-        }
-      }
-      var len = files.length - 1;
-      var fileList = new Array();
-      fileUpload(0);
-      function fileUpload(i) {
-        var config = {
-          url: options.httpUrl,
-          filePath: files[i].path,
-          header: options.headers, //加入请求头
-          name: options.name || "file",
-          success: function success(response) {
-            response.data = JSON.parse(response.data);
-            //请求完成回调
-            _this.requestEnd && _this.requestEnd(options, response);
-            //是否用外部的数据处理方法
-            if (options.isFactory && _this.dataFactory) {
-              //数据处理
-              var factoryInfo = _this.dataFactory(options, response);
-              if (factoryInfo.success) {
-                fileList.push(factoryInfo.result);
-                if (len <= i) {
-                  callback(true, fileList);
-                } else {
-                  fileUpload(i + 1);
-                }
-              } else {
-                callback(false, factoryInfo.result);
-              }
-            } else {
-              fileList.push(response.data);
-              if (len <= i) {
-                callback(true, fileList);
-              } else {
-                fileUpload(i + 1);
-              }
-            }
-          },
-          fail: function fail(err) {
-            //请求完成回调
-            _this.requestEnd && _this.requestEnd(options, err);
-            callback(false, err);
-          } };
-
-        if (options.data) {
-          config.formData = options.data;
-        }
-        uni.uploadFile(config);
-      }
-    } }]);return request;}();exports.default = request;
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
-
-/***/ }),
-
-/***/ 2:
+/* 2 */
 /*!******************************************************************************************!*\
   !*** ./node_modules/@dcloudio/vue-cli-plugin-uni/packages/mp-vue/dist/mp.runtime.esm.js ***!
   \******************************************************************************************/
@@ -8573,7 +7065,7 @@ function type(obj) {
 
 function flushCallbacks$1(vm) {
     if (vm.__next_tick_callbacks && vm.__next_tick_callbacks.length) {
-        if (Object({"NODE_ENV":"development","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG) {
+        if (Object({"VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG) {
             var mpInstance = vm.$scope;
             console.log('[' + (+new Date) + '][' + (mpInstance.is || mpInstance.route) + '][' + vm._uid +
                 ']:flushCallbacks[' + vm.__next_tick_callbacks.length + ']');
@@ -8594,14 +7086,14 @@ function nextTick$1(vm, cb) {
     //1.nextTick 之前 已 setData 且 setData 还未回调完成
     //2.nextTick 之前存在 render watcher
     if (!vm.__next_tick_pending && !hasRenderWatcher(vm)) {
-        if(Object({"NODE_ENV":"development","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG){
+        if(Object({"VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG){
             var mpInstance = vm.$scope;
             console.log('[' + (+new Date) + '][' + (mpInstance.is || mpInstance.route) + '][' + vm._uid +
                 ']:nextVueTick');
         }
         return nextTick(cb, vm)
     }else{
-        if(Object({"NODE_ENV":"development","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG){
+        if(Object({"VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG){
             var mpInstance$1 = vm.$scope;
             console.log('[' + (+new Date) + '][' + (mpInstance$1.is || mpInstance$1.route) + '][' + vm._uid +
                 ']:nextMPTick');
@@ -8677,7 +7169,7 @@ var patch = function(oldVnode, vnode) {
     });
     var diffData = diff(data, mpData);
     if (Object.keys(diffData).length) {
-      if (Object({"NODE_ENV":"development","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG) {
+      if (Object({"VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG) {
         console.log('[' + (+new Date) + '][' + (mpInstance.is || mpInstance.route) + '][' + this._uid +
           ']差量更新',
           JSON.stringify(diffData));
@@ -9071,188 +7563,7 @@ internalMixin(Vue);
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../../../../../webpack/buildin/global.js */ 3)))
 
 /***/ }),
-
-/***/ 20:
-/*!*************************************************************************************************************!*\
-  !*** C:/Users/Administrator/Desktop/project/rongchuang/222/rongchuang/api/zhouWei-request/qiniuUploader.js ***!
-  \*************************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
- // created by gpake
-(function () {
-
-  var config = {
-    qiniuRegion: '',
-    qiniuImageURLPrefix: '',
-    qiniuUploadToken: '',
-    qiniuUploadTokenURL: '',
-    qiniuUploadTokenFunction: null,
-    qiniuShouldUseQiniuFileName: false };
-
-
-  module.exports = {
-    init: init,
-    upload: upload
-
-
-    // 在整个程序生命周期中，只需要 init 一次即可
-    // 如果需要变更参数，再调用 init 即可
-  };function init(options) {
-    config = {
-      qiniuRegion: '',
-      qiniuImageURLPrefix: '',
-      qiniuUploadToken: '',
-      qiniuUploadTokenURL: '',
-      qiniuUploadTokenFunction: null,
-      qiniuShouldUseQiniuFileName: false };
-
-    updateConfigWithOptions(options);
-  }
-
-  function updateConfigWithOptions(options) {
-    if (options.region) {
-      config.qiniuRegion = options.region;
-    } else {
-      console.error('qiniu uploader need your bucket region');
-    }
-    if (options.uptoken) {
-      config.qiniuUploadToken = options.uptoken;
-    } else if (options.uptokenURL) {
-      config.qiniuUploadTokenURL = options.uptokenURL;
-    } else if (options.uptokenFunc) {
-      config.qiniuUploadTokenFunction = options.uptokenFunc;
-    }
-    if (options.domain) {
-      config.qiniuImageURLPrefix = options.domain;
-    }
-    config.qiniuShouldUseQiniuFileName = options.shouldUseQiniuFileName;
-  }
-
-  function upload(filePath, success, fail, options, progress, cancelTask) {
-    if (null == filePath) {
-      console.error('qiniu uploader need filePath to upload');
-      return;
-    }
-    if (options) {
-      updateConfigWithOptions(options);
-    }
-    if (config.qiniuUploadToken) {
-      doUpload(filePath, success, fail, options, progress, cancelTask);
-    } else if (config.qiniuUploadTokenURL) {
-      getQiniuToken(function () {
-        doUpload(filePath, success, fail, options, progress, cancelTask);
-      });
-    } else if (config.qiniuUploadTokenFunction) {
-      config.qiniuUploadToken = config.qiniuUploadTokenFunction();
-      if (null == config.qiniuUploadToken && config.qiniuUploadToken.length > 0) {
-        console.error('qiniu UploadTokenFunction result is null, please check the return value');
-        return;
-      }
-      doUpload(filePath, success, fail, options, progress, cancelTask);
-    } else {
-      console.error('qiniu uploader need one of [uptoken, uptokenURL, uptokenFunc]');
-      return;
-    }
-  }
-
-  function doUpload(filePath, _success, _fail, options, progress, cancelTask) {
-    if (null == config.qiniuUploadToken && config.qiniuUploadToken.length > 0) {
-      console.error('qiniu UploadToken is null, please check the init config or networking');
-      return;
-    }
-    var url = uploadURLFromRegionCode(config.qiniuRegion);
-    var fileName = filePath.split('//')[1];
-    if (options && options.key) {
-      fileName = options.key;
-    }
-    var formData = {
-      'token': config.qiniuUploadToken };
-
-    if (!config.qiniuShouldUseQiniuFileName) {
-      formData['key'] = fileName;
-    }
-    var uploadTask = wx.uploadFile({
-      url: url,
-      filePath: filePath,
-      name: 'file',
-      formData: formData,
-      success: function success(res) {
-        var dataString = res.data;
-        if (res.data.hasOwnProperty('type') && res.data.type === 'Buffer') {
-          dataString = String.fromCharCode.apply(null, res.data.data);
-        }
-        try {
-          var dataObject = JSON.parse(dataString);
-          //do something
-          var imageUrl = config.qiniuImageURLPrefix + '/' + dataObject.key;
-          dataObject.imageURL = imageUrl;
-          if (_success) {
-            _success(dataObject);
-          }
-        } catch (e) {
-          console.log('parse JSON failed, origin String is: ' + dataString);
-          if (_fail) {
-            _fail(e);
-          }
-        }
-      },
-      fail: function fail(error) {
-        console.error(error);
-        if (_fail) {
-          _fail(error);
-        }
-      } });
-
-
-    uploadTask.onProgressUpdate(function (res) {
-      progress && progress(res);
-    });
-
-    cancelTask && cancelTask(function () {
-      uploadTask.abort();
-    });
-  }
-
-  function getQiniuToken(callback) {
-    wx.request({
-      url: config.qiniuUploadTokenURL,
-      success: function success(res) {
-        var token = res.data.uptoken;
-        if (token && token.length > 0) {
-          config.qiniuUploadToken = token;
-          if (callback) {
-            callback();
-          }
-        } else {
-          console.error('qiniuUploader cannot get your token, please check the uptokenURL or server');
-        }
-      },
-      fail: function fail(error) {
-        console.error('qiniu UploadToken is null, please check the init config or networking: ' + error);
-      } });
-
-  }
-
-  function uploadURLFromRegionCode(code) {
-    var uploadURL = null;
-    switch (code) {
-      case 'ECN':uploadURL = 'https://up.qbox.me';break;
-      case 'NCN':uploadURL = 'https://up-z1.qbox.me';break;
-      case 'SCN':uploadURL = 'https://up-z2.qbox.me';break;
-      case 'NA':uploadURL = 'https://up-na0.qbox.me';break;
-      case 'ASG':uploadURL = 'https://up-as0.qbox.me';break;
-      default:console.error('please make the region is with one of [ECN, SCN, NCN, NA, ASG]');}
-
-    return uploadURL;
-  }
-
-})();
-
-/***/ }),
-
-/***/ 3:
+/* 3 */
 /*!***********************************!*\
   !*** (webpack)/buildin/global.js ***!
   \***********************************/
@@ -9282,11 +7593,10 @@ module.exports = g;
 
 
 /***/ }),
-
-/***/ 4:
-/*!***********************************************************************************!*\
-  !*** C:/Users/Administrator/Desktop/project/rongchuang/222/rongchuang/pages.json ***!
-  \***********************************************************************************/
+/* 4 */
+/*!***********************************************************!*\
+  !*** C:/Users/96539/Desktop/police/rongchuang/pages.json ***!
+  \***********************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -9294,55 +7604,7 @@ module.exports = g;
 
 
 /***/ }),
-
-/***/ 421:
-/*!***************************************************************************************!*\
-  !*** C:/Users/Administrator/Desktop/project/rongchuang/222/rongchuang/mixin/index.js ***!
-  \***************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _default = {
-  data: function data() {
-    return {
-      //设置默认的分享参数
-      share: {
-        title: 'ALAPI',
-        path: '/pages/index/index',
-        imageUrl: '',
-        desc: '',
-        content: '' } };
-
-
-  },
-  onLoad: function onLoad(option) {//option为object类型，会序列化上个页面传递的参数
-    console.log(option); //打印出上个页面传递的参数。
-    console.log(option.name); //打印出上个页面传递的参数。
-    if (option.id) {
-      var id = uni.getStorageSync('shareid');
-      var token = uni.getStorageSync('token');
-      this.$http.bind(id, token).then(function (res) {
-        console.log(res);
-      });
-    }
-
-  },
-  onShareAppMessage: function onShareAppMessage(res) {
-    return {
-      title: 'ALAPI',
-      path: '/pages/index/index?id=' + uni.getStorageSync('shareid'),
-      imageUrl: '',
-      desc: 'jjjjjjjjjj',
-      content: 'eeeeeeeeeeeeeee' };
-
-
-  } };exports.default = _default;
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
-
-/***/ }),
-
-/***/ 5:
+/* 5 */
 /*!*******************************************************!*\
   !*** ./node_modules/@dcloudio/uni-stat/dist/index.js ***!
   \*******************************************************/
@@ -10228,8 +8490,7 @@ main();
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),
-
-/***/ 6:
+/* 6 */
 /*!******************************************************!*\
   !*** ./node_modules/@dcloudio/uni-stat/package.json ***!
   \******************************************************/
@@ -10239,11 +8500,10 @@ main();
 module.exports = {"_from":"@dcloudio/uni-stat@alpha","_id":"@dcloudio/uni-stat@2.0.0-alpha-25120200103005","_inBundle":false,"_integrity":"sha512-nYoIrRV2e5o/vzr6foSdWi3Rl2p0GuO+LPY3JctyY6uTKgPnuH99d7aL/QQdJ1SacQjBWO+QGK1qankN7oyrWw==","_location":"/@dcloudio/uni-stat","_phantomChildren":{},"_requested":{"type":"tag","registry":true,"raw":"@dcloudio/uni-stat@alpha","name":"@dcloudio/uni-stat","escapedName":"@dcloudio%2funi-stat","scope":"@dcloudio","rawSpec":"alpha","saveSpec":null,"fetchSpec":"alpha"},"_requiredBy":["#USER","/","/@dcloudio/vue-cli-plugin-uni"],"_resolved":"https://registry.npmjs.org/@dcloudio/uni-stat/-/uni-stat-2.0.0-alpha-25120200103005.tgz","_shasum":"a77a63481f36474f3e86686868051219d1bb12df","_spec":"@dcloudio/uni-stat@alpha","_where":"/Users/guoshengqiang/Documents/dcloud-plugins/alpha/uniapp-cli","author":"","bugs":{"url":"https://github.com/dcloudio/uni-app/issues"},"bundleDependencies":false,"deprecated":false,"description":"","devDependencies":{"@babel/core":"^7.5.5","@babel/preset-env":"^7.5.5","eslint":"^6.1.0","rollup":"^1.19.3","rollup-plugin-babel":"^4.3.3","rollup-plugin-clear":"^2.0.7","rollup-plugin-commonjs":"^10.0.2","rollup-plugin-copy":"^3.1.0","rollup-plugin-eslint":"^7.0.0","rollup-plugin-json":"^4.0.0","rollup-plugin-node-resolve":"^5.2.0","rollup-plugin-replace":"^2.2.0","rollup-plugin-uglify":"^6.0.2"},"files":["dist","package.json","LICENSE"],"gitHead":"6be187a3dfe15f95dd6146d9fec08e1f81100987","homepage":"https://github.com/dcloudio/uni-app#readme","license":"Apache-2.0","main":"dist/index.js","name":"@dcloudio/uni-stat","repository":{"type":"git","url":"git+https://github.com/dcloudio/uni-app.git","directory":"packages/uni-stat"},"scripts":{"build":"NODE_ENV=production rollup -c rollup.config.js","dev":"NODE_ENV=development rollup -w -c rollup.config.js"},"version":"2.0.0-alpha-25120200103005"};
 
 /***/ }),
-
-/***/ 7:
-/*!****************************************************************************************************!*\
-  !*** C:/Users/Administrator/Desktop/project/rongchuang/222/rongchuang/pages.json?{"type":"style"} ***!
-  \****************************************************************************************************/
+/* 7 */
+/*!****************************************************************************!*\
+  !*** C:/Users/96539/Desktop/police/rongchuang/pages.json?{"type":"style"} ***!
+  \****************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -10251,18 +8511,2764 @@ module.exports = {"_from":"@dcloudio/uni-stat@alpha","_id":"@dcloudio/uni-stat@2
 Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _default = { "pages": { "pages/auth/auth": {}, "pages/index/index": {}, "pages/progress/index": {}, "pages/3d_show/index1": {}, "pages/long2/index": {}, "pages/seven_type/index": {}, "pages/longimg/index": {}, "pages/shapan/index": {}, "pages/housetype/index": {}, "pages/xuanchuan/index": {}, "pages/zixun/index": {}, "pages/zixun/list": {}, "pages/zixun/news": {}, "pages/webview/index": {}, "pages/rcrecord_active/index": {}, "pages/3d_show/index": {}, "pages/rcly/index": {}, "pages/rcly/3": { "navigationBarTitleText": "uni-app" }, "pages/rcly/1": { "navigationBarTitleText": "uni-app" }, "pages/rcly/2": { "navigationBarTitleText": "uni-app" }, "pages/park/index": { "navigationBarTitleText": "uni-app" }, "pages/houseview/index": { "navigationBarTitleText": "uni-app" }, "pages/house_photo_list/index": { "navigationBarTitleText": "uni-app" }, "pages/seven_item/1": { "navigationBarTitleText": "uni-app" }, "pages/seven_item/2": { "navigationBarTitleText": "uni-app" }, "pages/seven_item/3": { "navigationBarTitleText": "uni-app" }, "pages/seven_item/4": { "navigationBarTitleText": "uni-app" }, "pages/seven_item/5": { "navigationBarTitleText": "uni-app" }, "pages/seven_item/6": { "navigationBarTitleText": "uni-app" }, "pages/seven_item/7": { "navigationBarTitleText": "uni-app" }, "pages/seven_item/8": { "navigationBarTitleText": "uni-app" }, "pages/seven_item/9": { "navigationBarTitleText": "uni-app" }, "pages/project/index": { "navigationBarTitleText": "uni-app" }, "pages/chat/index": { "navigationBarTitleText": "uni-app" }, "pages/message/index": { "navigationBarTitleText": "uni-app" }, "components/sea_world": { "navigationBarTitleText": "uni-app" } }, "globalStyle": { "navigationBarTextStyle": "black", "navigationStyle": "default", "navigationBarBackgroundColor": "#F8F8F8", "backgroundColor": "#F8F8F8" } };exports.default = _default;
 
 /***/ }),
-
-/***/ 8:
-/*!***************************************************************************************************!*\
-  !*** C:/Users/Administrator/Desktop/project/rongchuang/222/rongchuang/pages.json?{"type":"stat"} ***!
-  \***************************************************************************************************/
+/* 8 */
+/*!***************************************************************************!*\
+  !*** C:/Users/96539/Desktop/police/rongchuang/pages.json?{"type":"stat"} ***!
+  \***************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _default = { "appid": "__UNI__9268B93" };exports.default = _default;
 
-/***/ })
+/***/ }),
+/* 9 */,
+/* 10 */,
+/* 11 */,
+/* 12 */,
+/* 13 */,
+/* 14 */
+/*!**********************************************************************************************************!*\
+  !*** ./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib/runtime/componentNormalizer.js ***!
+  \**********************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-}]);
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return normalizeComponent; });
+/* globals __VUE_SSR_CONTEXT__ */
+
+// IMPORTANT: Do NOT use ES2015 features in this file (except for modules).
+// This module is a runtime utility for cleaner component module output and will
+// be included in the final webpack user bundle.
+
+function normalizeComponent (
+  scriptExports,
+  render,
+  staticRenderFns,
+  functionalTemplate,
+  injectStyles,
+  scopeId,
+  moduleIdentifier, /* server only */
+  shadowMode, /* vue-cli only */
+  components, // fixed by xxxxxx auto components
+  renderjs // fixed by xxxxxx renderjs
+) {
+  // Vue.extend constructor export interop
+  var options = typeof scriptExports === 'function'
+    ? scriptExports.options
+    : scriptExports
+
+  // fixed by xxxxxx auto components
+  if (components) {
+    options.components = Object.assign(components, options.components || {})
+  }
+  // fixed by xxxxxx renderjs
+  if (renderjs) {
+    (renderjs.beforeCreate || (renderjs.beforeCreate = [])).unshift(function() {
+      this[renderjs.__module] = this
+    });
+    (options.mixins || (options.mixins = [])).push(renderjs)
+  }
+
+  // render functions
+  if (render) {
+    options.render = render
+    options.staticRenderFns = staticRenderFns
+    options._compiled = true
+  }
+
+  // functional template
+  if (functionalTemplate) {
+    options.functional = true
+  }
+
+  // scopedId
+  if (scopeId) {
+    options._scopeId = 'data-v-' + scopeId
+  }
+
+  var hook
+  if (moduleIdentifier) { // server build
+    hook = function (context) {
+      // 2.3 injection
+      context =
+        context || // cached call
+        (this.$vnode && this.$vnode.ssrContext) || // stateful
+        (this.parent && this.parent.$vnode && this.parent.$vnode.ssrContext) // functional
+      // 2.2 with runInNewContext: true
+      if (!context && typeof __VUE_SSR_CONTEXT__ !== 'undefined') {
+        context = __VUE_SSR_CONTEXT__
+      }
+      // inject component styles
+      if (injectStyles) {
+        injectStyles.call(this, context)
+      }
+      // register component module identifier for async chunk inferrence
+      if (context && context._registeredComponents) {
+        context._registeredComponents.add(moduleIdentifier)
+      }
+    }
+    // used by ssr in case component is cached and beforeCreate
+    // never gets called
+    options._ssrRegister = hook
+  } else if (injectStyles) {
+    hook = shadowMode
+      ? function () { injectStyles.call(this, this.$root.$options.shadowRoot) }
+      : injectStyles
+  }
+
+  if (hook) {
+    if (options.functional) {
+      // for template-only hot-reload because in that case the render fn doesn't
+      // go through the normalizer
+      options._injectStyles = hook
+      // register for functioal component in vue file
+      var originalRender = options.render
+      options.render = function renderWithStyleInjection (h, context) {
+        hook.call(context)
+        return originalRender(h, context)
+      }
+    } else {
+      // inject component registration as beforeCreate hook
+      var existing = options.beforeCreate
+      options.beforeCreate = existing
+        ? [].concat(existing, hook)
+        : [hook]
+    }
+  }
+
+  return {
+    exports: scriptExports,
+    options: options
+  }
+}
+
+
+/***/ }),
+/* 15 */
+/*!******************************************************************!*\
+  !*** C:/Users/96539/Desktop/police/rongchuang/static/common.css ***!
+  \******************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+// extracted by mini-css-extract-plugin
+
+/***/ }),
+/* 16 */
+/*!*************************************************************!*\
+  !*** C:/Users/96539/Desktop/police/rongchuang/api/index.js ***!
+  \*************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _request = _interopRequireDefault(__webpack_require__(/*! ./request.js */ 17));
+var _requestConfig = _interopRequireDefault(__webpack_require__(/*! ./zhouWei-request/requestConfig.js */ 18));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+var appid = "wxead2ae5bf7837720";var _default =
+{
+  banner: function banner() {
+    return _requestConfig.default.get('/banner');
+  },
+  projectprogress: function projectprogress() {
+    return _requestConfig.default.get('/projectProgress');
+  },
+  imgwordcontroller: function imgwordcontroller(type) {
+    return _requestConfig.default.get('/imgWord?type=' + type);
+  },
+  active: function active() {
+    return _requestConfig.default.get('/activity?type=1');
+  },
+  bigevent: function bigevent() {
+    return _requestConfig.default.get('/activity?type=2');
+  },
+  getNewsList: function getNewsList(id) {
+    return _requestConfig.default.get("/activity/".concat(id));
+  },
+  getMostNews: function getMostNews() {
+    return _requestConfig.default.get("/activity/new");
+  },
+  videoIndex: function videoIndex() {
+    return _requestConfig.default.get("/video/index");
+  },
+  videoList: function videoList() {
+    return _requestConfig.default.get("/video");
+  },
+  vr: function vr(type) {
+    return _requestConfig.default.get("/vr?type=".concat(type));
+  },
+  getPhone: function getPhone() {
+    return _requestConfig.default.get("/hotline");
+  },
+  appointment: function appointment(data) {
+    return _requestConfig.default.post("/appointment", data);
+  },
+  addPush: function addPush(token) {
+    return _requestConfig.default.put("/user/add/push?Authorization=".concat(token));
+  },
+  wxlogin: function wxlogin(code) {
+    return _requestConfig.default.get("/wx/user/".concat(appid, "/login?code=").concat(code));
+  },
+
+  info: function info(res, sessionKey, token) {
+    var param = "sessionKey=".concat(encodeURI(sessionKey), "&signature=").concat(encodeURI(res.signature), "&\n\t\trawData=").concat(
+    encodeURI(res.rawData), "&encryptedData=").concat(encodeURI(res.encryptedData), "&iv=").concat(encodeURI(res.iv), "&Authorization=").concat(token);
+    return _requestConfig.default.get("/wx/user/".concat(appid, "/info?").concat(param));
+  },
+  bind: function bind(id, token) {
+    return _requestConfig.default.put("/user/bing?userId=".concat(id, "&Authorization=").concat(token));
+  },
+  people: function people(token) {
+    return _requestConfig.default.get("/user/people?Authorization=".concat(token));
+  } };exports.default = _default;
+
+/***/ }),
+/* 17 */
+/*!***************************************************************!*\
+  !*** C:/Users/96539/Desktop/police/rongchuang/api/request.js ***!
+  \***************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = ajax;var _requestConfig = _interopRequireDefault(__webpack_require__(/*! ./zhouWei-request/requestConfig.js */ 18));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+function ajax(url, data) {
+  // if(data){
+  // 	return $http.post(url,data)
+  // }
+  return _requestConfig.default.get(url);
+  // uni.request({
+  // 	url: url, //仅为示例，并非真实接口地址。
+  // });
+}
+
+
+
+// this.$http.get('aid/region',{pid:0}).
+// then(function (response) {
+// 	//这里只会在接口是成功状态返回
+// }).catch(function (error) {
+// 	//这里只会在接口是失败状态返回，不需要去处理错误提示
+// 	console.log(error);
+// });
+
+/***/ }),
+/* 18 */
+/*!*************************************************************************************!*\
+  !*** C:/Users/96539/Desktop/police/rongchuang/api/zhouWei-request/requestConfig.js ***!
+  \*************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _request = _interopRequireDefault(__webpack_require__(/*! ./request */ 19));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+var baseUrl = "http://rcxcx.api.95lsy.com";
+//可以new多个request来支持多个域名请求
+var $http = new _request.default({
+  //接口请求地址
+  baseUrl: baseUrl,
+  //服务器本地上传文件地址
+  fileUrl: baseUrl,
+  //设置请求头
+  headers: {
+    'content-type': 'application/json;charset=UTF-8' },
+
+  //以下是默认值可不写
+  //是否提示--默认提示
+  isPrompt: true,
+  //是否显示请求动画
+  load: true,
+  //是否使用处理数据模板
+  isFactory: true,
+  //列表接口是否有加载判断
+  loadMore: true });
+
+//当前接口请求数
+var requestNum = 0;
+//请求开始拦截器
+$http.requestStart = function (options) {
+  if (requestNum <= 0) {
+    uni.showNavigationBarLoading();
+    if (options.load) {
+      //打开加载动画
+      uni.showLoading({
+        title: '加载中',
+        mask: true });
+
+    }
+  }
+  requestNum += 1;
+  //请求前加入token
+  //options.headers['token'] = "";
+  //console.log("请求开始前", options);
+  return options;
+};
+//请求结束
+$http.requestEnd = function (options, resolve) {
+  //判断当前接口是否需要加载动画
+  requestNum = requestNum - 1;
+  if (requestNum <= 0) {
+    uni.hideLoading();
+    uni.hideNavigationBarLoading();
+  }
+  if (resolve.errMsg && (resolve.errMsg != "request:ok" || resolve.statusCode && resolve.statusCode != 200)) {
+    uni.showToast({
+      title: "网络错误，请检查一下网络",
+      icon: "none" });
+
+  }
+};
+//登录弹窗次数
+var loginPopupNum = 0;
+//所有接口数据处理（可在接口里设置不调用此方法）
+$http.dataFactory = function (options, resolve) {
+  //console.log("接口返回结果", resolve);
+  //设置回调默认值
+  var callback = {
+    //success数据是否请求成功状态
+    success: false,
+    //这里返回的数据就是调用请求方法收到的数据
+    result: "" };
+
+  //判断数据是否请求成功
+  if (resolve.data.code < 2000) {
+    callback.success = true;
+    callback.result = resolve.data;
+  } else if (resolve.data.code == "1004" || resolve.data.code == "1005") {
+    //未登录或登录已失效
+    if (loginPopupNum <= 0) {
+      loginPopupNum++;
+      uni.showModal({
+        title: '温馨提示',
+        content: '此时此刻需要您登录喔~',
+        confirmText: "去登录",
+        cancelText: "再逛会",
+        success: function success(res) {
+          loginPopupNum--;
+          if (res.confirm) {
+            uni.navigateTo({
+              url: "'/pages/login" });
+
+          }
+        } });
+
+    }
+  } else {//其他错误提示
+    //设置可以提示的时候
+    if (options.isPrompt) {
+      setTimeout(function () {
+        //提示后台接口抛出的错误信息
+        uni.showToast({
+          title: resolve.data.info,
+          icon: "none",
+          duration: 3000 });
+
+      }, 500);
+    }
+    callback.result = resolve.data;
+  }
+  return callback;
+};var _default =
+$http;exports.default = _default;
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
+
+/***/ }),
+/* 19 */
+/*!*******************************************************************************!*\
+  !*** C:/Users/96539/Desktop/police/rongchuang/api/zhouWei-request/request.js ***!
+  \*******************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;function _classCallCheck(instance, Constructor) {if (!(instance instanceof Constructor)) {throw new TypeError("Cannot call a class as a function");}}function _defineProperties(target, props) {for (var i = 0; i < props.length; i++) {var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ("value" in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);}}function _createClass(Constructor, protoProps, staticProps) {if (protoProps) _defineProperties(Constructor.prototype, protoProps);if (staticProps) _defineProperties(Constructor, staticProps);return Constructor;}var qiniuUploader = __webpack_require__(/*! ./qiniuUploader */ 20);var
+request = /*#__PURE__*/function () {
+  function request(options) {_classCallCheck(this, request);
+    //请求公共地址
+    this.baseUrl = options.baseUrl || "";
+    //公共文件上传请求地址
+    this.fileUrl = options.fileUrl || "";
+    //默认请求头
+    this.headers = options.headers || {};
+    //默认配置
+    this.config = {
+      isPrompt: options.isPrompt === false ? false : true,
+      load: options.load === false ? false : true,
+      isFactory: options.isFactory === false ? false : true,
+      loadMore: options.loadMore === false ? false : true };
+
+  }
+  // 获取默认信息
+  _createClass(request, [{ key: "getDefault", value: function getDefault(url, options, type) {
+      //判断url是不是链接
+      var urlType = /^([hH][tT]{2}[pP]:\/\/|[hH][tT]{2}[pP][sS]:\/\/)(([A-Za-z0-9-~]+).)+([A-Za-z0-9-~/])+$/.test(url);
+      var httpUrl;
+      if (type == "file") {
+        httpUrl = urlType ? url : this.fileUrl + url;
+      } else {
+        httpUrl = urlType ? url : this.baseUrl + url;
+      }
+      var config = Object.assign({}, this.config, options);
+      //请求地址
+      config.httpUrl = httpUrl;
+      //请求头
+      config.headers = Object.assign(this.headers, options.headers);
+      return config;
+    }
+
+    //post请求
+  }, { key: "post", value: function post() {var _this2 = this;var url = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';var data = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};var options = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
+      var requestInfo = this.getDefault(url, options, "data");
+      requestInfo.data = data;
+      return new Promise(function (resolve, reject) {
+        _this2.getRequest("POST", requestInfo, function (state, response) {
+          //是否用外部的数据处理方法
+          if (state && requestInfo.isFactory && _this2.dataFactory) {
+            //数据处理
+            var factoryInfo = _this2.dataFactory(requestInfo, response);
+            factoryInfo.success ? resolve(factoryInfo.result) : reject(factoryInfo.result);
+          } else {
+            state ? resolve(response) : reject(response);
+          }
+        });
+      });
+    }
+    //get请求
+  }, { key: "get", value: function get() {var _this3 = this;var url = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';var data = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};var options = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
+      var requestInfo = this.getDefault(url, options, "data");
+      requestInfo.data = data;
+      return new Promise(function (resolve, reject) {
+        _this3.getRequest("GET", requestInfo, function (state, response) {
+          //是否用外部的数据处理方法
+          if (state && requestInfo.isFactory && _this3.dataFactory) {
+            //数据处理
+            var factoryInfo = _this3.dataFactory(requestInfo, response);
+            factoryInfo.success ? resolve(factoryInfo.result) : reject(factoryInfo.result);
+          } else {
+            state ? resolve(response) : reject(response);
+          }
+        });
+      });
+    }
+    //put请求
+  }, { key: "put", value: function put() {var _this4 = this;var url = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';var data = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};var options = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
+      var requestInfo = this.getDefault(url, options, "data");
+      requestInfo.data = data;
+      return new Promise(function (resolve, reject) {
+        _this4.getRequest("PUT", requestInfo, function (state, response) {
+          //是否用外部的数据处理方法
+          if (state && requestInfo.isFactory && _this4.dataFactory) {
+            //数据处理
+            var factoryInfo = _this4.dataFactory(requestInfo, response);
+            factoryInfo.success ? resolve(factoryInfo.result) : reject(factoryInfo.result);
+          } else {
+            state ? resolve(response) : reject(response);
+          }
+        });
+      });
+    }
+    //delete请求
+  }, { key: "delete", value: function _delete() {var _this5 = this;var url = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';var data = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};var options = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
+      var requestInfo = this.getDefault(url, options, "data");
+      requestInfo.data = data;
+      return new Promise(function (resolve, reject) {
+        _this5.getRequest("DELETE", requestInfo, function (state, response) {
+          //是否用外部的数据处理方法
+          if (state && requestInfo.isFactory && _this5.dataFactory) {
+            //数据处理
+            var factoryInfo = _this5.dataFactory(requestInfo, response);
+            factoryInfo.success ? resolve(factoryInfo.result) : reject(factoryInfo.result);
+          } else {
+            state ? resolve(response) : reject(response);
+          }
+        });
+      });
+    }
+
+    //接口请求方法
+  }, { key: "getRequest", value: function getRequest(ajaxType, options, callback) {var _this6 = this;
+      //请求前回调
+      if (this.requestStart) {
+        options.method = ajaxType;
+        var requestStart = this.requestStart(options);
+        if (typeof requestStart == "object") {
+          options.data = requestStart.data;
+          options.headers = requestStart.headers;
+          options.isPrompt = requestStart.isPrompt;
+          options.load = requestStart.load;
+          options.isFactory = requestStart.isFactory;
+        } else {
+          callback(false, "请求开始拦截器未通过");
+          return;
+        }
+      }
+      uni.request({
+        url: options.httpUrl,
+        data: options.data,
+        method: ajaxType, //请求类型
+        header: options.headers, //加入请求头
+        success: function success(res) {
+          //请求完成回调
+          _this6.requestEnd && _this6.requestEnd(options, res);
+          callback(true, res);
+        },
+        fail: function fail(err) {
+          //请求完成回调
+          _this6.requestEnd && _this6.requestEnd(options, err);
+          callback(false, err);
+        } });
+
+    }
+    //jsonp请求(只限于H5使用)
+  }, { key: "jsonp", value: function jsonp() {var url = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';var data = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};var options = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
+      var requestInfo = this.getDefault(url, options, "data");
+      var dataStr = '';
+      Object.keys(data).forEach(function (key) {
+        dataStr += key + '=' + data[key] + '&';
+      });
+      //匹配最后一个&并去除
+      if (dataStr !== '') {
+        dataStr = dataStr.substr(0, dataStr.lastIndexOf('&'));
+      }
+      requestInfo.httpUrl = requestInfo.httpUrl + '?' + dataStr;
+      var _this = this;
+      return new Promise(function (resolve, reject) {
+        var callbackName = "callback" + Math.ceil(Math.random() * 1000000);
+        if (_this.requestStart) {
+          requestInfo.data = data;
+          var requestStart = _this.requestStart(requestInfo);
+          if (typeof requestStart == "object") {
+            requestInfo.data = requestStart.data;
+            requestInfo.headers = requestStart.headers;
+            requestInfo.isPrompt = requestStart.isPrompt;
+            requestInfo.load = requestStart.load;
+            requestInfo.isFactory = requestStart.isFactory;
+          } else {
+            reject("请求开始拦截器未通过");
+            return;
+          }
+        }
+        window[callbackName] = function (data) {
+          resolve(data);
+        };
+        var script = document.createElement("script");
+        script.src = requestInfo.httpUrl + "&callback=" + callbackName;
+        document.head.appendChild(script);
+        // 及时删除，防止加载过多的JS
+        document.head.removeChild(script);
+        //请求完成回调
+        _this.requestEnd && _this.requestEnd(requestInfo, {});
+      });
+    }
+    //七牛云上传图片
+  }, { key: "qnImgUpload", value: function qnImgUpload() {var options = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};var callback = arguments.length > 1 ? arguments[1] : undefined;
+      var _this = this;
+      return new Promise(function (resolve, reject) {
+        uni.chooseImage({
+          count: options.count || 9, //默认9
+          sizeType: options.sizeType || ['original', 'compressed'], //可以指定是原图还是压缩图，默认二者都有
+          sourceType: options.sourceType || ['album', 'camera'], //从相册选择
+          success: function success(res) {
+            _this.qnFileUpload(res.tempFilePaths, callback).then(function (data) {
+              resolve(data);
+            }, function (err) {
+              reject(err);
+            });
+          } });
+
+      });
+    }
+    //七牛云上传文件命名
+  }, { key: "randomChar", value: function randomChar(l) {var url = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : "";
+      var x = "0123456789qwertyuioplkjhgfdsazxcvbnm";
+      var tmp = "";
+      var time = new Date();
+      for (var i = 0; i < l; i++) {
+        tmp += x.charAt(Math.ceil(Math.random() * 100000000) % x.length);
+      }
+      return (
+        "file/" +
+        url +
+        time.getTime() +
+        tmp);
+
+    }
+    //七牛云文件上传（支持多张上传）
+  }, { key: "qnFileUpload", value: function qnFileUpload(files, callback) {
+      var _this = this;
+      return new Promise(function (resolve, reject) {
+        if (files instanceof Array) {
+          var len = files.length;
+          var imageList = new Array();
+          //该地址需要开发者自行配置（每个后台的接口风格都不一样）
+          _this.get("api/open/v1/qn_upload").then(function (data) {
+            /*
+                                                                   * 接口返回参数：
+                                                                   * visitPrefix:访问文件的域名
+                                                                      * token:七牛云上传token
+                                                                      * folderPath:上传的文件夹
+                                                                      */
+            uploadFile(0);
+            function uploadFile(i) {
+              // 交给七牛上传
+              qiniuUploader.upload(files[i], function (res) {
+                callback && callback(res.imageURL);
+                imageList.push(res.imageURL);
+                if (len - 1 > i) {
+                  uploadFile(i + 1);
+                } else {
+                  resolve(imageList);
+                }
+              }, function (error) {
+                console.log('error: ' + error);
+                reject(error);
+              }, {
+                region: 'SCN', //地区
+                domain: data.visitPrefix, // // bucket 域名，下载资源时用到。
+                key: _this.randomChar(8, data.folderPath),
+                uptoken: data.token, // 由其他程序生成七牛 uptoken
+                uptokenURL: 'UpTokenURL.com/uptoken' // 上传地址
+              }, function (res) {
+                console.log('上传进度', res.progress);
+                // console.log('已经上传的数据长度', res.totalBytesSent)
+                // console.log('预期需要上传的数据总长度', res.totalBytesExpectedToSend)
+              });
+            }
+          });
+        } else {
+          console.error("files 必须是数组类型");
+          reject("files 必须是数组类型");
+        }
+      });
+
+    }
+    //本地服务器图片上传
+  }, { key: "urlImgUpload", value: function urlImgUpload() {var url = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';var data = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};var options = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
+      var requestInfo = this.getDefault(url, options, "file");
+      requestInfo.data = data;
+      var _this = this;
+      return new Promise(function (resolve, reject) {
+        uni.chooseImage({
+          count: data.count || 9, //默认9
+          sizeType: data.sizeType || ['original', 'compressed'], //可以指定是原图还是压缩图，默认二者都有
+          sourceType: data.sourceType || ['album', 'camera'], //从相册选择
+          success: function success(res) {
+            _this.urlFileUpload(requestInfo, res.tempFiles, function (state, response) {
+              state ? resolve(response) : reject(response);
+            });
+          } });
+
+      });
+    }
+    //本地服务器文件上传方法
+  }, { key: "urlFileUpload", value: function urlFileUpload(options, files, callback) {
+      var _this = this;
+      //请求前回调
+      if (this.requestStart) {
+        options.method = "FILE";
+        var requestStart = this.requestStart(options);
+        if (typeof requestStart == "object") {
+          if (typeof requestStart == "object") {
+            options.data = requestStart.data;
+            options.headers = requestStart.headers;
+            options.isPrompt = requestStart.isPrompt;
+            options.load = requestStart.load;
+            options.isFactory = requestStart.isFactory;
+          } else {
+            callback(false, "请求开始拦截器未通过");
+            return;
+          }
+        }
+      }
+      var len = files.length - 1;
+      var fileList = new Array();
+      fileUpload(0);
+      function fileUpload(i) {
+        var config = {
+          url: options.httpUrl,
+          filePath: files[i].path,
+          header: options.headers, //加入请求头
+          name: options.name || "file",
+          success: function success(response) {
+            response.data = JSON.parse(response.data);
+            //请求完成回调
+            _this.requestEnd && _this.requestEnd(options, response);
+            //是否用外部的数据处理方法
+            if (options.isFactory && _this.dataFactory) {
+              //数据处理
+              var factoryInfo = _this.dataFactory(options, response);
+              if (factoryInfo.success) {
+                fileList.push(factoryInfo.result);
+                if (len <= i) {
+                  callback(true, fileList);
+                } else {
+                  fileUpload(i + 1);
+                }
+              } else {
+                callback(false, factoryInfo.result);
+              }
+            } else {
+              fileList.push(response.data);
+              if (len <= i) {
+                callback(true, fileList);
+              } else {
+                fileUpload(i + 1);
+              }
+            }
+          },
+          fail: function fail(err) {
+            //请求完成回调
+            _this.requestEnd && _this.requestEnd(options, err);
+            callback(false, err);
+          } };
+
+        if (options.data) {
+          config.formData = options.data;
+        }
+        uni.uploadFile(config);
+      }
+    } }]);return request;}();exports.default = request;
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
+
+/***/ }),
+/* 20 */
+/*!*************************************************************************************!*\
+  !*** C:/Users/96539/Desktop/police/rongchuang/api/zhouWei-request/qiniuUploader.js ***!
+  \*************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+ // created by gpake
+(function () {
+
+  var config = {
+    qiniuRegion: '',
+    qiniuImageURLPrefix: '',
+    qiniuUploadToken: '',
+    qiniuUploadTokenURL: '',
+    qiniuUploadTokenFunction: null,
+    qiniuShouldUseQiniuFileName: false };
+
+
+  module.exports = {
+    init: init,
+    upload: upload
+
+
+    // 在整个程序生命周期中，只需要 init 一次即可
+    // 如果需要变更参数，再调用 init 即可
+  };function init(options) {
+    config = {
+      qiniuRegion: '',
+      qiniuImageURLPrefix: '',
+      qiniuUploadToken: '',
+      qiniuUploadTokenURL: '',
+      qiniuUploadTokenFunction: null,
+      qiniuShouldUseQiniuFileName: false };
+
+    updateConfigWithOptions(options);
+  }
+
+  function updateConfigWithOptions(options) {
+    if (options.region) {
+      config.qiniuRegion = options.region;
+    } else {
+      console.error('qiniu uploader need your bucket region');
+    }
+    if (options.uptoken) {
+      config.qiniuUploadToken = options.uptoken;
+    } else if (options.uptokenURL) {
+      config.qiniuUploadTokenURL = options.uptokenURL;
+    } else if (options.uptokenFunc) {
+      config.qiniuUploadTokenFunction = options.uptokenFunc;
+    }
+    if (options.domain) {
+      config.qiniuImageURLPrefix = options.domain;
+    }
+    config.qiniuShouldUseQiniuFileName = options.shouldUseQiniuFileName;
+  }
+
+  function upload(filePath, success, fail, options, progress, cancelTask) {
+    if (null == filePath) {
+      console.error('qiniu uploader need filePath to upload');
+      return;
+    }
+    if (options) {
+      updateConfigWithOptions(options);
+    }
+    if (config.qiniuUploadToken) {
+      doUpload(filePath, success, fail, options, progress, cancelTask);
+    } else if (config.qiniuUploadTokenURL) {
+      getQiniuToken(function () {
+        doUpload(filePath, success, fail, options, progress, cancelTask);
+      });
+    } else if (config.qiniuUploadTokenFunction) {
+      config.qiniuUploadToken = config.qiniuUploadTokenFunction();
+      if (null == config.qiniuUploadToken && config.qiniuUploadToken.length > 0) {
+        console.error('qiniu UploadTokenFunction result is null, please check the return value');
+        return;
+      }
+      doUpload(filePath, success, fail, options, progress, cancelTask);
+    } else {
+      console.error('qiniu uploader need one of [uptoken, uptokenURL, uptokenFunc]');
+      return;
+    }
+  }
+
+  function doUpload(filePath, _success, _fail, options, progress, cancelTask) {
+    if (null == config.qiniuUploadToken && config.qiniuUploadToken.length > 0) {
+      console.error('qiniu UploadToken is null, please check the init config or networking');
+      return;
+    }
+    var url = uploadURLFromRegionCode(config.qiniuRegion);
+    var fileName = filePath.split('//')[1];
+    if (options && options.key) {
+      fileName = options.key;
+    }
+    var formData = {
+      'token': config.qiniuUploadToken };
+
+    if (!config.qiniuShouldUseQiniuFileName) {
+      formData['key'] = fileName;
+    }
+    var uploadTask = wx.uploadFile({
+      url: url,
+      filePath: filePath,
+      name: 'file',
+      formData: formData,
+      success: function success(res) {
+        var dataString = res.data;
+        if (res.data.hasOwnProperty('type') && res.data.type === 'Buffer') {
+          dataString = String.fromCharCode.apply(null, res.data.data);
+        }
+        try {
+          var dataObject = JSON.parse(dataString);
+          //do something
+          var imageUrl = config.qiniuImageURLPrefix + '/' + dataObject.key;
+          dataObject.imageURL = imageUrl;
+          if (_success) {
+            _success(dataObject);
+          }
+        } catch (e) {
+          console.log('parse JSON failed, origin String is: ' + dataString);
+          if (_fail) {
+            _fail(e);
+          }
+        }
+      },
+      fail: function fail(error) {
+        console.error(error);
+        if (_fail) {
+          _fail(error);
+        }
+      } });
+
+
+    uploadTask.onProgressUpdate(function (res) {
+      progress && progress(res);
+    });
+
+    cancelTask && cancelTask(function () {
+      uploadTask.abort();
+    });
+  }
+
+  function getQiniuToken(callback) {
+    wx.request({
+      url: config.qiniuUploadTokenURL,
+      success: function success(res) {
+        var token = res.data.uptoken;
+        if (token && token.length > 0) {
+          config.qiniuUploadToken = token;
+          if (callback) {
+            callback();
+          }
+        } else {
+          console.error('qiniuUploader cannot get your token, please check the uptokenURL or server');
+        }
+      },
+      fail: function fail(error) {
+        console.error('qiniu UploadToken is null, please check the init config or networking: ' + error);
+      } });
+
+  }
+
+  function uploadURLFromRegionCode(code) {
+    var uploadURL = null;
+    switch (code) {
+      case 'ECN':uploadURL = 'https://up.qbox.me';break;
+      case 'NCN':uploadURL = 'https://up-z1.qbox.me';break;
+      case 'SCN':uploadURL = 'https://up-z2.qbox.me';break;
+      case 'NA':uploadURL = 'https://up-na0.qbox.me';break;
+      case 'ASG':uploadURL = 'https://up-as0.qbox.me';break;
+      default:console.error('please make the region is with one of [ECN, SCN, NCN, NA, ASG]');}
+
+    return uploadURL;
+  }
+
+})();
+
+/***/ }),
+/* 21 */
+/*!***************************************************************!*\
+  !*** C:/Users/96539/Desktop/police/rongchuang/mixin/index.js ***!
+  \***************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _default = {
+  data: function data() {
+    return {
+      //设置默认的分享参数
+      share: {
+        title: 'ALAPI',
+        path: '/pages/index/index',
+        imageUrl: '',
+        desc: '',
+        content: '' } };
+
+
+  },
+  onLoad: function onLoad(option) {//option为object类型，会序列化上个页面传递的参数
+    console.log(option); //打印出上个页面传递的参数。
+    console.log(option.name); //打印出上个页面传递的参数。
+    if (option.id) {
+
+      var token = uni.getStorageSync('token');
+      this.$http.bind(option.id, token).then(function (res) {
+
+      });
+    }
+
+  },
+  onShareAppMessage: function onShareAppMessage(res) {
+    return {
+      title: 'ALAPI',
+      path: '/pages/index/index?id=' + uni.getStorageSync('shareid'),
+      imageUrl: '',
+      desc: 'jjjjjjjjjj',
+      content: 'eeeeeeeeeeeeeee' };
+
+
+  } };exports.default = _default;
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
+
+/***/ }),
+/* 22 */
+/*!***************************************************************!*\
+  !*** C:/Users/96539/Desktop/police/rongchuang/store/index.js ***!
+  \***************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _regenerator = _interopRequireDefault(__webpack_require__(/*! ./node_modules/@babel/runtime/regenerator */ 23));var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ 2));
+var _vuex = _interopRequireDefault(__webpack_require__(/*! vuex */ 26));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}
+
+_vue.default.use(_vuex.default);
+
+var store = new _vuex.default.Store({
+  state: {
+    hasLogin: false,
+    loginProvider: "",
+    openid: null,
+    testvuex: false,
+    colorIndex: 0,
+    colorList: ['#FF0000', '#00FF00', '#0000FF'] },
+
+  mutations: {
+    login: function login(state, provider) {
+      state.hasLogin = true;
+      state.loginProvider = provider;
+    },
+    logout: function logout(state) {
+      state.hasLogin = false;
+      state.openid = null;
+    } },
+
+
+  getters: {
+    currentColor: function currentColor(state) {
+      return state.colorList[state.colorIndex];
+    } },
+
+  actions: {
+    // lazy loading openid
+    getUserOpenId: function () {var _getUserOpenId = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee(_ref) {var commit, state;return _regenerator.default.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:
+                commit = _ref.commit,
+                state = _ref.state;_context.next = 3;return (
+
+                  new Promise(function (resolve, reject) {
+                    if (state.openid) {
+                      resolve(state.openid);
+                    } else {
+                      uni.login({
+                        success: function success(data) {
+                          commit('login');
+                          setTimeout(function () {//模拟异步请求服务器获取 openid
+                            var openid = '123456789';
+                            console.log('uni.request mock openid[' + openid + ']');
+                            commit('setOpenid', openid);
+                            resolve(openid);
+                          }, 1000);
+                        },
+                        fail: function fail(err) {
+                          console.log('uni.login 接口调用失败，将无法正常使用开放接口等服务', err);
+                          reject(err);
+                        } });
+
+                    }
+                  }));case 3:return _context.abrupt("return", _context.sent);case 4:case "end":return _context.stop();}}}, _callee, this);}));function getUserOpenId(_x) {return _getUserOpenId.apply(this, arguments);}return getUserOpenId;}() } });var _default =
+
+
+
+
+store;exports.default = _default;
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
+
+/***/ }),
+/* 23 */
+/*!**********************************************************!*\
+  !*** ./node_modules/@babel/runtime/regenerator/index.js ***!
+  \**********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__(/*! regenerator-runtime */ 24);
+
+
+/***/ }),
+/* 24 */
+/*!************************************************************!*\
+  !*** ./node_modules/regenerator-runtime/runtime-module.js ***!
+  \************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+/**
+ * Copyright (c) 2014-present, Facebook, Inc.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+// This method of obtaining a reference to the global object needs to be
+// kept identical to the way it is obtained in runtime.js
+var g = (function() {
+  return this || (typeof self === "object" && self);
+})() || Function("return this")();
+
+// Use `getOwnPropertyNames` because not all browsers support calling
+// `hasOwnProperty` on the global `self` object in a worker. See #183.
+var hadRuntime = g.regeneratorRuntime &&
+  Object.getOwnPropertyNames(g).indexOf("regeneratorRuntime") >= 0;
+
+// Save the old regeneratorRuntime in case it needs to be restored later.
+var oldRuntime = hadRuntime && g.regeneratorRuntime;
+
+// Force reevalutation of runtime.js.
+g.regeneratorRuntime = undefined;
+
+module.exports = __webpack_require__(/*! ./runtime */ 25);
+
+if (hadRuntime) {
+  // Restore the original runtime.
+  g.regeneratorRuntime = oldRuntime;
+} else {
+  // Remove the global property added by runtime.js.
+  try {
+    delete g.regeneratorRuntime;
+  } catch(e) {
+    g.regeneratorRuntime = undefined;
+  }
+}
+
+
+/***/ }),
+/* 25 */
+/*!*****************************************************!*\
+  !*** ./node_modules/regenerator-runtime/runtime.js ***!
+  \*****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+/**
+ * Copyright (c) 2014-present, Facebook, Inc.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+!(function(global) {
+  "use strict";
+
+  var Op = Object.prototype;
+  var hasOwn = Op.hasOwnProperty;
+  var undefined; // More compressible than void 0.
+  var $Symbol = typeof Symbol === "function" ? Symbol : {};
+  var iteratorSymbol = $Symbol.iterator || "@@iterator";
+  var asyncIteratorSymbol = $Symbol.asyncIterator || "@@asyncIterator";
+  var toStringTagSymbol = $Symbol.toStringTag || "@@toStringTag";
+
+  var inModule = typeof module === "object";
+  var runtime = global.regeneratorRuntime;
+  if (runtime) {
+    if (inModule) {
+      // If regeneratorRuntime is defined globally and we're in a module,
+      // make the exports object identical to regeneratorRuntime.
+      module.exports = runtime;
+    }
+    // Don't bother evaluating the rest of this file if the runtime was
+    // already defined globally.
+    return;
+  }
+
+  // Define the runtime globally (as expected by generated code) as either
+  // module.exports (if we're in a module) or a new, empty object.
+  runtime = global.regeneratorRuntime = inModule ? module.exports : {};
+
+  function wrap(innerFn, outerFn, self, tryLocsList) {
+    // If outerFn provided and outerFn.prototype is a Generator, then outerFn.prototype instanceof Generator.
+    var protoGenerator = outerFn && outerFn.prototype instanceof Generator ? outerFn : Generator;
+    var generator = Object.create(protoGenerator.prototype);
+    var context = new Context(tryLocsList || []);
+
+    // The ._invoke method unifies the implementations of the .next,
+    // .throw, and .return methods.
+    generator._invoke = makeInvokeMethod(innerFn, self, context);
+
+    return generator;
+  }
+  runtime.wrap = wrap;
+
+  // Try/catch helper to minimize deoptimizations. Returns a completion
+  // record like context.tryEntries[i].completion. This interface could
+  // have been (and was previously) designed to take a closure to be
+  // invoked without arguments, but in all the cases we care about we
+  // already have an existing method we want to call, so there's no need
+  // to create a new function object. We can even get away with assuming
+  // the method takes exactly one argument, since that happens to be true
+  // in every case, so we don't have to touch the arguments object. The
+  // only additional allocation required is the completion record, which
+  // has a stable shape and so hopefully should be cheap to allocate.
+  function tryCatch(fn, obj, arg) {
+    try {
+      return { type: "normal", arg: fn.call(obj, arg) };
+    } catch (err) {
+      return { type: "throw", arg: err };
+    }
+  }
+
+  var GenStateSuspendedStart = "suspendedStart";
+  var GenStateSuspendedYield = "suspendedYield";
+  var GenStateExecuting = "executing";
+  var GenStateCompleted = "completed";
+
+  // Returning this object from the innerFn has the same effect as
+  // breaking out of the dispatch switch statement.
+  var ContinueSentinel = {};
+
+  // Dummy constructor functions that we use as the .constructor and
+  // .constructor.prototype properties for functions that return Generator
+  // objects. For full spec compliance, you may wish to configure your
+  // minifier not to mangle the names of these two functions.
+  function Generator() {}
+  function GeneratorFunction() {}
+  function GeneratorFunctionPrototype() {}
+
+  // This is a polyfill for %IteratorPrototype% for environments that
+  // don't natively support it.
+  var IteratorPrototype = {};
+  IteratorPrototype[iteratorSymbol] = function () {
+    return this;
+  };
+
+  var getProto = Object.getPrototypeOf;
+  var NativeIteratorPrototype = getProto && getProto(getProto(values([])));
+  if (NativeIteratorPrototype &&
+      NativeIteratorPrototype !== Op &&
+      hasOwn.call(NativeIteratorPrototype, iteratorSymbol)) {
+    // This environment has a native %IteratorPrototype%; use it instead
+    // of the polyfill.
+    IteratorPrototype = NativeIteratorPrototype;
+  }
+
+  var Gp = GeneratorFunctionPrototype.prototype =
+    Generator.prototype = Object.create(IteratorPrototype);
+  GeneratorFunction.prototype = Gp.constructor = GeneratorFunctionPrototype;
+  GeneratorFunctionPrototype.constructor = GeneratorFunction;
+  GeneratorFunctionPrototype[toStringTagSymbol] =
+    GeneratorFunction.displayName = "GeneratorFunction";
+
+  // Helper for defining the .next, .throw, and .return methods of the
+  // Iterator interface in terms of a single ._invoke method.
+  function defineIteratorMethods(prototype) {
+    ["next", "throw", "return"].forEach(function(method) {
+      prototype[method] = function(arg) {
+        return this._invoke(method, arg);
+      };
+    });
+  }
+
+  runtime.isGeneratorFunction = function(genFun) {
+    var ctor = typeof genFun === "function" && genFun.constructor;
+    return ctor
+      ? ctor === GeneratorFunction ||
+        // For the native GeneratorFunction constructor, the best we can
+        // do is to check its .name property.
+        (ctor.displayName || ctor.name) === "GeneratorFunction"
+      : false;
+  };
+
+  runtime.mark = function(genFun) {
+    if (Object.setPrototypeOf) {
+      Object.setPrototypeOf(genFun, GeneratorFunctionPrototype);
+    } else {
+      genFun.__proto__ = GeneratorFunctionPrototype;
+      if (!(toStringTagSymbol in genFun)) {
+        genFun[toStringTagSymbol] = "GeneratorFunction";
+      }
+    }
+    genFun.prototype = Object.create(Gp);
+    return genFun;
+  };
+
+  // Within the body of any async function, `await x` is transformed to
+  // `yield regeneratorRuntime.awrap(x)`, so that the runtime can test
+  // `hasOwn.call(value, "__await")` to determine if the yielded value is
+  // meant to be awaited.
+  runtime.awrap = function(arg) {
+    return { __await: arg };
+  };
+
+  function AsyncIterator(generator) {
+    function invoke(method, arg, resolve, reject) {
+      var record = tryCatch(generator[method], generator, arg);
+      if (record.type === "throw") {
+        reject(record.arg);
+      } else {
+        var result = record.arg;
+        var value = result.value;
+        if (value &&
+            typeof value === "object" &&
+            hasOwn.call(value, "__await")) {
+          return Promise.resolve(value.__await).then(function(value) {
+            invoke("next", value, resolve, reject);
+          }, function(err) {
+            invoke("throw", err, resolve, reject);
+          });
+        }
+
+        return Promise.resolve(value).then(function(unwrapped) {
+          // When a yielded Promise is resolved, its final value becomes
+          // the .value of the Promise<{value,done}> result for the
+          // current iteration.
+          result.value = unwrapped;
+          resolve(result);
+        }, function(error) {
+          // If a rejected Promise was yielded, throw the rejection back
+          // into the async generator function so it can be handled there.
+          return invoke("throw", error, resolve, reject);
+        });
+      }
+    }
+
+    var previousPromise;
+
+    function enqueue(method, arg) {
+      function callInvokeWithMethodAndArg() {
+        return new Promise(function(resolve, reject) {
+          invoke(method, arg, resolve, reject);
+        });
+      }
+
+      return previousPromise =
+        // If enqueue has been called before, then we want to wait until
+        // all previous Promises have been resolved before calling invoke,
+        // so that results are always delivered in the correct order. If
+        // enqueue has not been called before, then it is important to
+        // call invoke immediately, without waiting on a callback to fire,
+        // so that the async generator function has the opportunity to do
+        // any necessary setup in a predictable way. This predictability
+        // is why the Promise constructor synchronously invokes its
+        // executor callback, and why async functions synchronously
+        // execute code before the first await. Since we implement simple
+        // async functions in terms of async generators, it is especially
+        // important to get this right, even though it requires care.
+        previousPromise ? previousPromise.then(
+          callInvokeWithMethodAndArg,
+          // Avoid propagating failures to Promises returned by later
+          // invocations of the iterator.
+          callInvokeWithMethodAndArg
+        ) : callInvokeWithMethodAndArg();
+    }
+
+    // Define the unified helper method that is used to implement .next,
+    // .throw, and .return (see defineIteratorMethods).
+    this._invoke = enqueue;
+  }
+
+  defineIteratorMethods(AsyncIterator.prototype);
+  AsyncIterator.prototype[asyncIteratorSymbol] = function () {
+    return this;
+  };
+  runtime.AsyncIterator = AsyncIterator;
+
+  // Note that simple async functions are implemented on top of
+  // AsyncIterator objects; they just return a Promise for the value of
+  // the final result produced by the iterator.
+  runtime.async = function(innerFn, outerFn, self, tryLocsList) {
+    var iter = new AsyncIterator(
+      wrap(innerFn, outerFn, self, tryLocsList)
+    );
+
+    return runtime.isGeneratorFunction(outerFn)
+      ? iter // If outerFn is a generator, return the full iterator.
+      : iter.next().then(function(result) {
+          return result.done ? result.value : iter.next();
+        });
+  };
+
+  function makeInvokeMethod(innerFn, self, context) {
+    var state = GenStateSuspendedStart;
+
+    return function invoke(method, arg) {
+      if (state === GenStateExecuting) {
+        throw new Error("Generator is already running");
+      }
+
+      if (state === GenStateCompleted) {
+        if (method === "throw") {
+          throw arg;
+        }
+
+        // Be forgiving, per 25.3.3.3.3 of the spec:
+        // https://people.mozilla.org/~jorendorff/es6-draft.html#sec-generatorresume
+        return doneResult();
+      }
+
+      context.method = method;
+      context.arg = arg;
+
+      while (true) {
+        var delegate = context.delegate;
+        if (delegate) {
+          var delegateResult = maybeInvokeDelegate(delegate, context);
+          if (delegateResult) {
+            if (delegateResult === ContinueSentinel) continue;
+            return delegateResult;
+          }
+        }
+
+        if (context.method === "next") {
+          // Setting context._sent for legacy support of Babel's
+          // function.sent implementation.
+          context.sent = context._sent = context.arg;
+
+        } else if (context.method === "throw") {
+          if (state === GenStateSuspendedStart) {
+            state = GenStateCompleted;
+            throw context.arg;
+          }
+
+          context.dispatchException(context.arg);
+
+        } else if (context.method === "return") {
+          context.abrupt("return", context.arg);
+        }
+
+        state = GenStateExecuting;
+
+        var record = tryCatch(innerFn, self, context);
+        if (record.type === "normal") {
+          // If an exception is thrown from innerFn, we leave state ===
+          // GenStateExecuting and loop back for another invocation.
+          state = context.done
+            ? GenStateCompleted
+            : GenStateSuspendedYield;
+
+          if (record.arg === ContinueSentinel) {
+            continue;
+          }
+
+          return {
+            value: record.arg,
+            done: context.done
+          };
+
+        } else if (record.type === "throw") {
+          state = GenStateCompleted;
+          // Dispatch the exception by looping back around to the
+          // context.dispatchException(context.arg) call above.
+          context.method = "throw";
+          context.arg = record.arg;
+        }
+      }
+    };
+  }
+
+  // Call delegate.iterator[context.method](context.arg) and handle the
+  // result, either by returning a { value, done } result from the
+  // delegate iterator, or by modifying context.method and context.arg,
+  // setting context.delegate to null, and returning the ContinueSentinel.
+  function maybeInvokeDelegate(delegate, context) {
+    var method = delegate.iterator[context.method];
+    if (method === undefined) {
+      // A .throw or .return when the delegate iterator has no .throw
+      // method always terminates the yield* loop.
+      context.delegate = null;
+
+      if (context.method === "throw") {
+        if (delegate.iterator.return) {
+          // If the delegate iterator has a return method, give it a
+          // chance to clean up.
+          context.method = "return";
+          context.arg = undefined;
+          maybeInvokeDelegate(delegate, context);
+
+          if (context.method === "throw") {
+            // If maybeInvokeDelegate(context) changed context.method from
+            // "return" to "throw", let that override the TypeError below.
+            return ContinueSentinel;
+          }
+        }
+
+        context.method = "throw";
+        context.arg = new TypeError(
+          "The iterator does not provide a 'throw' method");
+      }
+
+      return ContinueSentinel;
+    }
+
+    var record = tryCatch(method, delegate.iterator, context.arg);
+
+    if (record.type === "throw") {
+      context.method = "throw";
+      context.arg = record.arg;
+      context.delegate = null;
+      return ContinueSentinel;
+    }
+
+    var info = record.arg;
+
+    if (! info) {
+      context.method = "throw";
+      context.arg = new TypeError("iterator result is not an object");
+      context.delegate = null;
+      return ContinueSentinel;
+    }
+
+    if (info.done) {
+      // Assign the result of the finished delegate to the temporary
+      // variable specified by delegate.resultName (see delegateYield).
+      context[delegate.resultName] = info.value;
+
+      // Resume execution at the desired location (see delegateYield).
+      context.next = delegate.nextLoc;
+
+      // If context.method was "throw" but the delegate handled the
+      // exception, let the outer generator proceed normally. If
+      // context.method was "next", forget context.arg since it has been
+      // "consumed" by the delegate iterator. If context.method was
+      // "return", allow the original .return call to continue in the
+      // outer generator.
+      if (context.method !== "return") {
+        context.method = "next";
+        context.arg = undefined;
+      }
+
+    } else {
+      // Re-yield the result returned by the delegate method.
+      return info;
+    }
+
+    // The delegate iterator is finished, so forget it and continue with
+    // the outer generator.
+    context.delegate = null;
+    return ContinueSentinel;
+  }
+
+  // Define Generator.prototype.{next,throw,return} in terms of the
+  // unified ._invoke helper method.
+  defineIteratorMethods(Gp);
+
+  Gp[toStringTagSymbol] = "Generator";
+
+  // A Generator should always return itself as the iterator object when the
+  // @@iterator function is called on it. Some browsers' implementations of the
+  // iterator prototype chain incorrectly implement this, causing the Generator
+  // object to not be returned from this call. This ensures that doesn't happen.
+  // See https://github.com/facebook/regenerator/issues/274 for more details.
+  Gp[iteratorSymbol] = function() {
+    return this;
+  };
+
+  Gp.toString = function() {
+    return "[object Generator]";
+  };
+
+  function pushTryEntry(locs) {
+    var entry = { tryLoc: locs[0] };
+
+    if (1 in locs) {
+      entry.catchLoc = locs[1];
+    }
+
+    if (2 in locs) {
+      entry.finallyLoc = locs[2];
+      entry.afterLoc = locs[3];
+    }
+
+    this.tryEntries.push(entry);
+  }
+
+  function resetTryEntry(entry) {
+    var record = entry.completion || {};
+    record.type = "normal";
+    delete record.arg;
+    entry.completion = record;
+  }
+
+  function Context(tryLocsList) {
+    // The root entry object (effectively a try statement without a catch
+    // or a finally block) gives us a place to store values thrown from
+    // locations where there is no enclosing try statement.
+    this.tryEntries = [{ tryLoc: "root" }];
+    tryLocsList.forEach(pushTryEntry, this);
+    this.reset(true);
+  }
+
+  runtime.keys = function(object) {
+    var keys = [];
+    for (var key in object) {
+      keys.push(key);
+    }
+    keys.reverse();
+
+    // Rather than returning an object with a next method, we keep
+    // things simple and return the next function itself.
+    return function next() {
+      while (keys.length) {
+        var key = keys.pop();
+        if (key in object) {
+          next.value = key;
+          next.done = false;
+          return next;
+        }
+      }
+
+      // To avoid creating an additional object, we just hang the .value
+      // and .done properties off the next function object itself. This
+      // also ensures that the minifier will not anonymize the function.
+      next.done = true;
+      return next;
+    };
+  };
+
+  function values(iterable) {
+    if (iterable) {
+      var iteratorMethod = iterable[iteratorSymbol];
+      if (iteratorMethod) {
+        return iteratorMethod.call(iterable);
+      }
+
+      if (typeof iterable.next === "function") {
+        return iterable;
+      }
+
+      if (!isNaN(iterable.length)) {
+        var i = -1, next = function next() {
+          while (++i < iterable.length) {
+            if (hasOwn.call(iterable, i)) {
+              next.value = iterable[i];
+              next.done = false;
+              return next;
+            }
+          }
+
+          next.value = undefined;
+          next.done = true;
+
+          return next;
+        };
+
+        return next.next = next;
+      }
+    }
+
+    // Return an iterator with no values.
+    return { next: doneResult };
+  }
+  runtime.values = values;
+
+  function doneResult() {
+    return { value: undefined, done: true };
+  }
+
+  Context.prototype = {
+    constructor: Context,
+
+    reset: function(skipTempReset) {
+      this.prev = 0;
+      this.next = 0;
+      // Resetting context._sent for legacy support of Babel's
+      // function.sent implementation.
+      this.sent = this._sent = undefined;
+      this.done = false;
+      this.delegate = null;
+
+      this.method = "next";
+      this.arg = undefined;
+
+      this.tryEntries.forEach(resetTryEntry);
+
+      if (!skipTempReset) {
+        for (var name in this) {
+          // Not sure about the optimal order of these conditions:
+          if (name.charAt(0) === "t" &&
+              hasOwn.call(this, name) &&
+              !isNaN(+name.slice(1))) {
+            this[name] = undefined;
+          }
+        }
+      }
+    },
+
+    stop: function() {
+      this.done = true;
+
+      var rootEntry = this.tryEntries[0];
+      var rootRecord = rootEntry.completion;
+      if (rootRecord.type === "throw") {
+        throw rootRecord.arg;
+      }
+
+      return this.rval;
+    },
+
+    dispatchException: function(exception) {
+      if (this.done) {
+        throw exception;
+      }
+
+      var context = this;
+      function handle(loc, caught) {
+        record.type = "throw";
+        record.arg = exception;
+        context.next = loc;
+
+        if (caught) {
+          // If the dispatched exception was caught by a catch block,
+          // then let that catch block handle the exception normally.
+          context.method = "next";
+          context.arg = undefined;
+        }
+
+        return !! caught;
+      }
+
+      for (var i = this.tryEntries.length - 1; i >= 0; --i) {
+        var entry = this.tryEntries[i];
+        var record = entry.completion;
+
+        if (entry.tryLoc === "root") {
+          // Exception thrown outside of any try block that could handle
+          // it, so set the completion value of the entire function to
+          // throw the exception.
+          return handle("end");
+        }
+
+        if (entry.tryLoc <= this.prev) {
+          var hasCatch = hasOwn.call(entry, "catchLoc");
+          var hasFinally = hasOwn.call(entry, "finallyLoc");
+
+          if (hasCatch && hasFinally) {
+            if (this.prev < entry.catchLoc) {
+              return handle(entry.catchLoc, true);
+            } else if (this.prev < entry.finallyLoc) {
+              return handle(entry.finallyLoc);
+            }
+
+          } else if (hasCatch) {
+            if (this.prev < entry.catchLoc) {
+              return handle(entry.catchLoc, true);
+            }
+
+          } else if (hasFinally) {
+            if (this.prev < entry.finallyLoc) {
+              return handle(entry.finallyLoc);
+            }
+
+          } else {
+            throw new Error("try statement without catch or finally");
+          }
+        }
+      }
+    },
+
+    abrupt: function(type, arg) {
+      for (var i = this.tryEntries.length - 1; i >= 0; --i) {
+        var entry = this.tryEntries[i];
+        if (entry.tryLoc <= this.prev &&
+            hasOwn.call(entry, "finallyLoc") &&
+            this.prev < entry.finallyLoc) {
+          var finallyEntry = entry;
+          break;
+        }
+      }
+
+      if (finallyEntry &&
+          (type === "break" ||
+           type === "continue") &&
+          finallyEntry.tryLoc <= arg &&
+          arg <= finallyEntry.finallyLoc) {
+        // Ignore the finally entry if control is not jumping to a
+        // location outside the try/catch block.
+        finallyEntry = null;
+      }
+
+      var record = finallyEntry ? finallyEntry.completion : {};
+      record.type = type;
+      record.arg = arg;
+
+      if (finallyEntry) {
+        this.method = "next";
+        this.next = finallyEntry.finallyLoc;
+        return ContinueSentinel;
+      }
+
+      return this.complete(record);
+    },
+
+    complete: function(record, afterLoc) {
+      if (record.type === "throw") {
+        throw record.arg;
+      }
+
+      if (record.type === "break" ||
+          record.type === "continue") {
+        this.next = record.arg;
+      } else if (record.type === "return") {
+        this.rval = this.arg = record.arg;
+        this.method = "return";
+        this.next = "end";
+      } else if (record.type === "normal" && afterLoc) {
+        this.next = afterLoc;
+      }
+
+      return ContinueSentinel;
+    },
+
+    finish: function(finallyLoc) {
+      for (var i = this.tryEntries.length - 1; i >= 0; --i) {
+        var entry = this.tryEntries[i];
+        if (entry.finallyLoc === finallyLoc) {
+          this.complete(entry.completion, entry.afterLoc);
+          resetTryEntry(entry);
+          return ContinueSentinel;
+        }
+      }
+    },
+
+    "catch": function(tryLoc) {
+      for (var i = this.tryEntries.length - 1; i >= 0; --i) {
+        var entry = this.tryEntries[i];
+        if (entry.tryLoc === tryLoc) {
+          var record = entry.completion;
+          if (record.type === "throw") {
+            var thrown = record.arg;
+            resetTryEntry(entry);
+          }
+          return thrown;
+        }
+      }
+
+      // The context.catch method must only be called with a location
+      // argument that corresponds to a known catch block.
+      throw new Error("illegal catch attempt");
+    },
+
+    delegateYield: function(iterable, resultName, nextLoc) {
+      this.delegate = {
+        iterator: values(iterable),
+        resultName: resultName,
+        nextLoc: nextLoc
+      };
+
+      if (this.method === "next") {
+        // Deliberately forget the last sent value so that we don't
+        // accidentally pass it on to the delegate.
+        this.arg = undefined;
+      }
+
+      return ContinueSentinel;
+    }
+  };
+})(
+  // In sloppy mode, unbound `this` refers to the global object, fallback to
+  // Function constructor if we're in global strict mode. That is sadly a form
+  // of indirect eval which violates Content Security Policy.
+  (function() {
+    return this || (typeof self === "object" && self);
+  })() || Function("return this")()
+);
+
+
+/***/ }),
+/* 26 */
+/*!********************************************!*\
+  !*** ./node_modules/vuex/dist/vuex.esm.js ***!
+  \********************************************/
+/*! exports provided: Store, install, mapState, mapMutations, mapGetters, mapActions, createNamespacedHelpers, default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Store", function() { return Store; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "install", function() { return install; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "mapState", function() { return mapState; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "mapMutations", function() { return mapMutations; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "mapGetters", function() { return mapGetters; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "mapActions", function() { return mapActions; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createNamespacedHelpers", function() { return createNamespacedHelpers; });
+/**
+ * vuex v3.0.1
+ * (c) 2017 Evan You
+ * @license MIT
+ */
+var applyMixin = function (Vue) {
+  var version = Number(Vue.version.split('.')[0]);
+
+  if (version >= 2) {
+    Vue.mixin({ beforeCreate: vuexInit });
+  } else {
+    // override init and inject vuex init procedure
+    // for 1.x backwards compatibility.
+    var _init = Vue.prototype._init;
+    Vue.prototype._init = function (options) {
+      if ( options === void 0 ) options = {};
+
+      options.init = options.init
+        ? [vuexInit].concat(options.init)
+        : vuexInit;
+      _init.call(this, options);
+    };
+  }
+
+  /**
+   * Vuex init hook, injected into each instances init hooks list.
+   */
+
+  function vuexInit () {
+    var options = this.$options;
+    // store injection
+    if (options.store) {
+      this.$store = typeof options.store === 'function'
+        ? options.store()
+        : options.store;
+    } else if (options.parent && options.parent.$store) {
+      this.$store = options.parent.$store;
+    }
+  }
+};
+
+var devtoolHook =
+  typeof window !== 'undefined' &&
+  window.__VUE_DEVTOOLS_GLOBAL_HOOK__;
+
+function devtoolPlugin (store) {
+  if (!devtoolHook) { return }
+
+  store._devtoolHook = devtoolHook;
+
+  devtoolHook.emit('vuex:init', store);
+
+  devtoolHook.on('vuex:travel-to-state', function (targetState) {
+    store.replaceState(targetState);
+  });
+
+  store.subscribe(function (mutation, state) {
+    devtoolHook.emit('vuex:mutation', mutation, state);
+  });
+}
+
+/**
+ * Get the first item that pass the test
+ * by second argument function
+ *
+ * @param {Array} list
+ * @param {Function} f
+ * @return {*}
+ */
+/**
+ * Deep copy the given object considering circular structure.
+ * This function caches all nested objects and its copies.
+ * If it detects circular structure, use cached copy to avoid infinite loop.
+ *
+ * @param {*} obj
+ * @param {Array<Object>} cache
+ * @return {*}
+ */
+
+
+/**
+ * forEach for object
+ */
+function forEachValue (obj, fn) {
+  Object.keys(obj).forEach(function (key) { return fn(obj[key], key); });
+}
+
+function isObject (obj) {
+  return obj !== null && typeof obj === 'object'
+}
+
+function isPromise (val) {
+  return val && typeof val.then === 'function'
+}
+
+function assert (condition, msg) {
+  if (!condition) { throw new Error(("[vuex] " + msg)) }
+}
+
+var Module = function Module (rawModule, runtime) {
+  this.runtime = runtime;
+  this._children = Object.create(null);
+  this._rawModule = rawModule;
+  var rawState = rawModule.state;
+  this.state = (typeof rawState === 'function' ? rawState() : rawState) || {};
+};
+
+var prototypeAccessors$1 = { namespaced: { configurable: true } };
+
+prototypeAccessors$1.namespaced.get = function () {
+  return !!this._rawModule.namespaced
+};
+
+Module.prototype.addChild = function addChild (key, module) {
+  this._children[key] = module;
+};
+
+Module.prototype.removeChild = function removeChild (key) {
+  delete this._children[key];
+};
+
+Module.prototype.getChild = function getChild (key) {
+  return this._children[key]
+};
+
+Module.prototype.update = function update (rawModule) {
+  this._rawModule.namespaced = rawModule.namespaced;
+  if (rawModule.actions) {
+    this._rawModule.actions = rawModule.actions;
+  }
+  if (rawModule.mutations) {
+    this._rawModule.mutations = rawModule.mutations;
+  }
+  if (rawModule.getters) {
+    this._rawModule.getters = rawModule.getters;
+  }
+};
+
+Module.prototype.forEachChild = function forEachChild (fn) {
+  forEachValue(this._children, fn);
+};
+
+Module.prototype.forEachGetter = function forEachGetter (fn) {
+  if (this._rawModule.getters) {
+    forEachValue(this._rawModule.getters, fn);
+  }
+};
+
+Module.prototype.forEachAction = function forEachAction (fn) {
+  if (this._rawModule.actions) {
+    forEachValue(this._rawModule.actions, fn);
+  }
+};
+
+Module.prototype.forEachMutation = function forEachMutation (fn) {
+  if (this._rawModule.mutations) {
+    forEachValue(this._rawModule.mutations, fn);
+  }
+};
+
+Object.defineProperties( Module.prototype, prototypeAccessors$1 );
+
+var ModuleCollection = function ModuleCollection (rawRootModule) {
+  // register root module (Vuex.Store options)
+  this.register([], rawRootModule, false);
+};
+
+ModuleCollection.prototype.get = function get (path) {
+  return path.reduce(function (module, key) {
+    return module.getChild(key)
+  }, this.root)
+};
+
+ModuleCollection.prototype.getNamespace = function getNamespace (path) {
+  var module = this.root;
+  return path.reduce(function (namespace, key) {
+    module = module.getChild(key);
+    return namespace + (module.namespaced ? key + '/' : '')
+  }, '')
+};
+
+ModuleCollection.prototype.update = function update$1 (rawRootModule) {
+  update([], this.root, rawRootModule);
+};
+
+ModuleCollection.prototype.register = function register (path, rawModule, runtime) {
+    var this$1 = this;
+    if ( runtime === void 0 ) runtime = true;
+
+  if (true) {
+    assertRawModule(path, rawModule);
+  }
+
+  var newModule = new Module(rawModule, runtime);
+  if (path.length === 0) {
+    this.root = newModule;
+  } else {
+    var parent = this.get(path.slice(0, -1));
+    parent.addChild(path[path.length - 1], newModule);
+  }
+
+  // register nested modules
+  if (rawModule.modules) {
+    forEachValue(rawModule.modules, function (rawChildModule, key) {
+      this$1.register(path.concat(key), rawChildModule, runtime);
+    });
+  }
+};
+
+ModuleCollection.prototype.unregister = function unregister (path) {
+  var parent = this.get(path.slice(0, -1));
+  var key = path[path.length - 1];
+  if (!parent.getChild(key).runtime) { return }
+
+  parent.removeChild(key);
+};
+
+function update (path, targetModule, newModule) {
+  if (true) {
+    assertRawModule(path, newModule);
+  }
+
+  // update target module
+  targetModule.update(newModule);
+
+  // update nested modules
+  if (newModule.modules) {
+    for (var key in newModule.modules) {
+      if (!targetModule.getChild(key)) {
+        if (true) {
+          console.warn(
+            "[vuex] trying to add a new module '" + key + "' on hot reloading, " +
+            'manual reload is needed'
+          );
+        }
+        return
+      }
+      update(
+        path.concat(key),
+        targetModule.getChild(key),
+        newModule.modules[key]
+      );
+    }
+  }
+}
+
+var functionAssert = {
+  assert: function (value) { return typeof value === 'function'; },
+  expected: 'function'
+};
+
+var objectAssert = {
+  assert: function (value) { return typeof value === 'function' ||
+    (typeof value === 'object' && typeof value.handler === 'function'); },
+  expected: 'function or object with "handler" function'
+};
+
+var assertTypes = {
+  getters: functionAssert,
+  mutations: functionAssert,
+  actions: objectAssert
+};
+
+function assertRawModule (path, rawModule) {
+  Object.keys(assertTypes).forEach(function (key) {
+    if (!rawModule[key]) { return }
+
+    var assertOptions = assertTypes[key];
+
+    forEachValue(rawModule[key], function (value, type) {
+      assert(
+        assertOptions.assert(value),
+        makeAssertionMessage(path, key, type, value, assertOptions.expected)
+      );
+    });
+  });
+}
+
+function makeAssertionMessage (path, key, type, value, expected) {
+  var buf = key + " should be " + expected + " but \"" + key + "." + type + "\"";
+  if (path.length > 0) {
+    buf += " in module \"" + (path.join('.')) + "\"";
+  }
+  buf += " is " + (JSON.stringify(value)) + ".";
+  return buf
+}
+
+var Vue; // bind on install
+
+var Store = function Store (options) {
+  var this$1 = this;
+  if ( options === void 0 ) options = {};
+
+  // Auto install if it is not done yet and `window` has `Vue`.
+  // To allow users to avoid auto-installation in some cases,
+  // this code should be placed here. See #731
+  if (!Vue && typeof window !== 'undefined' && window.Vue) {
+    install(window.Vue);
+  }
+
+  if (true) {
+    assert(Vue, "must call Vue.use(Vuex) before creating a store instance.");
+    assert(typeof Promise !== 'undefined', "vuex requires a Promise polyfill in this browser.");
+    assert(this instanceof Store, "Store must be called with the new operator.");
+  }
+
+  var plugins = options.plugins; if ( plugins === void 0 ) plugins = [];
+  var strict = options.strict; if ( strict === void 0 ) strict = false;
+
+  var state = options.state; if ( state === void 0 ) state = {};
+  if (typeof state === 'function') {
+    state = state() || {};
+  }
+
+  // store internal state
+  this._committing = false;
+  this._actions = Object.create(null);
+  this._actionSubscribers = [];
+  this._mutations = Object.create(null);
+  this._wrappedGetters = Object.create(null);
+  this._modules = new ModuleCollection(options);
+  this._modulesNamespaceMap = Object.create(null);
+  this._subscribers = [];
+  this._watcherVM = new Vue();
+
+  // bind commit and dispatch to self
+  var store = this;
+  var ref = this;
+  var dispatch = ref.dispatch;
+  var commit = ref.commit;
+  this.dispatch = function boundDispatch (type, payload) {
+    return dispatch.call(store, type, payload)
+  };
+  this.commit = function boundCommit (type, payload, options) {
+    return commit.call(store, type, payload, options)
+  };
+
+  // strict mode
+  this.strict = strict;
+
+  // init root module.
+  // this also recursively registers all sub-modules
+  // and collects all module getters inside this._wrappedGetters
+  installModule(this, state, [], this._modules.root);
+
+  // initialize the store vm, which is responsible for the reactivity
+  // (also registers _wrappedGetters as computed properties)
+  resetStoreVM(this, state);
+
+  // apply plugins
+  plugins.forEach(function (plugin) { return plugin(this$1); });
+
+  if (Vue.config.devtools) {
+    devtoolPlugin(this);
+  }
+};
+
+var prototypeAccessors = { state: { configurable: true } };
+
+prototypeAccessors.state.get = function () {
+  return this._vm._data.$$state
+};
+
+prototypeAccessors.state.set = function (v) {
+  if (true) {
+    assert(false, "Use store.replaceState() to explicit replace store state.");
+  }
+};
+
+Store.prototype.commit = function commit (_type, _payload, _options) {
+    var this$1 = this;
+
+  // check object-style commit
+  var ref = unifyObjectStyle(_type, _payload, _options);
+    var type = ref.type;
+    var payload = ref.payload;
+    var options = ref.options;
+
+  var mutation = { type: type, payload: payload };
+  var entry = this._mutations[type];
+  if (!entry) {
+    if (true) {
+      console.error(("[vuex] unknown mutation type: " + type));
+    }
+    return
+  }
+  this._withCommit(function () {
+    entry.forEach(function commitIterator (handler) {
+      handler(payload);
+    });
+  });
+  this._subscribers.forEach(function (sub) { return sub(mutation, this$1.state); });
+
+  if (
+     true &&
+    options && options.silent
+  ) {
+    console.warn(
+      "[vuex] mutation type: " + type + ". Silent option has been removed. " +
+      'Use the filter functionality in the vue-devtools'
+    );
+  }
+};
+
+Store.prototype.dispatch = function dispatch (_type, _payload) {
+    var this$1 = this;
+
+  // check object-style dispatch
+  var ref = unifyObjectStyle(_type, _payload);
+    var type = ref.type;
+    var payload = ref.payload;
+
+  var action = { type: type, payload: payload };
+  var entry = this._actions[type];
+  if (!entry) {
+    if (true) {
+      console.error(("[vuex] unknown action type: " + type));
+    }
+    return
+  }
+
+  this._actionSubscribers.forEach(function (sub) { return sub(action, this$1.state); });
+
+  return entry.length > 1
+    ? Promise.all(entry.map(function (handler) { return handler(payload); }))
+    : entry[0](payload)
+};
+
+Store.prototype.subscribe = function subscribe (fn) {
+  return genericSubscribe(fn, this._subscribers)
+};
+
+Store.prototype.subscribeAction = function subscribeAction (fn) {
+  return genericSubscribe(fn, this._actionSubscribers)
+};
+
+Store.prototype.watch = function watch (getter, cb, options) {
+    var this$1 = this;
+
+  if (true) {
+    assert(typeof getter === 'function', "store.watch only accepts a function.");
+  }
+  return this._watcherVM.$watch(function () { return getter(this$1.state, this$1.getters); }, cb, options)
+};
+
+Store.prototype.replaceState = function replaceState (state) {
+    var this$1 = this;
+
+  this._withCommit(function () {
+    this$1._vm._data.$$state = state;
+  });
+};
+
+Store.prototype.registerModule = function registerModule (path, rawModule, options) {
+    if ( options === void 0 ) options = {};
+
+  if (typeof path === 'string') { path = [path]; }
+
+  if (true) {
+    assert(Array.isArray(path), "module path must be a string or an Array.");
+    assert(path.length > 0, 'cannot register the root module by using registerModule.');
+  }
+
+  this._modules.register(path, rawModule);
+  installModule(this, this.state, path, this._modules.get(path), options.preserveState);
+  // reset store to update getters...
+  resetStoreVM(this, this.state);
+};
+
+Store.prototype.unregisterModule = function unregisterModule (path) {
+    var this$1 = this;
+
+  if (typeof path === 'string') { path = [path]; }
+
+  if (true) {
+    assert(Array.isArray(path), "module path must be a string or an Array.");
+  }
+
+  this._modules.unregister(path);
+  this._withCommit(function () {
+    var parentState = getNestedState(this$1.state, path.slice(0, -1));
+    Vue.delete(parentState, path[path.length - 1]);
+  });
+  resetStore(this);
+};
+
+Store.prototype.hotUpdate = function hotUpdate (newOptions) {
+  this._modules.update(newOptions);
+  resetStore(this, true);
+};
+
+Store.prototype._withCommit = function _withCommit (fn) {
+  var committing = this._committing;
+  this._committing = true;
+  fn();
+  this._committing = committing;
+};
+
+Object.defineProperties( Store.prototype, prototypeAccessors );
+
+function genericSubscribe (fn, subs) {
+  if (subs.indexOf(fn) < 0) {
+    subs.push(fn);
+  }
+  return function () {
+    var i = subs.indexOf(fn);
+    if (i > -1) {
+      subs.splice(i, 1);
+    }
+  }
+}
+
+function resetStore (store, hot) {
+  store._actions = Object.create(null);
+  store._mutations = Object.create(null);
+  store._wrappedGetters = Object.create(null);
+  store._modulesNamespaceMap = Object.create(null);
+  var state = store.state;
+  // init all modules
+  installModule(store, state, [], store._modules.root, true);
+  // reset vm
+  resetStoreVM(store, state, hot);
+}
+
+function resetStoreVM (store, state, hot) {
+  var oldVm = store._vm;
+
+  // bind store public getters
+  store.getters = {};
+  var wrappedGetters = store._wrappedGetters;
+  var computed = {};
+  forEachValue(wrappedGetters, function (fn, key) {
+    // use computed to leverage its lazy-caching mechanism
+    computed[key] = function () { return fn(store); };
+    Object.defineProperty(store.getters, key, {
+      get: function () { return store._vm[key]; },
+      enumerable: true // for local getters
+    });
+  });
+
+  // use a Vue instance to store the state tree
+  // suppress warnings just in case the user has added
+  // some funky global mixins
+  var silent = Vue.config.silent;
+  Vue.config.silent = true;
+  store._vm = new Vue({
+    data: {
+      $$state: state
+    },
+    computed: computed
+  });
+  Vue.config.silent = silent;
+
+  // enable strict mode for new vm
+  if (store.strict) {
+    enableStrictMode(store);
+  }
+
+  if (oldVm) {
+    if (hot) {
+      // dispatch changes in all subscribed watchers
+      // to force getter re-evaluation for hot reloading.
+      store._withCommit(function () {
+        oldVm._data.$$state = null;
+      });
+    }
+    Vue.nextTick(function () { return oldVm.$destroy(); });
+  }
+}
+
+function installModule (store, rootState, path, module, hot) {
+  var isRoot = !path.length;
+  var namespace = store._modules.getNamespace(path);
+
+  // register in namespace map
+  if (module.namespaced) {
+    store._modulesNamespaceMap[namespace] = module;
+  }
+
+  // set state
+  if (!isRoot && !hot) {
+    var parentState = getNestedState(rootState, path.slice(0, -1));
+    var moduleName = path[path.length - 1];
+    store._withCommit(function () {
+      Vue.set(parentState, moduleName, module.state);
+    });
+  }
+
+  var local = module.context = makeLocalContext(store, namespace, path);
+
+  module.forEachMutation(function (mutation, key) {
+    var namespacedType = namespace + key;
+    registerMutation(store, namespacedType, mutation, local);
+  });
+
+  module.forEachAction(function (action, key) {
+    var type = action.root ? key : namespace + key;
+    var handler = action.handler || action;
+    registerAction(store, type, handler, local);
+  });
+
+  module.forEachGetter(function (getter, key) {
+    var namespacedType = namespace + key;
+    registerGetter(store, namespacedType, getter, local);
+  });
+
+  module.forEachChild(function (child, key) {
+    installModule(store, rootState, path.concat(key), child, hot);
+  });
+}
+
+/**
+ * make localized dispatch, commit, getters and state
+ * if there is no namespace, just use root ones
+ */
+function makeLocalContext (store, namespace, path) {
+  var noNamespace = namespace === '';
+
+  var local = {
+    dispatch: noNamespace ? store.dispatch : function (_type, _payload, _options) {
+      var args = unifyObjectStyle(_type, _payload, _options);
+      var payload = args.payload;
+      var options = args.options;
+      var type = args.type;
+
+      if (!options || !options.root) {
+        type = namespace + type;
+        if ( true && !store._actions[type]) {
+          console.error(("[vuex] unknown local action type: " + (args.type) + ", global type: " + type));
+          return
+        }
+      }
+
+      return store.dispatch(type, payload)
+    },
+
+    commit: noNamespace ? store.commit : function (_type, _payload, _options) {
+      var args = unifyObjectStyle(_type, _payload, _options);
+      var payload = args.payload;
+      var options = args.options;
+      var type = args.type;
+
+      if (!options || !options.root) {
+        type = namespace + type;
+        if ( true && !store._mutations[type]) {
+          console.error(("[vuex] unknown local mutation type: " + (args.type) + ", global type: " + type));
+          return
+        }
+      }
+
+      store.commit(type, payload, options);
+    }
+  };
+
+  // getters and state object must be gotten lazily
+  // because they will be changed by vm update
+  Object.defineProperties(local, {
+    getters: {
+      get: noNamespace
+        ? function () { return store.getters; }
+        : function () { return makeLocalGetters(store, namespace); }
+    },
+    state: {
+      get: function () { return getNestedState(store.state, path); }
+    }
+  });
+
+  return local
+}
+
+function makeLocalGetters (store, namespace) {
+  var gettersProxy = {};
+
+  var splitPos = namespace.length;
+  Object.keys(store.getters).forEach(function (type) {
+    // skip if the target getter is not match this namespace
+    if (type.slice(0, splitPos) !== namespace) { return }
+
+    // extract local getter type
+    var localType = type.slice(splitPos);
+
+    // Add a port to the getters proxy.
+    // Define as getter property because
+    // we do not want to evaluate the getters in this time.
+    Object.defineProperty(gettersProxy, localType, {
+      get: function () { return store.getters[type]; },
+      enumerable: true
+    });
+  });
+
+  return gettersProxy
+}
+
+function registerMutation (store, type, handler, local) {
+  var entry = store._mutations[type] || (store._mutations[type] = []);
+  entry.push(function wrappedMutationHandler (payload) {
+    handler.call(store, local.state, payload);
+  });
+}
+
+function registerAction (store, type, handler, local) {
+  var entry = store._actions[type] || (store._actions[type] = []);
+  entry.push(function wrappedActionHandler (payload, cb) {
+    var res = handler.call(store, {
+      dispatch: local.dispatch,
+      commit: local.commit,
+      getters: local.getters,
+      state: local.state,
+      rootGetters: store.getters,
+      rootState: store.state
+    }, payload, cb);
+    if (!isPromise(res)) {
+      res = Promise.resolve(res);
+    }
+    if (store._devtoolHook) {
+      return res.catch(function (err) {
+        store._devtoolHook.emit('vuex:error', err);
+        throw err
+      })
+    } else {
+      return res
+    }
+  });
+}
+
+function registerGetter (store, type, rawGetter, local) {
+  if (store._wrappedGetters[type]) {
+    if (true) {
+      console.error(("[vuex] duplicate getter key: " + type));
+    }
+    return
+  }
+  store._wrappedGetters[type] = function wrappedGetter (store) {
+    return rawGetter(
+      local.state, // local state
+      local.getters, // local getters
+      store.state, // root state
+      store.getters // root getters
+    )
+  };
+}
+
+function enableStrictMode (store) {
+  store._vm.$watch(function () { return this._data.$$state }, function () {
+    if (true) {
+      assert(store._committing, "Do not mutate vuex store state outside mutation handlers.");
+    }
+  }, { deep: true, sync: true });
+}
+
+function getNestedState (state, path) {
+  return path.length
+    ? path.reduce(function (state, key) { return state[key]; }, state)
+    : state
+}
+
+function unifyObjectStyle (type, payload, options) {
+  if (isObject(type) && type.type) {
+    options = payload;
+    payload = type;
+    type = type.type;
+  }
+
+  if (true) {
+    assert(typeof type === 'string', ("Expects string as the type, but found " + (typeof type) + "."));
+  }
+
+  return { type: type, payload: payload, options: options }
+}
+
+function install (_Vue) {
+  if (Vue && _Vue === Vue) {
+    if (true) {
+      console.error(
+        '[vuex] already installed. Vue.use(Vuex) should be called only once.'
+      );
+    }
+    return
+  }
+  Vue = _Vue;
+  applyMixin(Vue);
+}
+
+var mapState = normalizeNamespace(function (namespace, states) {
+  var res = {};
+  normalizeMap(states).forEach(function (ref) {
+    var key = ref.key;
+    var val = ref.val;
+
+    res[key] = function mappedState () {
+      var state = this.$store.state;
+      var getters = this.$store.getters;
+      if (namespace) {
+        var module = getModuleByNamespace(this.$store, 'mapState', namespace);
+        if (!module) {
+          return
+        }
+        state = module.context.state;
+        getters = module.context.getters;
+      }
+      return typeof val === 'function'
+        ? val.call(this, state, getters)
+        : state[val]
+    };
+    // mark vuex getter for devtools
+    res[key].vuex = true;
+  });
+  return res
+});
+
+var mapMutations = normalizeNamespace(function (namespace, mutations) {
+  var res = {};
+  normalizeMap(mutations).forEach(function (ref) {
+    var key = ref.key;
+    var val = ref.val;
+
+    res[key] = function mappedMutation () {
+      var args = [], len = arguments.length;
+      while ( len-- ) args[ len ] = arguments[ len ];
+
+      var commit = this.$store.commit;
+      if (namespace) {
+        var module = getModuleByNamespace(this.$store, 'mapMutations', namespace);
+        if (!module) {
+          return
+        }
+        commit = module.context.commit;
+      }
+      return typeof val === 'function'
+        ? val.apply(this, [commit].concat(args))
+        : commit.apply(this.$store, [val].concat(args))
+    };
+  });
+  return res
+});
+
+var mapGetters = normalizeNamespace(function (namespace, getters) {
+  var res = {};
+  normalizeMap(getters).forEach(function (ref) {
+    var key = ref.key;
+    var val = ref.val;
+
+    val = namespace + val;
+    res[key] = function mappedGetter () {
+      if (namespace && !getModuleByNamespace(this.$store, 'mapGetters', namespace)) {
+        return
+      }
+      if ( true && !(val in this.$store.getters)) {
+        console.error(("[vuex] unknown getter: " + val));
+        return
+      }
+      return this.$store.getters[val]
+    };
+    // mark vuex getter for devtools
+    res[key].vuex = true;
+  });
+  return res
+});
+
+var mapActions = normalizeNamespace(function (namespace, actions) {
+  var res = {};
+  normalizeMap(actions).forEach(function (ref) {
+    var key = ref.key;
+    var val = ref.val;
+
+    res[key] = function mappedAction () {
+      var args = [], len = arguments.length;
+      while ( len-- ) args[ len ] = arguments[ len ];
+
+      var dispatch = this.$store.dispatch;
+      if (namespace) {
+        var module = getModuleByNamespace(this.$store, 'mapActions', namespace);
+        if (!module) {
+          return
+        }
+        dispatch = module.context.dispatch;
+      }
+      return typeof val === 'function'
+        ? val.apply(this, [dispatch].concat(args))
+        : dispatch.apply(this.$store, [val].concat(args))
+    };
+  });
+  return res
+});
+
+var createNamespacedHelpers = function (namespace) { return ({
+  mapState: mapState.bind(null, namespace),
+  mapGetters: mapGetters.bind(null, namespace),
+  mapMutations: mapMutations.bind(null, namespace),
+  mapActions: mapActions.bind(null, namespace)
+}); };
+
+function normalizeMap (map) {
+  return Array.isArray(map)
+    ? map.map(function (key) { return ({ key: key, val: key }); })
+    : Object.keys(map).map(function (key) { return ({ key: key, val: map[key] }); })
+}
+
+function normalizeNamespace (fn) {
+  return function (namespace, map) {
+    if (typeof namespace !== 'string') {
+      map = namespace;
+      namespace = '';
+    } else if (namespace.charAt(namespace.length - 1) !== '/') {
+      namespace += '/';
+    }
+    return fn(namespace, map)
+  }
+}
+
+function getModuleByNamespace (store, helper, namespace) {
+  var module = store._modulesNamespaceMap[namespace];
+  if ( true && !module) {
+    console.error(("[vuex] module namespace not found in " + helper + "(): " + namespace));
+  }
+  return module
+}
+
+var index_esm = {
+  Store: Store,
+  install: install,
+  version: '3.0.1',
+  mapState: mapState,
+  mapMutations: mapMutations,
+  mapGetters: mapGetters,
+  mapActions: mapActions,
+  createNamespacedHelpers: createNamespacedHelpers
+};
+
+
+/* harmony default export */ __webpack_exports__["default"] = (index_esm);
+
+
+/***/ })
+]]);
 //# sourceMappingURL=../../.sourcemap/mp-weixin/common/vendor.js.map

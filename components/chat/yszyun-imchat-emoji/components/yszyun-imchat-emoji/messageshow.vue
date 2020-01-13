@@ -1,16 +1,20 @@
 <template>
 	<view class="m-item" :id="'message'+cid">
 		<view class="m-left">
-			<image class="head_icon" src="https://img-cdn-qiniu.dcloud.net.cn/uniapp/app/homeHL.png" v-if="message.user=='home'"></image>
+			<image class="head_icon" :src="message.headImg" v-if="!message.self"></image>
 		</view>
 		<view class="m-content">
-			<view class="m-content-head" :class="{'m-content-head-right':message.user=='customer'}">
-				<view :class="'m-content-head-'+message.user">
-				<rich-text :nodes="message.content.replace(this.reg, emotion)"></rich-text></view>
+			<view class="m-content-head" :class="{'m-content-head-right':message.self}">
+				<view v-if="message.self" class="m-content-head-customer">
+					<rich-text :nodes="message.message.replace(this.reg, emotion)"></rich-text>
+					</view>
+				<view v-if="!message.self" class="m-content-head-home">
+				<rich-text :nodes="message.message.replace(this.reg, emotion)"></rich-text>
+				</view>
 			</view>
 		</view>
 		<view class="m-right">
-			<image class="head_icon" src="https://img-cdn-qiniu.dcloud.net.cn/uniapp/app/customerHL.png" v-if="message.user=='customer'"></image>
+			<image class="head_icon" :src="message.headImg" v-if="message.self"></image>
 		</view>
 	</view>
 </template>
@@ -28,6 +32,20 @@
 				type: [Number, String],
 				default: ''
 			}
+		},
+		watch:{
+			// message:{
+			// 	handler(){
+			// 		this.$nextTick(()=>{
+						
+			// 			uni.pageScrollTo({
+			// 				scrollTop: diff,
+			// 				duration: 300
+			// 			});
+			// 		})
+			// 	},
+			// 	deep:true
+			// }
 		},
 		data() {
 			return {
@@ -49,6 +67,9 @@
 				let index = list.indexOf(word)
 				return `<img src="https://res.wx.qq.com/mpres/htmledition/images/icon/emotion/${index}.gif" align="middle">`
 			}
+		},
+		mounted() {
+			console.log(this.message);
 		}
 	}
 </script>
@@ -57,7 +78,8 @@
 	.m-item {
 		display: flex;
 		flex-direction: row;
-		padding-top: 40upx;
+		padding-top: 20upx;
+		margin-bottom: 20rpx;
 	}
 
 	.m-left {

@@ -1,6 +1,4 @@
 {
   "navigationBarTitleText": "uni-app",
-  "usingComponents": {
-    "item": "/pages/message/item"
-  }
+  "usingComponents": {}
 }

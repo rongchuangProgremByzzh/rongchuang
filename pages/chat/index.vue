@@ -21,7 +21,11 @@
 	export default {
 		data() {
 			return {
+				socketTask:null,
+				timer:null,
+				uid:'',
 				name:'xcecd@qq.com',
+				
 				style: {
 					pageHeight: 0,
 					contentViewHeight: 0,
@@ -29,71 +33,48 @@
 					mitemHeight: 0,
 				},
 				scrollTop: 0,
-				messages: [{
-					user: 'home',
-					type: 'head', //input,content 
-					content: '你好!'
-				}]
+				messages: []
 			}
 		},
 		components: {
 			chatInput,
 			messageShow
 		},
-		onLoad: function () {
+		onLoad: function (option) {
 			const res = uni.getSystemInfoSync();
 			this.style.pageHeight = res.windowHeight;
 			this.style.contentViewHeight = res.windowHeight - uni.getSystemInfoSync().screenWidth / 750 * (100) ; //像素
-			//console.log(res)
+			console.log(option.uid)
+			this.uid=option.uid;
 		},
 		methods: {
 			getInputMessage: function (message) { //获取子组件的输入数据
 				// console.log(message);
-				this.addMessage('customer', message.content, false);
-				this.toRobot(message.content);
+			
+			   let nickName=uni.getStorageSync('nickName');//
+			 
+			  let avatarUrl=uni.getStorageSync('avatarUrl');//分享id
+				this.addMessage(nickName, message.content, avatarUrl,true);//消息上屏
+				// this.toRobot(message.content);
+				this.sendMessage(message.content,this.uid);//发送到websocket
+                this.scrollToBottom()
 				this.setScrollH();
 			},
-			addMessage: function (user, content, hasSub, subcontent) {
+			addMessage: function (user, content,avatarUrl,myself) {
 				var that = this;
-				content = 
+	
 				that.messages.push({
-					user: user,
-					content: content,
-					hasSub: hasSub,
-					subcontent: subcontent
+					username: user,
+					message: content,
+					headImg:avatarUrl,
+					self:myself
 				});
 			},
 			scrollToBottom: function () {
 				var that = this;
-				this.scrollTop += 133; 
-				//console.log(this.scrollTop)
+				this.scrollTop += 10000; 
+				console.log(this.scrollTop)
 
-			},
-			toRobot: function (info) {
-
-				// this.addMessage('home', info, false);
-				var apiUrl = 'http://www.tuling123.com/openapi/api';
-				uni.request({
-					url: apiUrl,
-					data: {
-						"key": 'acfbca724ea1b5db96d2eef88ce677dc',
-						"info": info,
-						"userid": 'uni-test'
-					},
-					success: (res) => {
-						console.log("s", res);
-						this.addMessage('home', res.data.text, false);
-						this.scrollToBottom();
-						console.log('request success:' + res.data.text);
-					},
-					fail: (err) => {
-						console.log('request fail', err);
-						uni.showModal({
-							content: err.errMsg,
-							showCancel: false
-						})
-					}
-				});
 			},
 			// 设置高度 用emit辅助
 			setScrollH: function(){
@@ -112,7 +93,77 @@
 					}).exec();	
 					console.log('contentViewHeight',this.style.contentViewHeight);
 				})	
-			}
+			},
+			sendMessage(mes,id){//普通消息
+				this.socketTask.send({
+				     data: `{content:'${mes}',type:2,toUser:${id},uuid:${Math.random()}}`,
+											success:(res)=>{
+												console.log(res);
+											}
+				   });
+			},
+			getHistoryMessage(id){
+				this.socketTask.send({
+				     data: `{content:'',type:3,toUser:${id},uuid:${Math.random()}}`,
+											success:(res)=>{
+												console.log(res);
+											}
+				   });
+			},
+			wxChat(){
+				let token=uni.getStorageSync('token')
+				this.socketTask = uni.connectSocket({
+				    url: `ws://rcxcx.api.95lsy.com/ws/${token}`, //仅为示例，并非真实接口地址。
+				    complete: ()=> {}
+				});
+				uni.onSocketOpen( (res)=> {
+				  console.log('WebSocket连接已打开！');
+				 this.timer= setInterval(()=>{
+					   this.socketTask.send({
+					        data: `{content:'',type:1,toUser:-1,uuid:${Math.random()}}`,
+							success:(res)=>{
+								console.log(res);
+							}
+					      });
+				  },50*1000)
+				  this.getHistoryMessage(this.uid)
+				});
+				this.socketTask.onMessage( (res)=> {
+				  console.log('收到服务器内容：' + res.data);
+				  let message=JSON.parse(res.data);
+              
+				 if(message&&message.fromId&&message.fromId!=-1){//如果不是心跳类型
+					//更新leibiao
+					if(message.fromId==this.uid){
+						  this.messages.push(message);
+						
+					}else{
+						uni.showToast({
+							title: '您有新的消息',
+							 duration: 2000
+						})
+					}
+					 
+				 }
+				  if(Object.prototype.toString.call(message)=="[object Array]"){//如果是数组类型代表历史消息
+					 	 
+					  this.messages=message;
+				  }
+				  this.scrollToBottom()
+				console.log(this.messages);
+				});
+				uni.onError( (res)=> {
+				  console.log('WebSocket连接打开失败，请检查！');
+				  this.wxChat()
+				});
+			},
+		},
+		mounted(){
+			this.wxChat()
+		},
+		onHide(){
+		clearInterval(this.timer);
+		this.socketTask.close()
 		}
 	}
 </script>
