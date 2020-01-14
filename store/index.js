@@ -5,12 +5,8 @@ Vue.use(Vuex)
 
 const store = new Vuex.Store({
 	state: {
-		hasLogin: false,
-		loginProvider: "",
-		openid: null,
-		testvuex:false,
-        colorIndex: 0,
-        colorList: ['#FF0000','#00FF00','#0000FF']
+		id:'',
+		message:''
 	},
 	mutations: {
 		login(state, provider) {

@@ -42,7 +42,7 @@
 		methods: {
 			
 			clickHandler(i) {
-				let emotion = `#${i};`
+				let emotion = `[${i}];`
 				this.$emit('emotion', emotion)
 			},
 			emotion(res) {

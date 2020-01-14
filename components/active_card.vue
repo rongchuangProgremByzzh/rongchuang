@@ -69,8 +69,12 @@
 				font-weight:300;
 				color:rgba(255,255,255,1);
 				padding-left: 50rpx;
+				overflow: hidden;
+				text-overflow:ellipsis;
+				white-space: nowrap;
 			}
 			.time{
+				width: 200rpx;
 				padding-right: 50rpx;
 				font-size:30rpx;
 				font-family:PingFangSC;

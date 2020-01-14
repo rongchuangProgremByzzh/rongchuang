@@ -76,10 +76,17 @@
 			clearInterval(this.timer)
 		},
 		mounted() {
+			
+		},
+		onShow() {
 			this.wxChat()
 			this.initData()
 		},
 		onHide(){
+			clearInterval(this.timer);
+			this.socketTask.close()
+		},
+		onUnload(){
 			clearInterval(this.timer);
 			this.socketTask.close()
 		}

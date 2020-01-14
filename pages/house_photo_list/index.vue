@@ -16,10 +16,7 @@
 			return{
 				imageKey:'imgUrl',
 				swiperList:[
-					{img: 'https://ossweb-img.qq.com/images/lol/web201310/skin/big25011.jpg',text:'加油'},
-					{img: 'https://ossweb-img.qq.com/images/lol/web201310/skin/big25011.jpg',text:'加油'},
-					{img: 'https://ossweb-img.qq.com/images/lol/web201310/skin/big25011.jpg',text:'加油'},
-					{img: 'https://ossweb-img.qq.com/images/lol/web201310/skin/big25011.jpg',text:'加油'}
+					
 				],
 					swiperType:true,
 					indicatorDots:false,

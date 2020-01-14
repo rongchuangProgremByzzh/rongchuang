@@ -13,19 +13,19 @@
 				</view>
 				<view class="tab-item" @click="chooseItem(1)">
 					<view class="tab-img"><image class="thumb" :class="{active:isactive==1}" src="http://www.zangzhihong.com/pic/static/animate/smbg/2@2x.png" mode="scaleToFill"></image></view>
-					<text class="desc" :class="{active:isactive==1}">昆明市交通图</text>
+					<text class="desc" :class="{active:isactive==1}">草海规划图</text>
 				</view>
 				<view class="tab-item" @click="chooseItem(2)">
 					<view class="tab-img"><image class="thumb" :class="{active:isactive==2}" src="http://www.zangzhihong.com/pic/static/animate/smbg/3@2x.png" mode=""></image></view>
-					<text class="desc" :class="{active:isactive==2}">昆明市交通图</text>
+					<text class="desc" :class="{active:isactive==2}">项目业态分布图</text>
 				</view>
 				<view class="tab-item" @click="chooseItem(3)">
 					<view class="tab-img"><image class="thumb" :class="{active:isactive==3}" src="http://www.zangzhihong.com/pic/static/animate/smbg/4@2x.png" mode=""></image></view>
-					<text class="desc" :class="{active:isactive==3}">昆明市交通图</text>
+					<text class="desc" :class="{active:isactive==3}">项目中面图</text>
 				</view>
 				<view class="tab-item" @click="chooseItem(4)">
 					<view class="tab-img"><image class="thumb" :class="{active:isactive==4}" src="http://www.zangzhihong.com/pic/static/animate/smbg/5@2x.png" mode=""></image></view>
-					<text class="desc" :class="{active:isactive==4}">昆明市交通图</text>
+					<text class="desc" :class="{active:isactive==4}">项目区位图</text>
 				</view>
 			</scroll-view>
 		</div>
@@ -49,7 +49,9 @@ export default {
 			imglist:[
 				"http://www.zangzhihong.com/pic/static/animate/1.gif",
 				"http://www.zangzhihong.com/pic/static/animate/2.gif",
-				"http://www.zangzhihong.com/pic/static/animate/3.gif"
+				"http://www.zangzhihong.com/pic/static/animate/3.gif",
+				"http://www.zangzhihong.com/pic/static/shapan/4@2x.png",
+				"http://www.zangzhihong.com/pic/static/shapan/5@2x.png",
 			]
 		};
 	},
@@ -97,7 +99,7 @@ movable-area {
 	.tab-item {
 		display: inline-block;
 		text-align: center;
-		margin: 0 30rpx;
+		margin: 0 26rpx;
 		margin-top: 16rpx;
 		width: 100rpx;
 		.thumb {

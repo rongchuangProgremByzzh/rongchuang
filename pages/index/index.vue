@@ -6,7 +6,7 @@
 		
 		<button v-if="role==1" class="phone" open-type="contact"></button>
 		<div v-else class="phone" @click="gotoChat()"></div>
-		<div class="location" @click="scrollTolast(1000)"></div>
+		<div class="location" @click="toMap(1000)"></div>
 		<view class="swiper">
 			<swiper class="swiper" @change="changeHandle" :indicator-dots="false" :autoplay="true" :interval="5000" :duration="1000">
 				<swiper-item v-for="(item, index) in bannerList" :key="item.id">
@@ -75,9 +75,9 @@
 			</div>
 			<div class="middle-line"></div>
 			<div class="rt">
-				<input type="text" placeholder="填写姓名" maxlength="10" v-model="username" value="" />
-				<input type="number" placeholder="联系电话" maxlength="15" v-model="userphone" value="" />
-				<input type="text" placeholder="看房时间" maxlength="30" v-model="userlookhousetime" value="" />
+				<input placeholder-style="padding-left:20rpx" type="text" placeholder="填写姓名" maxlength="10" v-model="username" value="" />
+				<input placeholder-style="padding-left:20rpx" type="number" placeholder="联系电话" maxlength="15" v-model="userphone" value="" />
+				<input placeholder-style="padding-left:20rpx" type="text" placeholder="看房时间" maxlength="30" v-model="userlookhousetime" value="" />
 			</div>
 		</view>
 		<button type="primary" class="btn width90center" @click="yuyue()">立即预约</button>
@@ -114,6 +114,8 @@
 				bannerList: [],
 				video: '',
 				phone: '',
+				memorabilia:{}, 
+				actvity:{},
 				role: uni.getStorageSync('role') //登录获取,1为普通用户
 			};
 		},
@@ -189,6 +191,17 @@
 					duration: 300
 				});
 			},
+			toMap(){
+				uni.openLocation({
+					latitude:25.022151,
+					longitude: 102.652347,
+					name: "昆明融创文旅城",
+					address: "昆明市西山区碧鸡路和益宁路交叉口"
+				})
+				// uni.navigateTo({
+				// 	url: '/pages/map/index'
+				// });
+			},
 			gotoChat() {
 
 				uni.requestSubscribeMessage({
@@ -260,6 +273,13 @@
 			this.$http.getPhone().then(res => {
 				this.phone = res.data;
 			});
+			this.$http.getMostNews().then(res=>{
+								
+								 	 this.memorabilia=res.data.memorabilia;
+								 	 console.log(res.data);
+								    this.actvity=res.data.actvity.actvity;
+								 
+			})
 			// uni.login({
 			//   provider: 'weixin',
 			//   success:  (loginRes)=> {
@@ -281,7 +301,7 @@
 	.chat,
 	.phone,
 	.location {
-		position: absolute;
+		position: fixed;
 		left: 30rpx;
 		z-index: 999;
 		display: flex;
@@ -489,16 +509,15 @@
 			background: rgba(0, 0, 0, 1);
 		}
 
-		.lf,
-		.rt {
-			display: flex;
+		.lf {
+			
 			flex: 1;
 		}
 
 		.lf {
 			text-align: right;
 			flex-direction: column;
-
+          
 			.h1 {
 				font-size: 30rpx;
 			}
@@ -517,9 +536,11 @@
 		}
 
 		.rt {
+			display: flex;
 			flex-direction: column;
 			justify-content: space-around;
-
+			width: 440rpx;
+            padding-left: 20rpx;
 			input {
 				width: 90%;
 				height: 60rpx;
@@ -602,7 +623,7 @@
 
 		video {
 
-			width: 90%;
+			width: 100%;
 			height: 176rpx;
 		}
 

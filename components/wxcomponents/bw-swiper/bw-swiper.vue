@@ -21,7 +21,7 @@
 		>
 			<swiper-item class="swiper-item"  v-for="(item,index) in swiperList" :key="index" :class="(cardCur==index && displayMultipleItems ==1 && !vertical &&  !fullScreen)?'cur':''"  @tap="clickItem(index)">
 				<view v-if="item[imageKey] && !item[videoKey]">
-					<image :src="item[imageKey]"  :style="{'height':swiperHeight+'px'}"></image>
+					<image :src="item[imageKey]" @click="changeImgMode(index)" :style="{'height':swiperHeight+'px'}" :mode="setMode==index?'scaleToFill':'widthFix'"></image>
 				    <text v-if="textTip" class="swiperText" :style="{
 						'bottom':(swiperType?(textStyleBottom+12):textStyleBottom)+'%',
 						'right':textStyleRight+'%',
@@ -178,13 +178,23 @@
 			return {
 				flag:true,
 				cardCur:0,
-				
+				setMode:'scaleToFill'
 			}
 		},
 		computed:{
 			
 		},
 		methods: {
+			changeImgMode(e){
+				console.log(e.target);
+				// if(this.setMode=='scaleToFill'){
+				// 	this.setMode='widthFix'
+				// }else{
+				// 	this.setMode='scaleToFill'
+				// }
+				
+				
+			},
 			play:function(){
 				this.flag = false
 			},

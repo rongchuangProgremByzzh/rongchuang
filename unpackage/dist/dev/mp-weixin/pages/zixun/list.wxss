@@ -80,8 +80,12 @@
       font-weight: 300;
       color: white;
       padding-left: 50rpx;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
 }
 .Item .tit-mes .time {
+      width: 200rpx;
       padding-right: 50rpx;
       font-size: 30rpx;
       font-family: PingFangSC;

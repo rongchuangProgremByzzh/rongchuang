@@ -31,7 +31,7 @@
 .chat.data-v-4da49f57,
 .phone.data-v-4da49f57,
 .location.data-v-4da49f57 {
-  position: absolute;
+  position: fixed;
   left: 30rpx;
   z-index: 999;
   display: -webkit-box;
@@ -227,11 +227,7 @@
     width: 1px;
     background: black;
 }
-.contact .lf.data-v-4da49f57,
-  .contact .rt.data-v-4da49f57 {
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: flex;
+.contact .lf.data-v-4da49f57 {
     -webkit-box-flex: 1;
     -webkit-flex: 1;
             flex: 1;
@@ -257,12 +253,17 @@
       color: black;
 }
 .contact .rt.data-v-4da49f57 {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
     -webkit-flex-direction: column;
             flex-direction: column;
     -webkit-justify-content: space-around;
             justify-content: space-around;
+    width: 440rpx;
+    padding-left: 20rpx;
 }
 .contact .rt input.data-v-4da49f57 {
       width: 90%;
@@ -358,7 +359,7 @@
       background-size: 100% 100%;
 }
 .footer video.data-v-4da49f57 {
-    width: 90%;
+    width: 100%;
     height: 176rpx;
 }
 

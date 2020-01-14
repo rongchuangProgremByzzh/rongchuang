@@ -3,7 +3,7 @@
 		<div class="content-wrap">
 			<div class="title">{{newsList.title}}</div>
 			<div class="time">{{newsList.ctime|formatTime}}</div>
-			 <rich-text :nodes="content"></rich-text>
+			 <rich-text :nodes="newsList.content"></rich-text>
 		</div>
 	</div>
 </template>
@@ -13,10 +13,15 @@
 		components:{
 			
 		},
+		props:{
+			newsList:{
+				type:Object
+			}
+		},
 		data(){
 			return{
-				newsList:{},
-				content:""
+				// newsList:{},
+			
 			}
 		},
 		methods:{
@@ -28,13 +33,13 @@
 
 		    },
 		mounted() {
-			this.$http.getMostNews().then(res=>{
-								 if(res.data){
-									 this.newsList=res.data.actvity;
-									 console.log(res.data);
-								this.content=res.data.actvity.content;
-								 }
-			})
+			// this.$http.getMostNews().then(res=>{
+			// 					 if(res.data){
+			// 						 this.newsList=res.data.actvity;
+			// 					// 	 console.log(res.data);
+			// 					// this.content=res.data.actvity.content;
+			// 					 }
+			// })
 		}
 	}
 </script>

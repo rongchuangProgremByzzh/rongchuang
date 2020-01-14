@@ -249,6 +249,8 @@ var _default = {
       bannerList: [],
       video: '',
       phone: '',
+      memorabilia: {},
+      actvity: {},
       role: uni.getStorageSync('role') //登录获取,1为普通用户
     };
   },
@@ -324,6 +326,17 @@ var _default = {
         duration: 300 });
 
     },
+    toMap: function toMap() {
+      uni.openLocation({
+        latitude: 25.022151,
+        longitude: 102.652347,
+        name: "昆明融创文旅城",
+        address: "昆明市西山区碧鸡路和益宁路交叉口" });
+
+      // uni.navigateTo({
+      // 	url: '/pages/map/index'
+      // });
+    },
     gotoChat: function gotoChat() {var _this = this;
 
       uni.requestSubscribeMessage({
@@ -394,6 +407,13 @@ var _default = {
     });
     this.$http.getPhone().then(function (res) {
       _this2.phone = res.data;
+    });
+    this.$http.getMostNews().then(function (res) {
+
+      _this2.memorabilia = res.data.memorabilia;
+      console.log(res.data);
+      _this2.actvity = res.data.actvity.actvity;
+
     });
     // uni.login({
     //   provider: 'weixin',

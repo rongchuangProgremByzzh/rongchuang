@@ -46,6 +46,12 @@
 			this.style.contentViewHeight = res.windowHeight - uni.getSystemInfoSync().screenWidth / 750 * (100) ; //像素
 			console.log(option.uid)
 			this.uid=option.uid;
+			this.wxChat()
+			this.initData()
+		},
+		onUnload(){
+			clearInterval(this.timer);
+			this.socketTask.close()
 		},
 		methods: {
 			getInputMessage: function (message) { //获取子组件的输入数据
@@ -157,9 +163,6 @@
 				  this.wxChat()
 				});
 			},
-		},
-		mounted(){
-			this.wxChat()
 		},
 		onHide(){
 		clearInterval(this.timer);

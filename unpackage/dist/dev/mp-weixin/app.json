@@ -3,6 +3,7 @@
     "pages/auth/auth",
     "pages/index/index",
     "pages/progress/index",
+    "pages/map/index",
     "pages/3d_show/index1",
     "pages/long2/index",
     "pages/seven_type/index",
@@ -44,9 +45,13 @@
     "navigationBarBackgroundColor": "#F8F8F8",
     "backgroundColor": "#F8F8F8"
   },
-  "permission": {},
+  "permission": {
+    "scope.userLocation": {
+      "desc": "地图导航"
+    }
+  },
   "usingComponents": {
     "whitebox": "/components/black_box"
   },
-  "sitemapLocation": "sitemap93.json"
+  "sitemapLocation": "sitemap83.json"
 }
