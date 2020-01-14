@@ -21,8 +21,9 @@
 		>
 			<swiper-item class="swiper-item"  v-for="(item,index) in swiperList" :key="index" :class="(cardCur==index && displayMultipleItems ==1 && !vertical &&  !fullScreen)?'cur':''"  @tap="clickItem(index)">
 				<view v-if="item[imageKey] && !item[videoKey]">
-					<image :src="item[imageKey]" @click="changeImgMode(index)" :style="{'height':swiperHeight+'px'}" :mode="setMode==index?'scaleToFill':'widthFix'"></image>
-				    <text v-if="textTip" class="swiperText" :style="{
+					<image :src="item[imageKey]" @click="changeImgMode(index)" v-if="setMode==index" :style="{'height':swiperHeight+'px'}" mode="widthFix"></image>
+				    <image :src="item[imageKey]" @click="changeImgMode(index)" v-else :style="{'height':swiperHeight+'px'}" mode="scaleToFill"></image>
+					<text v-if="textTip" class="swiperText" :style="{
 						'bottom':(swiperType?(textStyleBottom+12):textStyleBottom)+'%',
 						'right':textStyleRight+'%',
 						'color':textStyleColor,
@@ -178,20 +179,25 @@
 			return {
 				flag:true,
 				cardCur:0,
-				setMode:'scaleToFill'
+				setMode:-1
 			}
 		},
 		computed:{
 			
 		},
 		methods: {
-			changeImgMode(e){
-				console.log(e.target);
+			changeImgMode(index){
+				
 				// if(this.setMode=='scaleToFill'){
 				// 	this.setMode='widthFix'
 				// }else{
 				// 	this.setMode='scaleToFill'
 				// }
+				if(this.setMode>-1){
+					this.setMode=-1
+				}else{
+					this.setMode=index
+				}
 				
 				
 			},
@@ -210,6 +216,7 @@
 				this.$emit('change',e)
 			},
 			animationfinish:function(e){
+				this.setMode=-1
 				this.cardCur = e.detail.current;
 				this.$emit('animationfinish',e)
 			}
@@ -235,6 +242,10 @@
 	margin-left:8.1%;
 }
 .cardSwiper .cur  view{
+	display: flex;
+	justify-content: center;
+align-items: center;
+background: rgba(0,0,0,.7);
 	transform:  initial;
 	opacity: 1;
 	transition: all 0.1s ease-in 0s;

@@ -41,8 +41,8 @@
 		<whitebox :setheight="60"></whitebox>
 
 		<div class="width100center height2 setposition">
-			<div class="box1" @click="jumpzixun(0)"></div>
-			<div class="box2" @click="jumpzixun(1)"></div>
+			<div class="box1" @click="jumpzixun(memorabilia)" ><div class="box1box2">{{memorabilia.title}}</div><image :src="memorabilia.icon" mode=""></image></div>
+			<div class="box2" @click="jumpzixun(actvity)"><div class="box1box2">{{actvity.title}}</div><image :src="actvity.icon" mode=""></image></div>
 			<div class="more" @click="jumpzixunlist()"></div>
 			<image src="http://www.zangzhihong.com/pic/static/home/home2@2x.png" mode=""></image>
 		</div>
@@ -83,7 +83,7 @@
 		<button type="primary" class="btn width90center" @click="yuyue()">立即预约</button>
 		<view class="footer">
 			<view class="lf">
-				<image src="http://www.zangzhihong.com/pic/static/code@2x.png" mode=""></image>
+				<image @click="previewImage()" src="http://www.zangzhihong.com/pic/static/code@2x.png" mode=""></image>
 			</view>
 			<view class="rt">
 				<div class="video-wrap">
@@ -121,7 +121,10 @@
 		},
 		onLoad() {},
 		methods: {
-			jumpzixun(index) {
+			jumpzixun(data) {
+				console.log(data);
+				//+encodeURIComponent(JSON.stringify(data))
+				 uni.setStorageSync('newsData',JSON.stringify(data));
 				uni.navigateTo({
 					url: '/pages/zixun/news'
 				});
@@ -251,14 +254,21 @@
 			},
 			onGotUserInfo(res){
 				console.log(res);
-				// uni.login({
-				//   provider: 'weixin',
-				//   scopes:"auth_user",
-				//   success: function (loginRes) {
-					
-				//     console.log(loginRes);
-				//   }
-				// });
+				
+			},
+			previewImage(){
+				  uni.previewImage({
+				            urls:['http://www.zangzhihong.com/pic/static/code@2x.png'],
+				            longPressActions: {
+				                itemList: ['发送给朋友', '保存图片', '收藏'],
+				                success: function(data) {
+				                    console.log('选中了第' + (data.tapIndex + 1) + '个按钮,第' + (data.index + 1) + '张图片');
+				                },
+				                fail: function(err) {
+				                    console.log(err.errMsg);
+				                }
+				            }
+				        });
 			}
 		},
 
@@ -277,7 +287,7 @@
 								
 								 	 this.memorabilia=res.data.memorabilia;
 								 	 console.log(res.data);
-								    this.actvity=res.data.actvity.actvity;
+								    this.actvity=res.data.actvity;
 								 
 			})
 			// uni.login({
@@ -402,20 +412,34 @@
 		position: absolute;
 		left: 26rpx;
 		top: 50rpx;
-		width: 300rpx;
-		height: 240rpx;
+		width: 336rpx;
+		height: 266rpx;
 		z-index: 99;
 	}
 
 	.box2 {
 		position: absolute;
-		right: 114rpx;
-		top: 164rpx;
-		width: 300rpx;
-		height: 240rpx;
+		right: 36rpx;
+		top: 180rpx;
+		width: 330rpx;
+		height: 266rpx;
 		z-index: 99;
 	}
-
+.box1box2{
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	height:60rpx;
+	color: #fff;
+	font-size: 28rpx;
+	background:rgba(29, 41, 135,.7) ;
+	text-align: center;
+	line-height: 60rpx;
+	overflow: hidden;
+	text-overflow:ellipsis;
+	white-space: nowrap;
+}
 	.box33 {
 		position: absolute;
 		left: 4rpx;

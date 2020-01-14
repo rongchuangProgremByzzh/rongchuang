@@ -24,13 +24,13 @@
 /* 垂直间距 */
 /* 透明度 */
 /* 文章场景相关 */
-.canvas-box.data-v-3a4beded {
+.canvas-box.data-v-fb4c34fe {
   margin-left: 500rpx;
   width: 0;
   height: 0;
   overflow: hidden;
 }
-.gallerypanel .scroll-view .scroll-view-panle.data-v-3a4beded {
+.gallerypanel .scroll-view .scroll-view-panle.data-v-fb4c34fe {
   display: -webkit-box;
   display: -webkit-flex;
   display: flex;
@@ -38,7 +38,7 @@
   width: 100%;
   white-space: nowrap;
 }
-.roundbadge.data-v-3a4beded {
+.roundbadge.data-v-fb4c34fe {
   z-index: 2;
   display: -webkit-box;
   display: -webkit-flex;
@@ -61,7 +61,7 @@
   margin-bottom: -17px;
   margin-right: 3px;
 }
-@-webkit-keyframes living-data-v-3a4beded {
+@-webkit-keyframes living-data-v-fb4c34fe {
 0% {
     -webkit-transform: scale(1);
             transform: scale(1);
@@ -79,7 +79,7 @@
     opacity: 1;
 }
 }
-@keyframes living-data-v-3a4beded {
+@keyframes living-data-v-fb4c34fe {
 0% {
     -webkit-transform: scale(1);
             transform: scale(1);
@@ -97,8 +97,8 @@
     opacity: 1;
 }
 }
-.trans-fadeout.data-v-3a4beded {
-  -webkit-animation: living-data-v-3a4beded 1s ease-in-out 1;
-          animation: living-data-v-3a4beded 1s ease-in-out 1;
+.trans-fadeout.data-v-fb4c34fe {
+  -webkit-animation: living-data-v-fb4c34fe 1s ease-in-out 1;
+          animation: living-data-v-fb4c34fe 1s ease-in-out 1;
 }
 

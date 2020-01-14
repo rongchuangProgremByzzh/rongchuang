@@ -75,6 +75,7 @@
 
 		methods: {
 			onclickimg(imgviewobj) {
+				console.log(imgviewobj.index);
 				if (imgviewobj.index != undefined)
 					this.Msg = `${imgviewobj.index}`;
 			},
