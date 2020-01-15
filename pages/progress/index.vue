@@ -62,7 +62,7 @@
 	.bg{
 		width: 100%;
 min-height: 100%;
-		background: url(http://www.zangzhihong.com/pic/static/bg@2x.png) repeat;
+		background: url(http://rongchuang.sqhd850.cn/pic/static/bg@2x.png) repeat;
 		background-size:contain;
 	}
 	.item-wrap{
@@ -149,7 +149,7 @@ min-height: 100%;
 			    background: linear-gradient(to right, #272f8f, #eee);
 		}
 		.right{
-			margin-left: 24rpx;
+			margin-left: 25rpx;
 			margin-right: 0;
 		}
 	}

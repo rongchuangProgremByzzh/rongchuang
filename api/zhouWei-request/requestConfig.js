@@ -1,5 +1,5 @@
 import request from "./request";
-let baseUrl = "http://rcxcx.api.95lsy.com";
+let baseUrl = "https://rongchuang.api.sqhd850.cn";
 //可以new多个request来支持多个域名请求
 let $http = new request({
 	//接口请求地址

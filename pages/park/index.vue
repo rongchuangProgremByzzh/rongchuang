@@ -2,7 +2,7 @@
 	<view class="content">
 		<whitebox :setheight="110"></whitebox>
 		<div class="width90center height1">
-			<image src="http://www.zangzhihong.com/pic/static/park/1@2x.png" mode=""></image>
+			<image src="http://rongchuang.sqhd850.cn/pic/static/park/1@2x.png" mode=""></image>
 		</div>
 		<whitebox :setheight="80"></whitebox>
 		<div class="width90center height2">
@@ -33,7 +33,7 @@
 <style lang="scss" scoped>
   .content{
 	  height: 100%;
-	  background: url(http://www.zangzhihong.com/pic/static/bg@2x.png) no-repeat;
+	  background: url(http://rongchuang.sqhd850.cn/pic/static/bg@2x.png) no-repeat;
 	 background-size: 100% 100%;
   }
 	.height1{
@@ -44,7 +44,7 @@
 			display: flex;
 			align-items: center;
 			justify-content: center;
-			background: url('http://www.zangzhihong.com/pic/static/park/3@2x.png') no-repeat;
+			background: url('http://rongchuang.sqhd850.cn/pic/static/park/3@2x.png') no-repeat;
 			background-size: 100% 100%;
 	}
 .txt{

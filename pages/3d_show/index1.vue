@@ -55,7 +55,7 @@ export default {
 <style lang="scss" scoped>
   .content{
 	  height: 100%;
-	  background: url(http://www.zangzhihong.com/pic/static/bg@2x.png) no-repeat;
+	  background: url(http://rongchuang.sqhd850.cn/pic/static/bg@2x.png) no-repeat;
 	 background-size: 100% 100%;
   }
 	.height1{
@@ -66,7 +66,7 @@ export default {
 			display: flex;
 			align-items: center;
 			justify-content: center;
-			background: url('http://www.zangzhihong.com/pic/static/park/3@2x.png') no-repeat;
+			background: url('http://rongchuang.sqhd850.cn/pic/static/park/3@2x.png') no-repeat;
 			background-size: 100% 100%;
 			border-radius: 16rpx;
 	}

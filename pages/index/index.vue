@@ -35,7 +35,7 @@
 		<whitebox :setheight="10"></whitebox>
 		<navigator url="/pages/project/index">
 			<div class="width90center height1">
-				<image src="http://www.zangzhihong.com/pic/static/home/home1@2x.png" mode=""></image>
+				<image src="http://rongchuang.sqhd850.cn/pic/static/home/home1@2x.png" mode=""></image>
 			</div>
 		</navigator>
 		<whitebox :setheight="60"></whitebox>
@@ -44,7 +44,7 @@
 			<div class="box1" @click="jumpzixun(memorabilia)" ><div class="box1box2">{{memorabilia.title}}</div><image :src="memorabilia.icon" mode=""></image></div>
 			<div class="box2" @click="jumpzixun(actvity)"><div class="box1box2">{{actvity.title}}</div><image :src="actvity.icon" mode=""></image></div>
 			<div class="more" @click="jumpzixunlist()"></div>
-			<image src="http://www.zangzhihong.com/pic/static/home/home2@2x.png" mode=""></image>
+			<image src="http://rongchuang.sqhd850.cn/pic/static/home/home2@2x.png" mode=""></image>
 		</div>
 
 		<whitebox :setheight="25"></whitebox>
@@ -53,7 +53,7 @@
 			<div class="box3" @click="jumpshapan()"></div>
 			<div class="box4" @click="jumphuxing()"></div>
 			<div class="box5" @click="jumpvr()"></div>
-			<image src="http://www.zangzhihong.com/pic/static/home/home3@2x.png" mode=""></image>
+			<image src="http://rongchuang.sqhd850.cn/pic/static/home/home3@2x.png" mode=""></image>
 		</div>
 		<whitebox :setheight="30"></whitebox>
 		<div class="width100center height3 setposition">
@@ -62,7 +62,7 @@
 			<div class="box8" @click="jumpseven()"></div>
 			<div class="box9" @click="jumpimglist()"></div>
 			<div class="box10" @click="jumpprogress()"></div>
-			<image src="http://www.zangzhihong.com/pic/static/home/home4@2x.png" mode=""></image>
+			<image src="http://rongchuang.sqhd850.cn/pic/static/home/home4@2x.png" mode=""></image>
 		</div>
 		<view class="contact">
 			<div class="lf">
@@ -83,7 +83,7 @@
 		<button type="primary" class="btn width90center" @click="yuyue()">立即预约</button>
 		<view class="footer">
 			<view class="lf">
-				<image @click="previewImage()" src="http://www.zangzhihong.com/pic/static/code@2x.png" mode=""></image>
+				<image @click="previewImage()" src="http://rongchuang.sqhd850.cn/pic/static/code@2x.png" mode=""></image>
 			</view>
 			<view class="rt">
 				<div class="video-wrap">
@@ -208,9 +208,9 @@
 			gotoChat() {
 
 				uni.requestSubscribeMessage({
-					tmplIds: ['qKB8IPuaKbi5KAEIpjeGRuQew2BYf_wOnestHbXIAzw'],
+					tmplIds: ['yLyxJKwUOVitKFREPciNHvfI4-kPMkQPlr1tGQ1U3D4'],
 					success: (res) => {
-						if (res.qKB8IPuaKbi5KAEIpjeGRuQew2BYf_wOnestHbXIAzw === 'accept') {
+						if (res["yLyxJKwUOVitKFREPciNHvfI4-kPMkQPlr1tGQ1U3D4"] === 'accept') {
 							let token=uni.getStorageSync('token')
 							this.$http.addPush(token).then(res => {
 								console.log(res);
@@ -224,13 +224,17 @@
 			},
 			gotoOtherSmProgram() { //打开其他小程序
 				uni.navigateToMiniProgram({
-					appId: '',
-					path: 'pages/index/index?id=123',
+					appId: 'wx2f7d0154d4adc63d',
+					path: '',
 					extraData: {
-						'data1': 'test'
+						
 					},
 					success(res) {
 						// 打开成功
+						console.log(res);
+					},
+					fail(err){
+						console.log(err);
 					}
 				})
 			},
@@ -258,7 +262,7 @@
 			},
 			previewImage(){
 				  uni.previewImage({
-				            urls:['http://www.zangzhihong.com/pic/static/code@2x.png'],
+				            urls:['http://rongchuang.sqhd850.cn/pic/static/code@2x.png'],
 				            longPressActions: {
 				                itemList: ['发送给朋友', '保存图片', '收藏'],
 				                success: function(data) {
@@ -329,24 +333,24 @@
 
 	.like {
 		top: 200rpx;
-		background-image: url(http://www.zangzhihong.com/pic/static/home/like@2x.png);
+		background-image: url(http://rongchuang.sqhd850.cn/pic/static/home/like@2x.png);
 	}
 
 	.chat {
 		top: 360rpx;
-		background-image: url(http://www.zangzhihong.com/pic/static/home/phone@2x.png);
+		background-image: url(http://rongchuang.sqhd850.cn/pic/static/home/phone@2x.png);
 	}
 
 	.phone {
 		top: 510rpx;
-		background-image: url(http://www.zangzhihong.com/pic/static/home/chat@2x.png);
+		background-image: url(http://rongchuang.sqhd850.cn/pic/static/home/chat@2x.png);
 	}
 
 	.location {
 		top: 510rpx;
 		right: 30rpx;
 		left: auto;
-		background-image: url(http://www.zangzhihong.com/pic/static/home/location@2x.png);
+		background-image: url(http://rongchuang.sqhd850.cn/pic/static/home/location@2x.png);
 	}
 
 	.swiper {
@@ -401,10 +405,10 @@
 
 	.more {
 		position: absolute;
-		left: 100rpx;
+		left: 110rpx;
 		bottom: 20rpx;
-		width: 130rpx;
-		height: 60rpx;
+		width: 150rpx;
+		height: 80rpx;
 		z-index: 99;
 	}
 
@@ -584,7 +588,7 @@
 		flex-direction: row;
 		height: 384rpx;
 		margin-top: 50rpx;
-		background: url(http://www.zangzhihong.com/pic/static/park/3@2x.png) no-repeat;
+		background: url(http://rongchuang.sqhd850.cn/pic/static/park/3@2x.png) no-repeat;
 		background-size: 100% 100%;
 
 		.lf,
@@ -640,7 +644,7 @@
 			.btn-play-btn {
 				width: 80rpx;
 				height: 80rpx;
-				background: url(http://www.zangzhihong.com/pic/static/home/play.png) no-repeat;
+				background: url(http://rongchuang.sqhd850.cn/pic/static/home/play.png) no-repeat;
 				background-size: 100% 100%;
 			}
 		}

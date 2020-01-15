@@ -1,7 +1,7 @@
 <template>
 	<view class="content">
 		<div class="width100center height1">
-			<image src="http://www.zangzhihong.com/pic/static/pingpai/pingpai@2x.png" mode=""></image>
+			<image src="http://rongchuang.sqhd850.cn/pic/static/pingpai/pingpai@2x.png" mode=""></image>
 		</div>
 		<navigator url="/pages/longimg/index">
 		<div class="top">

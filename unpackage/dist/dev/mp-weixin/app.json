@@ -45,6 +45,9 @@
     "navigationBarBackgroundColor": "#F8F8F8",
     "backgroundColor": "#F8F8F8"
   },
+  "navigateToMiniProgramAppIdList": [
+    "wx2f7d0154d4adc63d"
+  ],
   "permission": {
     "scope.userLocation": {
       "desc": "地图导航"
@@ -53,5 +56,5 @@
   "usingComponents": {
     "whitebox": "/components/black_box"
   },
-  "sitemapLocation": "sitemap13.json"
+  "sitemapLocation": "sitemap51.json"
 }

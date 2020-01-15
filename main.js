@@ -5,7 +5,7 @@ import request from './api/index.js'
 Vue.prototype.$http=request;
 import WhiteBox from './components/black_box.vue'
 Vue.component('whitebox',WhiteBox);
-Vue.prototype.$imgBaseUrl='http://www.zangzhihong.com/'
+Vue.prototype.$imgBaseUrl='http://rongchuang.sqhd850.cn/'
 Vue.config.productionTip = false
 import mixins from 'mixin/index.js'
 import store from './store'

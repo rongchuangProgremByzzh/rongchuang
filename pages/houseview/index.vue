@@ -2,7 +2,7 @@
 	<view class="content">
 		<whitebox :setheight="100"></whitebox>
 		<div class="width70center height1">
-			<image src="http://www.zangzhihong.com/pic/static/houseview/1@2x.png" mode=""></image>
+			<image src="http://rongchuang.sqhd850.cn/pic/static/houseview/1@2x.png" mode=""></image>
 		</div>
 		<whitebox :setheight="60"></whitebox>
 		<div class="title">昆明融创文旅城</div>
@@ -12,18 +12,18 @@
 		 <div class="title3">抢在价值兑现之前入手</div>
 		 <div class="title3en">Mountain & Sea</div>
 		 <div class="width90center height2">
-		 	<image src="http://www.zangzhihong.com/pic/static/houseview/2@2x.png" mode=""></image>
+		 	<image src="http://rongchuang.sqhd850.cn/pic/static/houseview/2@2x.png" mode=""></image>
 		 </div>
 		 <div class="top">
-			 <image src="http://www.zangzhihong.com/pic/static/houseview/top@2x.png" mode=""></image>昆明融创文旅城项目总平图
+			 <image src="http://rongchuang.sqhd850.cn/pic/static/houseview/top@2x.png" mode=""></image>昆明融创文旅城项目总平图
 		 </div>
 		 <whitebox :setheight="12"></whitebox>
 		 <div class="width90center height2">
-		 	<image src="http://www.zangzhihong.com/pic/static/houseview/3@2x.png" mode=""></image>
+		 	<image src="http://rongchuang.sqhd850.cn/pic/static/houseview/3@2x.png" mode=""></image>
 		 </div>
 		 <whitebox :setheight="30"></whitebox>
 		 <div class="width90center height3">
-		 	<image src="http://www.zangzhihong.com/pic/static/houseview/4@2x.png" mode=""></image>
+		 	<image src="http://rongchuang.sqhd850.cn/pic/static/houseview/4@2x.png" mode=""></image>
 		 </div>
 		  <whitebox :setheight="50"></whitebox>
 	</view>

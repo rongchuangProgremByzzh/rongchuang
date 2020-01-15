@@ -8,34 +8,34 @@
 			</swiper-item>
 			
 			<swiper-item>
-				<view class="swiper-item"><image src="http://www.zangzhihong.com/pic/static/housetype/a@2x.png" mode="aspectFill"></image></view>
+				<view class="swiper-item"><image src="http://rongchuang.sqhd850.cn/pic/static/housetype/a@2x.png" mode="aspectFill"></image></view>
 			</swiper-item>
 			<swiper-item>
-				<view class="swiper-item"><image src="http://www.zangzhihong.com/pic/static/housetype/b1@2x.png" mode="aspectFill"></image></view>
+				<view class="swiper-item"><image src="http://rongchuang.sqhd850.cn/pic/static/housetype/b1@2x.png" mode="aspectFill"></image></view>
 			</swiper-item>
 			<swiper-item>
-				<view class="swiper-item"><image src="http://www.zangzhihong.com/pic/static/housetype/b2@2x.png" mode="aspectFill"></image></view>
+				<view class="swiper-item"><image src="http://rongchuang.sqhd850.cn/pic/static/housetype/b2@2x.png" mode="aspectFill"></image></view>
 			</swiper-item>
 			<swiper-item>
-				<view class="swiper-item"><image src="http://www.zangzhihong.com/pic/static/housetype/c@2x.png" mode="aspectFill"></image></view>
+				<view class="swiper-item"><image src="http://rongchuang.sqhd850.cn/pic/static/housetype/c@2x.png" mode="aspectFill"></image></view>
 			</swiper-item>
 			<swiper-item>
-				<view class="swiper-item"><image src="http://www.zangzhihong.com/pic/static/housetype/d@2x.png" mode="aspectFill"></image></view>
+				<view class="swiper-item"><image src="http://rongchuang.sqhd850.cn/pic/static/housetype/d@2x.png" mode="aspectFill"></image></view>
 			</swiper-item>
 			<swiper-item>
-				<view class="swiper-item"><image src="http://www.zangzhihong.com/pic/static/housetype/d1@2x.png" mode="aspectFill"></image></view>
+				<view class="swiper-item"><image src="http://rongchuang.sqhd850.cn/pic/static/housetype/d1@2x.png" mode="aspectFill"></image></view>
 			</swiper-item>
 			<swiper-item>
-				<view class="swiper-item"><image src="http://www.zangzhihong.com/pic/static/housetype/d2@2x.png" mode="aspectFill"></image></view>
+				<view class="swiper-item"><image src="http://rongchuang.sqhd850.cn/pic/static/housetype/d2@2x.png" mode="aspectFill"></image></view>
 			</swiper-item>
 			<swiper-item>
-				<view class="swiper-item"><image src="http://www.zangzhihong.com/pic/static/housetype/d3@2x.png" mode="aspectFill"></image></view>
+				<view class="swiper-item"><image src="http://rongchuang.sqhd850.cn/pic/static/housetype/d3@2x.png" mode="aspectFill"></image></view>
 			</swiper-item>
 			<swiper-item>
-				<view class="swiper-item"><image src="http://www.zangzhihong.com/pic/static/housetype/e@2x.png" mode="aspectFill"></image></view>
+				<view class="swiper-item"><image src="http://rongchuang.sqhd850.cn/pic/static/housetype/e@2x.png" mode="aspectFill"></image></view>
 			</swiper-item>
 			<swiper-item>
-				<view class="swiper-item"><image src="http://www.zangzhihong.com/pic/static/housetype/f@2x.png" mode="aspectFill"></image></view>
+				<view class="swiper-item"><image src="http://rongchuang.sqhd850.cn/pic/static/housetype/f@2x.png" mode="aspectFill"></image></view>
 			</swiper-item>
 		</swiper>
 		

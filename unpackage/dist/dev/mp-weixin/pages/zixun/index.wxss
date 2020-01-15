@@ -24,13 +24,13 @@
 /* 垂直间距 */
 /* 透明度 */
 /* 文章场景相关 */
-.newspaper.data-v-2543e29b {
+.newspaper.data-v-28499a07 {
   height: 100%;
-  background: url(http://www.zangzhihong.com/pic/static/photolist-bg@2x.png) no-repeat;
+  background: url(http://rongchuang.sqhd850.cn/pic/static/photolist-bg@2x.png) no-repeat;
   background-size: 100% 100%;
   overflow: hidden;
 }
-.title.data-v-2543e29b {
+.title.data-v-28499a07 {
   display: -webkit-box;
   display: -webkit-flex;
   display: flex;
@@ -46,7 +46,7 @@
   font-size: 28rpx;
   color: #9B9B9B;
 }
-.detail.data-v-2543e29b, .active.data-v-2543e29b {
+.detail.data-v-28499a07, .active.data-v-28499a07 {
   display: -webkit-box;
   display: -webkit-flex;
   display: flex;
@@ -55,12 +55,12 @@
   -webkit-flex-direction: row;
           flex-direction: row;
 }
-.current.data-v-2543e29b {
+.current.data-v-28499a07 {
   position: relative;
   color: #000;
   font-size: 40rpx;
 }
-.current.data-v-2543e29b::before {
+.current.data-v-28499a07::before {
   position: absolute;
   content: "";
   left: 0;
@@ -69,18 +69,18 @@
   height: 2rpx;
   background: #EC8301;
 }
-.current .isactive.data-v-2543e29b {
+.current .isactive.data-v-28499a07 {
   font-size: 40rpx;
   color: #40B4E5;
 }
-.swiper-wrap.data-v-2543e29b {
+.swiper-wrap.data-v-28499a07 {
   height: calc(100% - 100rpx);
 }
-.swiper-item.data-v-2543e29b {
+.swiper-item.data-v-28499a07 {
   height: calc(100% - 100rpx);
   overflow-y: auto;
 }
-.nodata.data-v-2543e29b {
+.nodata.data-v-28499a07 {
   font-size: 28rpx;
   color: #999;
   text-align: center;

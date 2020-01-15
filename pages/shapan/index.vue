@@ -8,23 +8,23 @@
 		<div class="switch-tab">
 			<scroll-view enable-flex="true" scroll-x="true" class="switch-tab-view">
 				<view class="tab-item" @click="chooseItem(0)">
-					<view class="tab-img "><image class="thumb" :class="{active:isactive==0}" src="http://www.zangzhihong.com/pic/static/animate/smbg/1@2x.png" mode="scaleToFill"></image></view>
+					<view class="tab-img "><image class="thumb" :class="{active:isactive==0}" src="http://rongchuang.sqhd850.cn/pic/static/animate/smbg/1@2x.png" mode="scaleToFill"></image></view>
 					<text class="desc" :class="{active:isactive==0}">昆明市交通图</text>
 				</view>
 				<view class="tab-item" @click="chooseItem(1)">
-					<view class="tab-img"><image class="thumb" :class="{active:isactive==1}" src="http://www.zangzhihong.com/pic/static/animate/smbg/2@2x.png" mode="scaleToFill"></image></view>
+					<view class="tab-img"><image class="thumb" :class="{active:isactive==1}" src="http://rongchuang.sqhd850.cn/pic/static/animate/smbg/2@2x.png" mode="scaleToFill"></image></view>
 					<text class="desc" :class="{active:isactive==1}">草海规划图</text>
 				</view>
 				<view class="tab-item" @click="chooseItem(2)">
-					<view class="tab-img"><image class="thumb" :class="{active:isactive==2}" src="http://www.zangzhihong.com/pic/static/animate/smbg/3@2x.png" mode=""></image></view>
+					<view class="tab-img"><image class="thumb" :class="{active:isactive==2}" src="http://rongchuang.sqhd850.cn/pic/static/animate/smbg/3@2x.png" mode=""></image></view>
 					<text class="desc" :class="{active:isactive==2}">项目业态分布图</text>
 				</view>
 				<view class="tab-item" @click="chooseItem(3)">
-					<view class="tab-img"><image class="thumb" :class="{active:isactive==3}" src="http://www.zangzhihong.com/pic/static/animate/smbg/4@2x.png" mode=""></image></view>
+					<view class="tab-img"><image class="thumb" :class="{active:isactive==3}" src="http://rongchuang.sqhd850.cn/pic/static/animate/smbg/4@2x.png" mode=""></image></view>
 					<text class="desc" :class="{active:isactive==3}">项目中面图</text>
 				</view>
 				<view class="tab-item" @click="chooseItem(4)">
-					<view class="tab-img"><image class="thumb" :class="{active:isactive==4}" src="http://www.zangzhihong.com/pic/static/animate/smbg/5@2x.png" mode=""></image></view>
+					<view class="tab-img"><image class="thumb" :class="{active:isactive==4}" src="http://rongchuang.sqhd850.cn/pic/static/animate/smbg/5@2x.png" mode=""></image></view>
 					<text class="desc" :class="{active:isactive==4}">项目区位图</text>
 				</view>
 			</scroll-view>
@@ -45,13 +45,13 @@ export default {
 				y: 0,
 				scale: 2
 			},
-			choose:'http://www.zangzhihong.com/pic/static/animate/1.gif',
+			choose:'http://rongchuang.sqhd850.cn/pic/static/animate/1.gif',
 			imglist:[
-				"http://www.zangzhihong.com/pic/static/animate/1.gif",
-				"http://www.zangzhihong.com/pic/static/animate/2.gif",
-				"http://www.zangzhihong.com/pic/static/animate/3.gif",
-				"http://www.zangzhihong.com/pic/static/shapan/4@2x.png",
-				"http://www.zangzhihong.com/pic/static/shapan/5@2x.png",
+				"http://rongchuang.sqhd850.cn/pic/static/animate/1.gif",
+				"http://rongchuang.sqhd850.cn/pic/static/animate/2.gif",
+				"http://rongchuang.sqhd850.cn/pic/static/animate/3.gif",
+				"http://rongchuang.sqhd850.cn/pic/static/shapan/4@2x.png",
+				"http://rongchuang.sqhd850.cn/pic/static/shapan/5@2x.png",
 			]
 		};
 	},

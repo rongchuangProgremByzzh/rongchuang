@@ -40,7 +40,7 @@
 <style scoped>
 	.list{
 		height: 100%;
-		background: url(http://www.zangzhihong.com/pic/static/photolist-bg@2x.png) no-repeat;
+		background: url(http://rongchuang.sqhd850.cn/pic/static/photolist-bg@2x.png) no-repeat;
 		background-size: 100% 100%;
 	}
 </style>

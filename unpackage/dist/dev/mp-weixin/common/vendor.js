@@ -737,7 +737,7 @@ function initData(vueOptions, context) {
     try {
       data = data.call(context); // 支持 Vue.prototype 上挂的数据
     } catch (e) {
-      if (Object({"VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG) {
+      if (Object({"NODE_ENV":"development","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG) {
         console.warn('根据 Vue 的 data 函数初始化小程序 data 失败，请尽量确保 data 函数中不访问 vm 对象，否则可能影响首次数据渲染速度。', data);
       }
     }
@@ -7065,7 +7065,7 @@ function type(obj) {
 
 function flushCallbacks$1(vm) {
     if (vm.__next_tick_callbacks && vm.__next_tick_callbacks.length) {
-        if (Object({"VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG) {
+        if (Object({"NODE_ENV":"development","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG) {
             var mpInstance = vm.$scope;
             console.log('[' + (+new Date) + '][' + (mpInstance.is || mpInstance.route) + '][' + vm._uid +
                 ']:flushCallbacks[' + vm.__next_tick_callbacks.length + ']');
@@ -7086,14 +7086,14 @@ function nextTick$1(vm, cb) {
     //1.nextTick 之前 已 setData 且 setData 还未回调完成
     //2.nextTick 之前存在 render watcher
     if (!vm.__next_tick_pending && !hasRenderWatcher(vm)) {
-        if(Object({"VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG){
+        if(Object({"NODE_ENV":"development","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG){
             var mpInstance = vm.$scope;
             console.log('[' + (+new Date) + '][' + (mpInstance.is || mpInstance.route) + '][' + vm._uid +
                 ']:nextVueTick');
         }
         return nextTick(cb, vm)
     }else{
-        if(Object({"VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG){
+        if(Object({"NODE_ENV":"development","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG){
             var mpInstance$1 = vm.$scope;
             console.log('[' + (+new Date) + '][' + (mpInstance$1.is || mpInstance$1.route) + '][' + vm._uid +
                 ']:nextMPTick');
@@ -7169,7 +7169,7 @@ var patch = function(oldVnode, vnode) {
     });
     var diffData = diff(data, mpData);
     if (Object.keys(diffData).length) {
-      if (Object({"VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG) {
+      if (Object({"NODE_ENV":"development","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG) {
         console.log('[' + (+new Date) + '][' + (mpInstance.is || mpInstance.route) + '][' + this._uid +
           ']差量更新',
           JSON.stringify(diffData));
@@ -7594,9 +7594,9 @@ module.exports = g;
 
 /***/ }),
 /* 4 */
-/*!***********************************************************************************!*\
-  !*** C:/Users/Administrator/Desktop/project/rongchuang/222/rongchuang/pages.json ***!
-  \***********************************************************************************/
+/*!***********************************************************!*\
+  !*** C:/Users/96539/Desktop/police/rongchuang/pages.json ***!
+  \***********************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -8501,9 +8501,9 @@ module.exports = {"_from":"@dcloudio/uni-stat@alpha","_id":"@dcloudio/uni-stat@2
 
 /***/ }),
 /* 7 */
-/*!****************************************************************************************************!*\
-  !*** C:/Users/Administrator/Desktop/project/rongchuang/222/rongchuang/pages.json?{"type":"style"} ***!
-  \****************************************************************************************************/
+/*!****************************************************************************!*\
+  !*** C:/Users/96539/Desktop/police/rongchuang/pages.json?{"type":"style"} ***!
+  \****************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -8512,9 +8512,9 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 
 /***/ }),
 /* 8 */
-/*!***************************************************************************************************!*\
-  !*** C:/Users/Administrator/Desktop/project/rongchuang/222/rongchuang/pages.json?{"type":"stat"} ***!
-  \***************************************************************************************************/
+/*!***************************************************************************!*\
+  !*** C:/Users/96539/Desktop/police/rongchuang/pages.json?{"type":"stat"} ***!
+  \***************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -8648,9 +8648,9 @@ function normalizeComponent (
 
 /***/ }),
 /* 15 */
-/*!******************************************************************************************!*\
-  !*** C:/Users/Administrator/Desktop/project/rongchuang/222/rongchuang/static/common.css ***!
-  \******************************************************************************************/
+/*!******************************************************************!*\
+  !*** C:/Users/96539/Desktop/police/rongchuang/static/common.css ***!
+  \******************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -8658,16 +8658,16 @@ function normalizeComponent (
 
 /***/ }),
 /* 16 */
-/*!*************************************************************************************!*\
-  !*** C:/Users/Administrator/Desktop/project/rongchuang/222/rongchuang/api/index.js ***!
-  \*************************************************************************************/
+/*!*************************************************************!*\
+  !*** C:/Users/96539/Desktop/police/rongchuang/api/index.js ***!
+  \*************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _request = _interopRequireDefault(__webpack_require__(/*! ./request.js */ 17));
 var _requestConfig = _interopRequireDefault(__webpack_require__(/*! ./zhouWei-request/requestConfig.js */ 18));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
-var appid = "wxead2ae5bf7837720";var _default =
+var appid = "wxb5cac11990380742";var _default =
 {
   banner: function banner() {
     return _requestConfig.default.get('/banner');
@@ -8726,9 +8726,9 @@ var appid = "wxead2ae5bf7837720";var _default =
 
 /***/ }),
 /* 17 */
-/*!***************************************************************************************!*\
-  !*** C:/Users/Administrator/Desktop/project/rongchuang/222/rongchuang/api/request.js ***!
-  \***************************************************************************************/
+/*!***************************************************************!*\
+  !*** C:/Users/96539/Desktop/police/rongchuang/api/request.js ***!
+  \***************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -8756,15 +8756,15 @@ function ajax(url, data) {
 
 /***/ }),
 /* 18 */
-/*!*************************************************************************************************************!*\
-  !*** C:/Users/Administrator/Desktop/project/rongchuang/222/rongchuang/api/zhouWei-request/requestConfig.js ***!
-  \*************************************************************************************************************/
+/*!*************************************************************************************!*\
+  !*** C:/Users/96539/Desktop/police/rongchuang/api/zhouWei-request/requestConfig.js ***!
+  \*************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 /* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _request = _interopRequireDefault(__webpack_require__(/*! ./request */ 19));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
-var baseUrl = "http://rcxcx.api.95lsy.com";
+var baseUrl = "https://rongchuang.api.sqhd850.cn";
 //可以new多个request来支持多个域名请求
 var $http = new _request.default({
   //接口请求地址
@@ -8876,9 +8876,9 @@ $http;exports.default = _default;
 
 /***/ }),
 /* 19 */
-/*!*******************************************************************************************************!*\
-  !*** C:/Users/Administrator/Desktop/project/rongchuang/222/rongchuang/api/zhouWei-request/request.js ***!
-  \*******************************************************************************************************/
+/*!*******************************************************************************!*\
+  !*** C:/Users/96539/Desktop/police/rongchuang/api/zhouWei-request/request.js ***!
+  \*******************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -9234,9 +9234,9 @@ request = /*#__PURE__*/function () {
 
 /***/ }),
 /* 20 */
-/*!*************************************************************************************************************!*\
-  !*** C:/Users/Administrator/Desktop/project/rongchuang/222/rongchuang/api/zhouWei-request/qiniuUploader.js ***!
-  \*************************************************************************************************************/
+/*!*************************************************************************************!*\
+  !*** C:/Users/96539/Desktop/police/rongchuang/api/zhouWei-request/qiniuUploader.js ***!
+  \*************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -9413,9 +9413,9 @@ request = /*#__PURE__*/function () {
 
 /***/ }),
 /* 21 */
-/*!***************************************************************************************!*\
-  !*** C:/Users/Administrator/Desktop/project/rongchuang/222/rongchuang/mixin/index.js ***!
-  \***************************************************************************************/
+/*!***************************************************************!*\
+  !*** C:/Users/96539/Desktop/police/rongchuang/mixin/index.js ***!
+  \***************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -9459,9 +9459,9 @@ request = /*#__PURE__*/function () {
 
 /***/ }),
 /* 22 */
-/*!***************************************************************************************!*\
-  !*** C:/Users/Administrator/Desktop/project/rongchuang/222/rongchuang/store/index.js ***!
-  \***************************************************************************************/
+/*!***************************************************************!*\
+  !*** C:/Users/96539/Desktop/police/rongchuang/store/index.js ***!
+  \***************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 

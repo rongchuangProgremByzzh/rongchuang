@@ -38,7 +38,7 @@
 			wxChat(){
 				let token=uni.getStorageSync('token')
 				this.socketTask = uni.connectSocket({
-				    url: `ws://rcxcx.api.95lsy.com/ws/${token}`, //仅为示例，并非真实接口地址。
+				    url: `wss://rongchuang.api.sqhd850.cn/ws/${token}`, //仅为示例，并非真实接口地址。
 				    complete: ()=> {}
 				});
 				uni.onSocketOpen( (res)=> {

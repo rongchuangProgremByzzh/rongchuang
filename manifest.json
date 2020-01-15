@@ -56,13 +56,14 @@
     "quickapp" : {},
     /* 小程序特有相关 */
     "mp-weixin" : {
-        "appid" : "wxead2ae5bf7837720",
+        "appid" : "wxb5cac11990380742",
         "setting" : {
             "urlCheck" : true,
             "postcss" : false,
             "minified" : true,
             "es6" : true
         },
+        "navigateToMiniProgramAppIdList" : [ "wx2f7d0154d4adc63d" ],
         "usingComponents" : true,
         "permission" : {
             "scope.userLocation" : {
@@ -88,7 +89,7 @@
         "devServer" : {
             "https" : false
         },
-        "domain" : "http://www.zangzhihong.com/test/",
+        "domain" : "http://rongchuang.sqhd850.cn/test/",
         "router" : {
             "base" : "/test"
         }

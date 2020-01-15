@@ -4,27 +4,14 @@
 		"ignore": []
 	},
 	"setting": {
-		"urlCheck": false,
-		"es6": true,
+		"urlCheck": true,
 		"postcss": false,
 		"minified": true,
-		"newFeature": true,
-		"coverView": true,
-		"autoAudits": false,
-		"showShadowRootInWxmlPanel": true,
-		"scopeDataCheck": false,
-		"checkInvalidKey": true,
-		"checkSiteMap": true,
-		"uploadWithSourceMap": true,
-		"babelSetting": {
-			"ignore": [],
-			"disablePlugins": [],
-			"outputPath": ""
-		}
+		"es6": true
 	},
 	"compileType": "miniprogram",
 	"libVersion": "2.9.2",
-	"appid": "wxead2ae5bf7837720",
+	"appid": "wxb5cac11990380742",
 	"projectname": "rongchunag",
 	"simulatorType": "wechat",
 	"simulatorPluginLibVersion": {},

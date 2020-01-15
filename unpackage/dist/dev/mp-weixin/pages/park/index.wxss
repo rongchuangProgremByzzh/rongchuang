@@ -24,15 +24,15 @@
 /* 垂直间距 */
 /* 透明度 */
 /* 文章场景相关 */
-.content.data-v-4ed6f047 {
+.content.data-v-ac72c94a {
   height: 100%;
-  background: url(http://www.zangzhihong.com/pic/static/bg@2x.png) no-repeat;
+  background: url(http://rongchuang.sqhd850.cn/pic/static/bg@2x.png) no-repeat;
   background-size: 100% 100%;
 }
-.height1.data-v-4ed6f047 {
+.height1.data-v-ac72c94a {
   height: 756rpx;
 }
-.height2.data-v-4ed6f047 {
+.height2.data-v-ac72c94a {
   height: 250rpx;
   display: -webkit-box;
   display: -webkit-flex;
@@ -43,10 +43,10 @@
   -webkit-box-pack: center;
   -webkit-justify-content: center;
           justify-content: center;
-  background: url("http://www.zangzhihong.com/pic/static/park/3@2x.png") no-repeat;
+  background: url("http://rongchuang.sqhd850.cn/pic/static/park/3@2x.png") no-repeat;
   background-size: 100% 100%;
 }
-.txt.data-v-4ed6f047 {
+.txt.data-v-ac72c94a {
   padding: 0 20rpx;
   font-size: 22rpx;
   line-height: 38rpx;

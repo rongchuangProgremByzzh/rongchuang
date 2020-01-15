@@ -1,5 +1,5 @@
 
-.emotion-box.data-v-29a89c1c {
+.emotion-box.data-v-4638bd06 {
 	margin: 0 auto;
 	width: 95%;
 	box-sizing: border-box;
@@ -8,12 +8,12 @@
 	overflow: hidden;
 	overflow-y: auto;
 }
-.emotion-box-line.data-v-29a89c1c {
+.emotion-box-line.data-v-4638bd06 {
 	display: -webkit-box;
 	display: -webkit-flex;
 	display: flex;
 }
-.emotion-item.data-v-29a89c1c {
+.emotion-item.data-v-4638bd06 {
 	-webkit-box-flex: 1;
 	-webkit-flex: 1;
 	        flex: 1;

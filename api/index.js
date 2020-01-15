@@ -1,6 +1,6 @@
 import ajax from './request.js'
 import $http from './zhouWei-request/requestConfig.js';
-const appid=`wxead2ae5bf7837720`;
+const appid=`wxb5cac11990380742`;
 export default {
 	banner() {
 		return $http.get('/banner')
