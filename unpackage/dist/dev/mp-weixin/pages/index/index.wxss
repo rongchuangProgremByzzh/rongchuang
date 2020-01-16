@@ -139,6 +139,14 @@
   height: 266rpx;
   z-index: 99;
 }
+.box22.data-v-4da49f57 {
+  position: absolute;
+  right: 36rpx;
+  top: 20rpx;
+  width: 330rpx;
+  height: 180rpx;
+  z-index: 99;
+}
 .box1box2.data-v-4da49f57 {
   position: absolute;
   bottom: 0;

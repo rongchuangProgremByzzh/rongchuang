@@ -25,11 +25,11 @@ export default {
 	},
 	onShareAppMessage(res) {
 		return {
-			title: 'ALAPI',
+			title: '融创文旅城',
 			path: '/pages/index/index?id=' + uni.getStorageSync('shareid'),
 			imageUrl: '',
-			desc: 'jjjjjjjjjj',
-			content: 'eeeeeeeeeeeeeee',
+			desc: '融创文旅城',
+			content: '融创文旅城',
 		}
 
 	}

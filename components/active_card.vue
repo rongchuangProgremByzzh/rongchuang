@@ -1,5 +1,5 @@
 <template>
-	<view class="Item" @click="openDeatil(item.id)"  :style="{ 'background': 'url(' +item.icon+ ') no-repeat'}">
+	<view class="Item" @click="openDeatil(item.id)"  :style="{ 'backgroundImage': 'url(' +item.icon+ ')'}">
 		<view class="pic-type"><text></text></view>
 		<view class="tit-mes">
 			<div class="card-tit">{{item.title}}</div>
@@ -33,7 +33,8 @@
 		margin: 30rpx auto;
 		border-radius:14rpx;
 		// background: url('http://img.zangzhihong.com/background1.jpg') no-repeat;
-	    background-size: 100% 100%;
+        background-size: 100% auto;
+		
 		.pic-type{
 			display: flex;
 			justify-content: flex-end;
@@ -68,14 +69,16 @@
 				font-family:PingFangSC;
 				font-weight:300;
 				color:rgba(255,255,255,1);
-				padding-left: 50rpx;
+				padding-left: 40rpx;
+				padding-right: 20rpx;
+
 				overflow: hidden;
 				text-overflow:ellipsis;
 				white-space: nowrap;
 			}
 			.time{
-				width: 200rpx;
-				padding-right: 50rpx;
+				width: 265rpx;
+				padding-right: 40rpx;
 				font-size:30rpx;
 				font-family:PingFangSC;
 				font-weight:300;

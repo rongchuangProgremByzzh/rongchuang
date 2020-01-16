@@ -1,5 +1,5 @@
 {
-  "navigationBarTitleText": "uni-app",
+  "navigationBarTitleText": "聊天",
   "usingComponents": {
     "chat-input": "/components/chat/yszyun-imchat-emoji/components/yszyun-imchat-emoji/chatinput",
     "message-show": "/components/chat/yszyun-imchat-emoji/components/yszyun-imchat-emoji/messageshow"

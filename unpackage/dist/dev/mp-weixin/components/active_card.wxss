@@ -30,7 +30,7 @@
   height: 330rpx;
   margin: 30rpx auto;
   border-radius: 14rpx;
-  background-size: 100% 100%;
+  background-size: 100% auto;
 }
 .Item .pic-type {
     display: -webkit-box;
@@ -79,14 +79,15 @@
       font-family: PingFangSC;
       font-weight: 300;
       color: white;
-      padding-left: 50rpx;
+      padding-left: 40rpx;
+      padding-right: 20rpx;
       overflow: hidden;
       text-overflow: ellipsis;
       white-space: nowrap;
 }
 .Item .tit-mes .time {
-      width: 200rpx;
-      padding-right: 50rpx;
+      width: 265rpx;
+      padding-right: 40rpx;
       font-size: 30rpx;
       font-family: PingFangSC;
       font-weight: 300;

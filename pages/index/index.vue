@@ -8,7 +8,7 @@
 		<div v-else class="phone" @click="gotoChat()"></div>
 		<div class="location" @click="toMap(1000)"></div>
 		<view class="swiper">
-			<swiper class="swiper" @change="changeHandle" :indicator-dots="false" :autoplay="true" :interval="5000" :duration="1000">
+			<swiper class="swiper" @change="changeHandle" :indicator-dots="false" :circular="true" :autoplay="true" :interval="5000" :duration="1000">
 				<swiper-item v-for="(item, index) in bannerList" :key="item.id">
 					<view class="swiper-item">
 					
@@ -30,7 +30,7 @@
 			</swiper>
 		</view>
 		<div class="current-point-wrap">
-			<div class="current-point" v-for="(isactive, index) in swiperList" :key="index" :class="{ active_point: index == current }"></div>
+			<div class="current-point" v-for="(isactive, index) in bannerList" :key="index" :class="{ active_point: index == current }"></div>
 		</div>
 		<whitebox :setheight="10"></whitebox>
 		<navigator url="/pages/project/index">
@@ -41,8 +41,11 @@
 		<whitebox :setheight="60"></whitebox>
 
 		<div class="width100center height2 setposition">
-			<div class="box1" @click="jumpzixun(memorabilia)" ><div class="box1box2">{{memorabilia.title}}</div><image :src="memorabilia.icon" mode=""></image></div>
-			<div class="box2" @click="jumpzixun(actvity)"><div class="box1box2">{{actvity.title}}</div><image :src="actvity.icon" mode=""></image></div>
+			<div class="box1" @click="jumpzixun(memorabilia)" ><div class="box1box2">{{memorabilia.title}}</div><image :src="memorabilia.icon" mode="aspectFit"></image></div>
+			<div class="box2" @click="jumpzixun(actvity)"><div class="box1box2">{{actvity.title}}</div><image :src="actvity.icon" mode="aspectFit"></image></div>
+			<div class="box22" >
+				<image src="../../static/hometxt.png" mode="aspectFit"></image>
+			</div>
 			<div class="more" @click="jumpzixunlist()"></div>
 			<image src="http://rongchuang.sqhd850.cn/pic/static/home/home2@2x.png" mode=""></image>
 		</div>
@@ -427,6 +430,14 @@
 		top: 180rpx;
 		width: 330rpx;
 		height: 266rpx;
+		z-index: 99;
+	}
+	.box22{
+		position: absolute;
+		right: 36rpx;
+		top: 20rpx;
+		width: 330rpx;
+		height: 180rpx;
 		z-index: 99;
 	}
 .box1box2{

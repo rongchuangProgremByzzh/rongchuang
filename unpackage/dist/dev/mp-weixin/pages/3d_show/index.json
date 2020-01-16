@@ -1,4 +1,5 @@
 {
+  "navigationBarTitleText": "融创文旅城",
   "usingComponents": {
     "yn-gallery": "/components/YnComponents/ynGallery/ynGallery"
   }

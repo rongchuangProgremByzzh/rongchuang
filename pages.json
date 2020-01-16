@@ -3,74 +3,74 @@
 	{
 		"path": "pages/auth/auth",
 		"style": {
-		
+		"navigationBarTitleText": "融创文旅城"
 		}
 	},
 	{
 		"path": "pages/index/index",
 		"style": {
-		
+		"navigationBarTitleText": "融创文旅城"
 		}
 	},
 	{
 		"path": "pages/progress/index",
 		"style": {
-		
+		"navigationBarTitleText": "融创文旅城"
 		}
 	},
 	{
 		"path": "pages/map/index",
 		"style": {
-		
+		"navigationBarTitleText": "融创文旅城"
 		}
 	},
 	{
 		"path": "pages/3d_show/index1",
 		"style": {
-		
+		"navigationBarTitleText": "融创文旅城"
 		}
 	},
 	
 	{
 		"path": "pages/long2/index",
 		"style": {
-		
+		"navigationBarTitleText": "融创文旅城"
 		}
 	},
 	{
 		"path": "pages/seven_type/index",
 		"style": {
-		
+		"navigationBarTitleText": "融创文旅城"
 		}
 	},
 	{
 		"path": "pages/longimg/index",
 		"style": {
-		
+		"navigationBarTitleText": "融创文旅城"
 		}
 	},
 	{
 		"path": "pages/shapan/index",
 		"style": {
-		
+		"navigationBarTitleText": "融创文旅城"
 		}
 	},
 	{
 		"path": "pages/housetype/index",
 		"style": {
-		
+		"navigationBarTitleText": "融创文旅城"
 		}
 	},
 	{
 		"path": "pages/xuanchuan/index",
 		"style": {
-		
+		"navigationBarTitleText": "融创文旅城"
 		}
 	},
 	{
 		"path": "pages/zixun/index",
 		"style": {
-		
+		"navigationBarTitleText": "融创文旅城"
 		}
 	},
 	{
@@ -82,13 +82,13 @@
 	{
 		"path": "pages/zixun/news",
 		"style": {
-		
+		"navigationBarTitleText": "融创文旅城"
 		}
 	},
 	{
 		"path": "pages/webview/index",
 		"style": {
-		
+		"navigationBarTitleText": "融创文旅城"
 		}
 	},
 	{
@@ -101,7 +101,7 @@
 	{
 		"path": "pages/3d_show/index",
 		"style": {
-		
+		"navigationBarTitleText": "融创文旅城"
 		}
 	},
 	{
@@ -113,115 +113,115 @@
 	{
 		"path": "pages/rcly/3",
 		"style": {
-			"navigationBarTitleText": "uni-app"
+			"navigationBarTitleText": "融创文旅城"
 		}
 	},
 	{
 		"path": "pages/rcly/1",
 		"style": {
-			"navigationBarTitleText": "uni-app"
+			"navigationBarTitleText": "融创文旅城"
 		}
 	},
 	{
 		"path": "pages/rcly/2",
 		"style": {
-			"navigationBarTitleText": "uni-app"
+			"navigationBarTitleText": "融创文旅城"
 		}
 	},
 	{
 		"path": "pages/park/index",
 		"style": {
-			"navigationBarTitleText": "uni-app"
+			"navigationBarTitleText": "融创文旅城"
 		}
 	},
 	{
 		"path": "pages/houseview/index",
 		"style": {
-			"navigationBarTitleText": "uni-app"
+			"navigationBarTitleText": "融创文旅城"
 		}
 	},
 	{
 		"path": "pages/house_photo_list/index",
 		"style": {
-			"navigationBarTitleText": "uni-app"
+			"navigationBarTitleText": "融创文旅城"
 		}
 	},
 	{
 		"path": "pages/seven_item/1",
 		"style": {
-			"navigationBarTitleText": "uni-app"
+			"navigationBarTitleText": "融创文旅城"
 		}
 	},
 	{
 		"path": "pages/seven_item/2",
 		"style": {
-			"navigationBarTitleText": "uni-app"
+			"navigationBarTitleText": "融创文旅城"
 		}
 	},
 	{
 		"path": "pages/seven_item/3",
 		"style": {
-			"navigationBarTitleText": "uni-app"
+			"navigationBarTitleText": "融创文旅城"
 		}
 	},
 	{
 		"path": "pages/seven_item/4",
 		"style": {
-			"navigationBarTitleText": "uni-app"
+			"navigationBarTitleText": "融创文旅城"
 		}
 	},
 	{
 		"path": "pages/seven_item/5",
 		"style": {
-			"navigationBarTitleText": "uni-app"
+			"navigationBarTitleText": "融创文旅城"
 		}
 	},
 	{
 		"path": "pages/seven_item/6",
 		"style": {
-			"navigationBarTitleText": "uni-app"
+			"navigationBarTitleText": "融创文旅城"
 		}
 	},
 	{
 		"path": "pages/seven_item/7",
 		"style": {
-			"navigationBarTitleText": "uni-app"
+			"navigationBarTitleText": "融创文旅城"
 		}
 	},
 	{
 		"path": "pages/seven_item/8",
 		"style": {
-			"navigationBarTitleText": "uni-app"
+			"navigationBarTitleText": "融创文旅城"
 		}
 	},
 	{
 		"path": "pages/seven_item/9",
 		"style": {
-			"navigationBarTitleText": "uni-app"
+			"navigationBarTitleText": "融创文旅城"
 		}
 	},
 	{
 		"path": "pages/project/index",
 		"style": {
-			"navigationBarTitleText": "uni-app"
+			"navigationBarTitleText": "融创文旅城"
 		}
 	},
 	{
 		"path": "pages/chat/index",
 		"style": {
-			"navigationBarTitleText": "uni-app"
+			"navigationBarTitleText": "聊天"
 		}
 	},
 		{
 			"path": "pages/message/index",
 			"style": {
-				"navigationBarTitleText": "uni-app"
+				"navigationBarTitleText": "消息列表"
 			}
 		},
 		{
 			"path": "components/sea_world",
 			"style": {
-				"navigationBarTitleText": "uni-app"
+				"navigationBarTitleText": "融创文旅城"
 			}
 		}
 		

@@ -1,4 +1,5 @@
 {
+  "navigationBarTitleText": "融创文旅城",
   "usingComponents": {
     "movable-swiper": "/components/3d_swiper/index"
   }
