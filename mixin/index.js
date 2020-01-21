@@ -3,7 +3,7 @@ export default {
 		return {
 			//设置默认的分享参数
 			share: {
-				title: 'ALAPI',
+				title: '融创文旅城',
 				path: '/pages/index/index',
 				imageUrl: '',
 				desc: '',

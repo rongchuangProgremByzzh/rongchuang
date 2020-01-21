@@ -71,13 +71,12 @@
 				color:rgba(255,255,255,1);
 				padding-left: 40rpx;
 				padding-right: 20rpx;
-
 				overflow: hidden;
 				text-overflow:ellipsis;
 				white-space: nowrap;
 			}
 			.time{
-				width: 265rpx;
+				width: 270rpx;
 				padding-right: 40rpx;
 				font-size:30rpx;
 				font-family:PingFangSC;

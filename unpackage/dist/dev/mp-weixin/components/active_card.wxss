@@ -86,7 +86,7 @@
       white-space: nowrap;
 }
 .Item .tit-mes .time {
-      width: 265rpx;
+      width: 270rpx;
       padding-right: 40rpx;
       font-size: 30rpx;
       font-family: PingFangSC;

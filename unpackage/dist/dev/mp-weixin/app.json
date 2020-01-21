@@ -1,7 +1,7 @@
 {
   "pages": [
-    "pages/auth/auth",
     "pages/index/index",
+    "pages/auth/auth",
     "pages/progress/index",
     "pages/map/index",
     "pages/3d_show/index1",
@@ -56,5 +56,5 @@
   "usingComponents": {
     "whitebox": "/components/black_box"
   },
-  "sitemapLocation": "sitemap6.json"
+  "sitemapLocation": "sitemap43.json"
 }

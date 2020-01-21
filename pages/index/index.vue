@@ -122,7 +122,28 @@
 				role: uni.getStorageSync('role') //登录获取,1为普通用户
 			};
 		},
-		onLoad() {},
+		onLoad(option) {
+			if(option.id){
+				let that=this
+				uni.getSetting({
+				   success(res) {
+				      console.log(res.authSetting)
+					  if(!res.authSetting["scope.userInfo"]){
+						  uni.navigateTo({
+						  	url: '/pages/auth/auth'
+						  });
+					  }else{
+						 let token=uni.getStorageSync('token')
+						 this.$http.bind(option.id,token).then(res=>{
+						 	
+						 }) 
+					  }
+				   }
+				})
+				
+			}
+
+		},
 		methods: {
 			jumpzixun(data) {
 				console.log(data);
@@ -209,21 +230,33 @@
 				// });
 			},
 			gotoChat() {
-
-				uni.requestSubscribeMessage({
-					tmplIds: ['yLyxJKwUOVitKFREPciNHvfI4-kPMkQPlr1tGQ1U3D4'],
-					success: (res) => {
-						if (res["yLyxJKwUOVitKFREPciNHvfI4-kPMkQPlr1tGQ1U3D4"] === 'accept') {
-							let token=uni.getStorageSync('token')
-							this.$http.addPush(token).then(res => {
-								console.log(res);
-								uni.navigateTo({
-									url: '/pages/message/index'
-								});
-							})
-						}
-					}
-				})
+                let that=this
+                uni.getSetting({
+                   success(res) {
+					   console.log(res);
+                	  if(!res.authSetting["scope.userInfo"]){
+                		uni.navigateTo({
+                			url: '/pages/auth/auth'
+                		});
+                	  }else{
+                	uni.requestSubscribeMessage({
+                		tmplIds: ['yLyxJKwUOVitKFREPciNHvfI4-kPMkQPlr1tGQ1U3D4'],
+                		success: (res) => {
+                			if (res["yLyxJKwUOVitKFREPciNHvfI4-kPMkQPlr1tGQ1U3D4"] === 'accept') {
+                				let token=uni.getStorageSync('token')
+                				this.$http.addPush(token).then(res => {
+                					console.log(res);
+                					uni.navigateTo({
+                						url: '/pages/message/index'
+                					});
+                				})
+                			}
+                		}
+                	})
+                	  }
+                   }
+                })
+			
 			},
 			gotoOtherSmProgram() { //打开其他小程序
 				uni.navigateToMiniProgram({
@@ -293,7 +326,7 @@
 			this.$http.getMostNews().then(res=>{
 								
 								 	 this.memorabilia=res.data.memorabilia;
-								 	 console.log(res.data);
+								 	 
 								    this.actvity=res.data.actvity;
 								 
 			})
